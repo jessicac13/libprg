@@ -68,14 +68,12 @@ int busca_bin_r(int lista[], int inicio, int fim, int alvo)
     }
     return false;
 }
+void inserir_desodernado(int lista[] , int tamanho_lista, int valor)
+ {
+    tamanho_lista++;
 
-// int * inserir_desodernado(int lista[] , int tamanho_lista, int valor)
-// {
-//    tamanho_lista++;
-//
-//    lista = realloc(lista, tamanho_lista * sizeof (int));
-//
-//    lista[tamanho_lista-1]= valor;
-//    return lista;
-//
-// }
+    lista = realloc(lista, tamanho_lista * sizeof (int));
+
+    lista[tamanho_lista-1]= valor;
+
+ }
