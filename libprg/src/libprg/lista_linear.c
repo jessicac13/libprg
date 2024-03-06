@@ -24,8 +24,10 @@ int busca_lista_odernada(int lista[], int tamanho_lista, int alvo)
     }
     if(i == tamanho_lista || lista[i] != alvo)
     {
+        printf("Encontrado");
         return 0;
     }
+    printf("Não encontrado");
     return 1;
 }
 
