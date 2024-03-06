@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "libprg/libprg.h"
+#include <libprg/libprg.h>
 
 
 int busca_lista_desodernada(int lista[], int tamanho_lista, int alvo)
