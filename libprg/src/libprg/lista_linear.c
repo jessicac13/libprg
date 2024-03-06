@@ -12,10 +12,10 @@ int busca_lista_desodernada(int lista[], int tamanho_lista, int alvo)
     {
         if(alvo == lista[i])
         {
-            return 1;
+            return true;
         }
     }
-    return 0;
+    return false;
 }
 
 int busca_lista_odernada(int lista[], int tamanho_lista, int alvo)
@@ -27,11 +27,8 @@ int busca_lista_odernada(int lista[], int tamanho_lista, int alvo)
     }
     if(i == tamanho_lista || lista[i] != alvo)
     {
-
-
         return false;
     }
-
     return true;
 }
 
@@ -45,7 +42,7 @@ int busca_bin_i(int lista[], int tamanho_lista, int alvo)
         meio = inicio + ((fim - inicio)/2);
         if(lista[meio] == alvo)
         {
-            return 1;
+            return true;
         }
         else if(lista[meio] < alvo)
         {
@@ -53,7 +50,7 @@ int busca_bin_i(int lista[], int tamanho_lista, int alvo)
         }
         else   fim = meio -1;
     }
-    return 0;
+    return false;
 }
 
 int busca_bin_r(int lista[], int inicio, int fim, int alvo)
@@ -64,7 +61,7 @@ int busca_bin_r(int lista[], int inicio, int fim, int alvo)
         meio = inicio + ((fim - inicio) / 2);
         if (lista[meio] == alvo)
         {
-            return 1;
+            return true;
         }
         if (lista[meio] > alvo)
         {
@@ -72,7 +69,7 @@ int busca_bin_r(int lista[], int inicio, int fim, int alvo)
         }
         return busca_bin_r(lista, meio + 1, fim, alvo);
     }
-    return 0;
+    return false;
 }
 
 //int *inserir_ordenada(int lista[], int x)
