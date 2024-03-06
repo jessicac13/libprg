@@ -69,14 +69,9 @@ int busca_bin_r(int lista[], int inicio, int fim, int alvo)
     return false;
 }
 
-void inserir_desodernado(int **vetor, int *tamanho, int valor)
+void inserir_desodernado(int **vetor, int tamanho, int valor)
 {
-    (*tamanho)++;
-    *vetor = (int *)realloc(*vetor, (*tamanho) * sizeof(int));
-    if (*vetor == NULL) {
-        printf("Erro ao realocar memória.\n");
-        exit(1);
-    }
-
-    (*vetor)[(*tamanho) - 1] = valor;
+    tamanho++;
+    *vetor = (int *)realloc(*vetor, (tamanho) * sizeof(int));
+    (*vetor)[tamanho - 1] = valor;
 }
