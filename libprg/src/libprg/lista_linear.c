@@ -3,9 +3,6 @@
 #include<stdbool.h>
 #include <libprg/libprg.h>
 
-
-
-
 int busca_lista_desodernada(int lista[], int tamanho_lista, int alvo)
 {
     for(int i=1; i<tamanho_lista; i++)
@@ -72,7 +69,17 @@ int busca_bin_r(int lista[], int inicio, int fim, int alvo)
     return false;
 }
 
-//int *inserir_ordenada(int lista[], int x)
-//{
-//    int *lista = (int*) calloc( sizeof (int));
-//}
+int * inserir_desodernado(int **vetor, int *tamanho, int valor)
+{
+    (*tamanho)++;
+    *vetor = (int *)realloc(*vetor, (*tamanho) * sizeof(int));
+    if (*vetor == NULL) {
+        printf("Erro ao realocar memória.\n");
+        exit(1);
+    }
+
+    (*vetor)[(*tamanho) - 1] = valor;
+    return *vetor;
+
+
+}
