@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include<stdbool.h>
 #include <libprg/libprg.h>
+
+
 
 
 int busca_lista_desodernada(int lista[], int tamanho_lista, int alvo)
@@ -24,11 +27,12 @@ int busca_lista_odernada(int lista[], int tamanho_lista, int alvo)
     }
     if(i == tamanho_lista || lista[i] != alvo)
     {
-        printf("Encontrado");
-        return 0;
+
+
+        return false;
     }
-    printf("Não encontrado");
-    return 1;
+
+    return true;
 }
 
 int busca_bin_i(int lista[], int tamanho_lista, int alvo)
