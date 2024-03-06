@@ -68,14 +68,18 @@ int busca_bin_r(int lista[], int inicio, int fim, int alvo)
     }
     return false;
 }
-int *inserir_desodernado(int *lista , int tamanho_lista, int valor)
- {
-    tamanho_lista++;
 
-    lista = realloc(lista, tamanho_lista * sizeof (int));
+void inserir_desordenado(int **lista, int *tamanho_lista, int valor) {
+    // Incrementa o tamanho da lista
+    (*tamanho_lista)++;
 
-    lista[tamanho_lista-1]= valor;
+    // Realoca memória para a lista
+    *lista = (int *)realloc(*lista, (*tamanho_lista) * sizeof(int));
+    if (*lista == NULL) {
+        printf("Erro ao realocar memória.\n");
+        exit(1);
+    }
 
-     return lista;
-
- }
+    // Adiciona o novo valor ao final da lista
+    (*lista)[(*tamanho_lista) - 1] = valor;
+}
