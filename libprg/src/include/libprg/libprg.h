@@ -16,5 +16,5 @@ int busca_lista_desodernada(int lista[], int tamanho_lista, int alvo);
 int busca_lista_odernada(int lista[], int tamanho_lista, int alvo);
 int busca_bin_i(int lista[], int tamanho_lista, int alvo);
 int busca_bin_r(int lista[], int inicio, int fim, int alvo);
-int * inserir_desodernado(int lista[] , int tamanho_lista, int valor);
+//int * inserir_desodernado(int lista[] , int tamanho_lista, int valor);
 #endif
