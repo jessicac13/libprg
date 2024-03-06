@@ -69,7 +69,7 @@ int busca_bin_r(int lista[], int inicio, int fim, int alvo)
     return false;
 }
 
- int inserir_desodernado(int lista[] , int tamanho_lista, int valor)
+ void inserir_desodernado(int lista[] , int tamanho_lista, int valor)
  {
     tamanho_lista++;
     lista = realloc(lista, tamanho_lista * sizeof (int));
