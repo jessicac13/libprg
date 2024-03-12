@@ -22,7 +22,7 @@ void criarlista(lista_t *lista, int capacidade, bool ordenada)
     lista->ordenada = ordenada;
 }
 
-void inserirlistaDesodernada(lista_t *lista, int elemento)
+void inserirlista(lista_t *lista, int elemento)
 {
     if (lista->ordenada == false)
     {
@@ -38,10 +38,8 @@ void inserirlistaDesodernada(lista_t *lista, int elemento)
         }
         lista->elemento[lista->tamanho] = elemento;
         lista->tamanho++;
-        lista->ordenada = false;
     }
-    else inserirlistaOdernada(&lista, elemento);
-    lista->ordenada = true;
+    else inserirlistaOdernada(lista, elemento);
 
 }
 
