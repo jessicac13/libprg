@@ -68,12 +68,12 @@ void inserirlistaOdernada(lista_t *lista, int elemento)
     lista->ordenada = true;
 }
 
-void imprimirlista(lista_t lista)
+void imprimirlista(lista_t *lista)
 {
-    printf("Lista de tamanho %d: ", lista.tamanho);
-    for (int i = 0; i < lista.tamanho; i++)
+    printf("Lista de tamanho %d: ", lista->tamanho);
+    for (int i = 0; i < lista->tamanho; i++)
     {
-        printf("%d ", lista.elemento[i]);
+        printf("%d ", lista->elemento[i]);
     }
     printf("\n");
 }
