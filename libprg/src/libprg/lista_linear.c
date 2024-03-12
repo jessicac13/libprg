@@ -92,7 +92,7 @@ void imprimirlista(lista_t *lista)
     printf("\n");
 }
 
-int busca_lista_desodernada(lista_t *lista, int alvo)
+int busca_lista_desordenada(lista_t *lista, int alvo)
 {
     for(int i=1; i<lista->tamanho; i++)
     {
@@ -105,7 +105,7 @@ int busca_lista_desodernada(lista_t *lista, int alvo)
 
 }
 
-int busca_lista_odernada(lista_t *lista, int alvo)
+int busca_lista_ordenada(lista_t *lista, int alvo)
 {
     int i = 1;
     while (lista->elemento[i]< alvo)
@@ -160,5 +160,24 @@ int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo)
     return -1;
 }
 
+void imprimir_indice_busca_linear(lista_t *lista, int n)
+{
 
+    int teste1;
+    if (lista->ordenada == true)
+    {
+        teste1 = busca_lista_ordenada(&lista, n);
+    }
+
+    teste1 = busca_lista_desordenada(&lista, n);
+
+    if (teste1 > -1)
+    {
+        printf("\nIndice do elemento de busca: %d\n", teste1);
+    }
+    else
+    {
+        printf("\nElemento não se encontra na lista\n");
+    }
+}
 
