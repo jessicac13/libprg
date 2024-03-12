@@ -92,91 +92,72 @@ void imprimirlista(lista_t *lista)
     printf("\n");
 }
 
-//int busca_lista_desodernada(struct lista_t lista, int alvo)
-//{
-//    for(int i=1; i<lista.tamanho; i++)
-//    {
-//        if(alvo == lista.elemento[i])
-//        {
-//            lista.ordenada = true;
-//            return lista.ordenada;
-//        }
-//    }
-//    lista.ordenada = true;
-//    return lista.ordenada;
-//}
-//
-//int busca_lista_odernada(struct lista_t lista, int alvo)
-//{
-//    int i = 1;
-//    while (lista.elemento[i]< alvo)
-//    {
-//        i = i+1;
-//    }
-//    if(i == lista.tamanho || lista.elemento[i] != alvo)
-//    {
-//        lista.ordenada = true;
-//        return lista.ordenada;
-//    }
-//    lista.ordenada = false;
-//    return lista.ordenada;;
-//}
-//
-//int busca_bin_i(struct lista_t lista, int alvo)
-//{
-//    int meio;
-//    int inicio = 1;
-//    int fim = lista.tamanho;
-//    while (inicio <= fim)
-//    {
-//        meio = inicio + ((fim - inicio)/2);
-//        if(lista.elemento[meio] == alvo)
-//        {
-//            lista.ordenada = true;
-//            return lista.ordenada;
-//        }
-//        else if(lista.elemento[meio] < alvo)
-//        {
-//            inicio = meio + 1;
-//        }
-//        else   fim = meio -1;
-//    }
-//    lista.ordenada = false;
-//    return lista.ordenada;
-//}
-//
-//int busca_bin_r(struct lista_t lista, int inicio, int fim, int alvo)
-//{
-//    int meio;
-//    if (inicio <= fim)
-//    {
-//        meio = inicio + ((fim - inicio) / 2);
-//        if (lista.elemento[meio] == alvo)
-//        {
-//            lista.ordenada = true;
-//            return lista.ordenada;
-//        }
-//        if (lista.elemento[meio] > alvo)
-//        {
-//            busca_bin_r(lista, inicio, meio - 1, alvo);
-//        }
-//        return busca_bin_r(lista, meio + 1, fim, alvo);
-//    }
-//    lista.ordenada = false;
-//    return lista.ordenada;
-//}
-//
-////void inserir_desordenado(int **lista, int *tamanho_lista, int valor) {
-////
-////    (*tamanho_lista)++;
-////
-////    *lista = (int *)realloc(*lista, (*tamanho_lista) * sizeof(int));
-////    if (*lista == NULL) {
-////        printf("Erro ao realocar memória.\n");
-////        exit(1);
-////    }
-////
-////    // Adiciona o novo valor ao final da lista
-////    (*lista)[(*tamanho_lista) - 1] = valor;
-////}
-//
+int busca_lista_desodernada(lista_t *lista, int alvo)
+{
+    for(int i=1; i<lista->tamanho; i++)
+    {
+        if(alvo == lista->elemento[i])
+        {
+            return 1;
+        }
+    }
+    return -1;
+}
+
+int busca_lista_odernada(lista_t *lista, int alvo)
+{
+    int i = 1;
+    while (lista->elemento[i]< alvo)
+    {
+        i = i+1;
+    }
+    if(i == lista->tamanho || lista->elemento[i] != alvo)
+    {
+        return -1;
+    }
+    return 1;
+}
+
+int busca_bin_i(lista_t *lista, int alvo)
+{
+    int meio;
+    int inicio = 1;
+    int fim = lista->tamanho;
+    while (inicio <= fim)
+    {
+        meio = inicio + ((fim - inicio)/2);
+        if(lista->elemento[meio] == alvo)
+        {
+            return 1;
+        }
+        else if(lista->elemento[meio] < alvo)
+        {
+            inicio = meio + 1;
+        }
+        else   fim = meio -1;
+    }
+    return -1;
+}
+
+int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo)
+{
+    int meio;
+    if (inicio <= fim)
+    {
+        meio = inicio + ((fim - inicio) / 2);
+        if (lista->elemento[meio] == alvo)
+        {
+
+            return 1;
+        }
+        if (lista->elemento[meio] > alvo)
+        {
+            busca_bin_r(lista, inicio, meio - 1, alvo);
+        }
+        return busca_bin_r(lista, meio + 1, fim, alvo);
+    }
+    return -1;
+}
+
+
+
