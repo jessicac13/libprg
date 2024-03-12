@@ -9,7 +9,7 @@
 //    int capacidade;
 //    bool ordenada;
 //};
-void criarlista(lista_t *lista, int capacidade)
+void criarlista(lista_t *lista, int capacidade, bool ordenacao)
 {
     lista->elemento = (int*)malloc(capacidade * sizeof(int));
     if (lista->elemento == NULL)
@@ -19,10 +19,10 @@ void criarlista(lista_t *lista, int capacidade)
     }
     lista->tamanho = 0;
     lista->capacidade = capacidade;
-    lista->ordenada = false;
+    lista->ordenada = ordenacao;
 }
 
-void inserirlistaDesodernada(lista_t *lista, int elemento)
+void inserirlista(lista_t *lista, int elemento)
 {
     if (lista->tamanho >= lista->capacidade)
     {
@@ -34,40 +34,28 @@ void inserirlistaDesodernada(lista_t *lista, int elemento)
             exit(1);
         }
     }
-    lista->elemento[lista->tamanho] = elemento;
-    lista->tamanho++;
-    lista->ordenada = false;
-}
-
-void inserirlistaOdernada(lista_t *lista, int elemento)
-{
-    if (lista->tamanho >= lista->capacidade)
+    if (lista->ordenada == false)
     {
-        // Realocar o tamanho para o dobro
-        lista->capacidade *= 2;
-        lista->elemento = (int*)realloc(lista->elemento, lista->capacidade * sizeof(int));
-        if (lista->elemento == NULL) {
-            printf("Erro de realocação de memória\n");
-            exit(1);
+        lista->elemento[lista->tamanho] = elemento;
+        lista->tamanho++;
+    }
+    else
+    {
+        int posicao = 0;
+        while (posicao < lista->tamanho && lista->elemento[posicao] < elemento)
+        {
+            posicao++;
         }
-    }
 
-    int posicao = 0;
-    while (posicao < lista->tamanho && lista->elemento[posicao] < elemento)
-    {
-        posicao++;
-    }
+        for (int i = lista->tamanho; i > posicao; i--)
+        {
+            lista->elemento[i] = lista->elemento[i - 1];
+        }
 
-    for (int i = lista->tamanho; i > posicao; i--)
-    {
-        lista->elemento[i] = lista->elemento[i - 1];
+        lista->elemento[posicao] = elemento;
+        lista->tamanho++;
     }
-
-    lista->elemento[posicao] = elemento;
-    lista->tamanho++;
-    lista->ordenada = true;
 }
-
 void imprimirlista(lista_t *lista)
 {
     printf("Lista de tamanho %d: ", lista->tamanho);
