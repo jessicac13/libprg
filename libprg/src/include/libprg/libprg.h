@@ -1,10 +1,7 @@
 #ifndef LIBPRG_LIBPRG_H
 #define LIBPRG_LIBPRG_H
 
-//#include <stdio.h>
-//#include <stdlib.h>
-#include<stdbool.h>
-//#include <libprg/libprg.h>
+#include <stdbool.h>
 
 typedef struct {
     double value;
@@ -17,14 +14,12 @@ result_t sub(double a, double b);
 result_t sum(double a, double b);
 result_t compute(double a, double b, operation_t op);
 
-// Definição da estrutura lista_t
 typedef struct {
     int *elemento;
     int tamanho;
     int capacidade;
     bool ordenada;
 } lista_t;
-
 
 void criarlista(lista_t *lista, int capacidade, bool ordenacao);
 void inserirlista(lista_t *lista, int elemento);
