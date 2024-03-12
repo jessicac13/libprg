@@ -59,6 +59,35 @@ void inserirlista(lista_t *lista, int elemento)
 
 }
 
+void remover_elemento_ordenado(lista_t *lista, int indice)
+{
+    if(lista->ordenada == true)
+    {
+        if (indice < 0 || indice >= lista->tamanho)
+        {
+            printf("Índice fora dos limites da lista\n");
+            return;
+        }
+
+        for (int i = indice; i < lista->tamanho - 1; i++)
+        {
+            lista->elemento[i] = lista->elemento[i + 1];
+        }
+        lista->tamanho--;
+    }
+    else
+    {
+        if (indice < 0 || indice >= lista->tamanho)
+        {
+            printf("Índice fora dos limites da lista\n");
+            return;
+        }
+
+        lista->elemento[indice] = lista->elemento[lista->tamanho - 1];
+        lista->tamanho--;
+    }
+}
+
 void imprimirlista(lista_t *lista)
 {
     printf("Lista de tamanho %d: ", lista->tamanho);
