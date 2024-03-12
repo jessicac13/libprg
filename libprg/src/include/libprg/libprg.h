@@ -25,9 +25,8 @@ typedef struct {
     bool ordenada;
 } lista_t;
 
-void criarlista(lista_t *lista, int capacidade);
-void inserirlistaDesodernada(lista_t *lista, int elemento);
-void inserirlistaOdernada(lista_t *lista, int elemento);
+void criarlista(lista_t *lista, int capacidade, bool ordenada);
+void inserirlista(lista_t *lista, int elemento);
 void imprimirlista(lista_t *lista);
 
 #endif /* LIBPRG_H */
