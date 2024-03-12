@@ -98,10 +98,11 @@ int busca_lista_desodernada(lista_t *lista, int alvo)
     {
         if(alvo == lista->elemento[i])
         {
-            return 1;
+            return i;
         }
     }
     return -1;
+
 }
 
 int busca_lista_odernada(lista_t *lista, int alvo)
@@ -115,7 +116,7 @@ int busca_lista_odernada(lista_t *lista, int alvo)
     {
         return -1;
     }
-    return 1;
+    return i;
 }
 
 int busca_bin_i(lista_t *lista, int alvo)
@@ -128,7 +129,7 @@ int busca_bin_i(lista_t *lista, int alvo)
         meio = inicio + ((fim - inicio)/2);
         if(lista->elemento[meio] == alvo)
         {
-            return 1;
+            return meio;
         }
         else if(lista->elemento[meio] < alvo)
         {
@@ -148,7 +149,7 @@ int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo)
         if (lista->elemento[meio] == alvo)
         {
 
-            return 1;
+            return meio;
         }
         if (lista->elemento[meio] > alvo)
         {
