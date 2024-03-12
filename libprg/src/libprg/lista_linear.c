@@ -9,7 +9,7 @@
 //    int capacidade;
 //    bool ordenada;
 //};
-void criarlista(lista_t *lista, int capacidade)
+void criarlista(lista_t *lista, int capacidade, bool ordenada)
 {
     lista->elemento = (int*)malloc(capacidade * sizeof(int));
     if (lista->elemento == NULL)
@@ -19,24 +19,30 @@ void criarlista(lista_t *lista, int capacidade)
     }
     lista->tamanho = 0;
     lista->capacidade = capacidade;
-    lista->ordenada = false;
+    lista->ordenada = ordenada;
 }
 
 void inserirlistaDesodernada(lista_t *lista, int elemento)
 {
-    if (lista->tamanho >= lista->capacidade)
+    if (lista->ordenada == false)
     {
-        lista->capacidade *= 2;
-        lista->elemento = (int*)realloc(lista->elemento, lista->capacidade * sizeof(int));
-        if (lista->elemento == NULL)
+        if (lista->tamanho >= lista->capacidade)
         {
-            printf("Erro de realocação de memória\n");
-            exit(1);
+            lista->capacidade *= 2;
+            lista->elemento = (int*)realloc(lista->elemento, lista->capacidade * sizeof(int));
+            if (lista->elemento == NULL)
+            {
+                printf("Erro de realocação de memória\n");
+                exit(1);
+            }
         }
+        lista->elemento[lista->tamanho] = elemento;
+        lista->tamanho++;
+        lista->ordenada = false;
     }
-    lista->elemento[lista->tamanho] = elemento;
-    lista->tamanho++;
-    lista->ordenada = false;
+    else inserirlistaOdernada(&lista, elemento);
+    lista->ordenada = true;
+
 }
 
 void inserirlistaOdernada(lista_t *lista, int elemento)
