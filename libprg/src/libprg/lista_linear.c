@@ -61,14 +61,14 @@ void inserirlista(lista_t *lista, int elemento)
 
 void remover(lista_t *lista, int indice)
 {
+    if (indice < 0 || indice >= lista->tamanho)
+    {
+        printf("Índice fora dos limites da lista\n");
+        return;
+    }
+
     if(lista->ordenada == true)
     {
-        if (indice < 0 || indice >= lista->tamanho)
-        {
-            printf("Índice fora dos limites da lista\n");
-            return;
-        }
-
         for (int i = indice; i < lista->tamanho - 1; i++)
         {
             lista->elemento[i] = lista->elemento[i + 1];
@@ -77,12 +77,6 @@ void remover(lista_t *lista, int indice)
     }
     else
     {
-        if (indice < 0 || indice >= lista->tamanho)
-        {
-            printf("Índice fora dos limites da lista\n");
-            return;
-        }
-
         lista->elemento[indice] = lista->elemento[lista->tamanho - 1];
         lista->tamanho--;
     }
