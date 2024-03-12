@@ -35,7 +35,7 @@ int busca_lista_ordenada(lista_t *lista, int alvo);
 int busca_bin_i(lista_t *lista, int alvo);
 int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo);
 
-void imprimir_indice_busca_linear(lista_t *lista, int n);
+void imprimir_indice_busca_linear(int teste);
 
 #endif /* LIBPRG_H */
 

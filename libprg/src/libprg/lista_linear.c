@@ -160,24 +160,14 @@ int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo)
     return -1;
 }
 
-void imprimir_indice_busca_linear(lista_t *lista, int n)
+void imprimir_indice_busca_linear(int teste)
 {
-
-    int teste1;
-    if (lista->ordenada == true)
+    if (teste > -1)
     {
-        teste1 = busca_lista_ordenada(&lista, n);
-    }
-
-    teste1 = busca_lista_desordenada(&lista, n);
-
-    if (teste1 > -1)
-    {
-        printf("\nIndice do elemento de busca: %d\n", teste1);
+        printf("\nIndice do elemento de busca: %d\n", teste);
     }
     else
     {
         printf("\nElemento não se encontra na lista\n");
     }
 }
-
