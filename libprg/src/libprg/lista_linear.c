@@ -59,7 +59,7 @@ void inserirlista(lista_t *lista, int elemento)
 
 }
 
-void remover_elemento_ordenado(lista_t *lista, int indice)
+void remover(lista_t *lista, int indice)
 {
     if(lista->ordenada == true)
     {
