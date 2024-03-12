@@ -9,7 +9,7 @@ struct lista_t {
     int capacidade;
     bool ordenada;
 };
-void criar_lista(struct lista_t *lista, int capacidade)
+void criarlista(lista_t *lista, int capacidade)
 {
     lista->elemento = (int*)malloc(capacidade * sizeof(int));
     if (lista->elemento == NULL)
@@ -22,7 +22,7 @@ void criar_lista(struct lista_t *lista, int capacidade)
     lista->ordenada = false;
 }
 
-void inserir_lista_desodernada(struct lista_t *lista, int elemento)
+void inserirlistaDesodernada(lista_t *lista, int elemento)
 {
     if (lista->tamanho >= lista->capacidade)
     {
@@ -39,7 +39,7 @@ void inserir_lista_desodernada(struct lista_t *lista, int elemento)
     lista->ordenada = false;
 }
 
-void inserir_lista_odernada(struct lista_t *lista, int elemento)
+void inserirlistaOdernada(lista_t *lista, int elemento)
 {
     if (lista->tamanho >= lista->capacidade)
     {
