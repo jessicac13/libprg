@@ -27,6 +27,7 @@ result_t compute(double a, double b, operation_t op);
 void criarlista(lista_t *lista, int capacidade);
 void inserirlistaDdesodernada(lista_t *lista, int elemento);
 void inserirlistaOdernada(lista_t *lista, int elemento);
+void imprimirLista(lista_t lista);
 
 //int busca_lista_desodernada(struct lista_t lista, int alvo);
 //int busca_lista_odernada(struct lista_t lista, int alvo);
