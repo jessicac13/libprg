@@ -1,8 +1,8 @@
 #ifndef LIBPRG_LIBPRG_H
 #define LIBPRG_LIBPRG_H
 
-//#include <stdio.h>
-//#include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include<stdbool.h>
 //#include <libprg/libprg.h>
 
@@ -26,8 +26,8 @@ typedef struct {
 } lista_t;
 
 // Protótipos das funções relacionadas à lista
-void criarlista(lista_t *lista, int capacidade, bool ordenada);
-void inserirlista(lista_t *lista, int elemento);
+void criarlista(lista_t *lista, int capacidade);
+void inserirlistaDesodernada(lista_t *lista, int elemento);
 void inserirlistaOdernada(lista_t *lista, int elemento);
 void imprimirlista(lista_t *lista);
 
