@@ -1,11 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<stdbool.h>
 #include <libprg/libprg.h>
 
-//struct lista_t {
-//    int *elemento;
-//    int tamanho;
-//    int capacidade;
-//    bool ordenada;
-//};
+struct lista_t {
+    int *elemento;
+    int tamanho;
+    int capacidade;
+    bool ordenada;
+};
 void criarlista(lista_t *lista, int capacidade)
 {
     lista->elemento = (int*)malloc(capacidade * sizeof(int));
