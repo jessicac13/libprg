@@ -25,8 +25,6 @@ typedef struct {
     bool ordenada;
 } lista_t;
 
-typedef struct lista_t lista;
-
 // Protótipos das funções relacionadas à lista
 void criarlista(lista_t *lista, int capacidade);
 void inserirlistaDesodernada(lista_t *lista, int elemento);
