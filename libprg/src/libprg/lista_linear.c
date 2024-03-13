@@ -153,9 +153,13 @@ int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo)
         }
         if (lista->elemento[meio] > alvo)
         {
-            busca_bin_r(lista, inicio, meio - 1, alvo);
+            return busca_bin_r(lista, inicio, meio - 1, alvo);
         }
-        return busca_bin_r(lista, meio + 1, fim, alvo);
+        else
+        {
+            return busca_bin_r(lista, meio + 1, fim, alvo);
+        }
+
     }
     return -1;
 }
