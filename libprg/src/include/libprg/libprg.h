@@ -28,10 +28,18 @@ typedef struct {
 void criarlista(lista_t *lista, int capacidade, bool ordenada);
 void inserirlista(lista_t *lista, int elemento);
 void imprimirlista(lista_t *lista);
+void remover(lista_t *lista, int indice);
+
+int busca_lista_desordenada(lista_t *lista, int alvo);
+int busca_lista_ordenada(lista_t *lista, int alvo);
+int busca_bin_i(lista_t *lista, int alvo);
+int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo);
+
+void imprimir_indice_busca(int teste);
 
 #endif /* LIBPRG_H */
 
-//int busca_lista_desodernada(struct lista_t lista, int alvo);
-//int busca_lista_odernada(struct lista_t lista, int alvo);
-//int busca_bin_i(struct lista_t lista, int alvo);
-//int busca_bin_r(struct lista_t lista, int inicio, int fim, int alvo);
+
+
+
+
