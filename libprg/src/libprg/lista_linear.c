@@ -122,7 +122,7 @@ int busca_lista_ordenada(lista_t *lista, int alvo)
 int busca_bin_i(lista_t *lista, int alvo)
 {
     int meio;
-    int inicio = 1;
+    int inicio = 0;
     int fim = lista->tamanho;
     while (inicio <= fim)
     {
