@@ -160,7 +160,7 @@ int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo)
     return -1;
 }
 
-void imprimir_indice_busca_linear(int teste)
+void imprimir_indice_busca(int teste)
 {
     if (teste > -1)
     {
