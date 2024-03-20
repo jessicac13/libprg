@@ -11,8 +11,9 @@ struct lista_t {
     int capacidade;
     bool ordenada;
 };
-void criarLista(lista_t *lista, bool ordenada)
+lista_t* criarLista(bool ordenada)
 {
+    lista_t *lista;
     lista->tamanho = 0;
     lista->capacidade = 10;
     lista->ordenada = ordenada;
@@ -23,6 +24,7 @@ void criarLista(lista_t *lista, bool ordenada)
         printf("Erro de alocação de memória\n");
         exit(1);
     }
+    return lista;
 }
 
 void inserirLista(lista_t *lista, int elemento)
