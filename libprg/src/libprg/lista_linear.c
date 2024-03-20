@@ -11,9 +11,8 @@ struct lista_t {
     int capacidade;
     bool ordenada;
 };
-void criarLista(bool ordenada)
+void criarLista(lista_t lista, bool ordenada)
 {
-    lista_t lista;
     lista.tamanho = 0;
     lista.capacidade = 10;
     lista.ordenada = ordenada;
