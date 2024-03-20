@@ -23,8 +23,9 @@ lista_t* criarLista(bool ordenada)
     lista->capacidade = 10;
     lista->ordenada = ordenada;
 
-    lista->elemento = (int*)malloc(lista->capacidade * sizeof(int)); // Alocar memória para o array de elementos
-    if (lista->elemento == NULL) {
+    lista->elemento = (int*)malloc(lista->capacidade * sizeof(int));
+    if (lista->elemento == NULL)
+    {
         printf("Erro de alocação de memória\n");
         exit(1);
     }
