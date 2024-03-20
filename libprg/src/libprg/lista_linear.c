@@ -3,24 +3,28 @@
 #include<stdbool.h>
 #include <libprg/libprg.h>
 
-
-
 struct lista_t {
     int *elemento;
     int tamanho;
     int capacidade;
     bool ordenada;
 };
+
 lista_t* criarLista(bool ordenada)
 {
-    lista_t *lista;
+    lista_t *lista = (lista_t*)malloc(sizeof(lista_t));
+    if (lista == NULL)
+    {
+        printf("Erro de alocação de memória\n");
+        exit(1);
+    }
+
     lista->tamanho = 0;
     lista->capacidade = 10;
     lista->ordenada = ordenada;
 
-    lista->elemento = (int*)malloc(lista->capacidade * sizeof(int));
-    if (lista->elemento == NULL)
-    {
+    lista->elemento = (int*)malloc(lista->capacidade * sizeof(int)); // Alocar memória para o array de elementos
+    if (lista->elemento == NULL) {
         printf("Erro de alocação de memória\n");
         exit(1);
     }
