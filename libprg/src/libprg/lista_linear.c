@@ -3,13 +3,13 @@
 #include<stdbool.h>
 #include <libprg/libprg.h>
 
-//struct lista_t {
-//    int *elemento;
-//    int tamanho;
-//    int capacidade;
-//    bool ordenada;
-//};
-void criarlista(lista_t *lista, int capacidade, bool ordenada)
+struct lista_t {
+    int *elemento;
+    int tamanho;
+    int capacidade;
+    bool ordenada;
+};
+void criarLista(lista_t *lista, int capacidade, bool ordenada)
 {
     lista->elemento = (int*)malloc(capacidade * sizeof(int));
     if (lista->elemento == NULL)
@@ -22,7 +22,7 @@ void criarlista(lista_t *lista, int capacidade, bool ordenada)
     lista->ordenada = ordenada;
 }
 
-void inserirlista(lista_t *lista, int elemento)
+void inserirLista(lista_t *lista, int elemento)
 {
     if (lista->tamanho >= lista->capacidade)
     {
@@ -59,8 +59,9 @@ void inserirlista(lista_t *lista, int elemento)
 
 }
 
-void remover(lista_t *lista, int indice)
+void removerLista(lista_t *lista, int alvo)
 {
+    int indice = buscaLista(lista, alvo);
     if (indice < 0 || indice >= lista->tamanho)
     {
         printf("Índice fora dos limites da lista\n");
@@ -82,7 +83,7 @@ void remover(lista_t *lista, int indice)
     }
 }
 
-void imprimirlista(lista_t *lista)
+void imprimirLista(lista_t *lista)
 {
     printf("Lista de tamanho %d: ", lista->tamanho);
     for (int i = 0; i < lista->tamanho; i++)
@@ -92,7 +93,7 @@ void imprimirlista(lista_t *lista)
     printf("\n");
 }
 
-int busca(lista_t *lista, int alvo)
+int buscaLista(lista_t *lista, int alvo)
 {
     if (lista->ordenada == false)
     {

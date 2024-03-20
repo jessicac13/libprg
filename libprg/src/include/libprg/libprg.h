@@ -18,20 +18,16 @@ result_t sum(double a, double b);
 result_t compute(double a, double b, operation_t op);
 
 // Definição da estrutura lista_t
-typedef struct {
-    int *elemento;
-    int tamanho;
-    int capacidade;
-    bool ordenada;
-} lista_t;
+typedef struct lista_t lista_t;
 
-void criarlista(lista_t *lista, int capacidade, bool ordenada);
-void inserirlista(lista_t *lista, int elemento);
-void imprimirlista(lista_t *lista);
-void remover(lista_t *lista, int indice);
+void criarLista(lista_t *lista, int capacidade, bool ordenada);
+void inserirLista(lista_t *lista, int elemento);
+void imprimirLista(lista_t *lista);
+void removerLista(lista_t *lista, int alvo);
 
 
-int busca(lista_t *lista, int alvo);
+
+int buscaLista(lista_t *lista, int alvo);
 int busca_bin_i(lista_t *lista, int alvo);
 int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo);
 
