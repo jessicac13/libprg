@@ -17,10 +17,9 @@ result_t sub(double a, double b);
 result_t sum(double a, double b);
 result_t compute(double a, double b, operation_t op);
 
-// Definição da estrutura lista_t
 typedef struct lista_t lista_t;
 
-void criarLista(lista_t *lista, bool ordenada);
+void criarLista(bool ordenada);
 void inserirLista(lista_t *lista, int elemento);
 void imprimirLista(lista_t *lista);
 void removerLista(lista_t *lista, int alvo);
