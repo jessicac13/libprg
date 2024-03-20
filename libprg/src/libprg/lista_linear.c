@@ -92,32 +92,36 @@ void imprimirlista(lista_t *lista)
     printf("\n");
 }
 
-int busca_lista_desordenada(lista_t *lista, int alvo)
+int busca(lista_t *lista, int alvo)
 {
-    for(int i=1; i<lista->tamanho; i++)
+    if (lista->ordenada == false)
     {
-        if(alvo == lista->elemento[i])
+        for(int i=1; i<lista->tamanho; i++)
         {
-            return i;
+            if(alvo == lista->elemento[i])
+            {
+                return i;
+            }
         }
-    }
-    return -1;
-
-}
-
-int busca_lista_ordenada(lista_t *lista, int alvo)
-{
-    int i = 1;
-    while (lista->elemento[i]< alvo)
-    {
-        i = i+1;
-    }
-    if(i == lista->tamanho || lista->elemento[i] != alvo)
-    {
         return -1;
     }
-    return i;
+    else
+    {
+        int i = 1;
+        while (lista->elemento[i]< alvo)
+        {
+            i = i+1;
+        }
+        if(i == lista->tamanho || lista->elemento[i] != alvo)
+        {
+            return -1;
+        }
+        return i;
+    }
+
 }
+
+
 
 int busca_bin_i(lista_t *lista, int alvo)
 {
