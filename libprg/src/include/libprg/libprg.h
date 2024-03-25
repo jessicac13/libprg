@@ -24,13 +24,23 @@ void inserirLista(lista_t *lista, int elemento);
 void imprimirLista(lista_t *lista);
 void removerLista(lista_t *lista, int alvo);
 
-
-
 int buscaLista(lista_t *lista, int alvo);
 int busca_bin_i(lista_t *lista, int alvo);
 int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo);
-
 void imprimir_indice_busca(int teste);
+
+typedef struct fila_t fila_t;
+
+fila_t* criarFila(int capacidade);
+//
+//enqueue();
+//dequeue();
+//head();
+//tail();
+//size();
+//empty();
+//full();
+
 
 #endif /* LIBPRG_H */
 

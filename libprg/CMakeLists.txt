@@ -10,9 +10,15 @@ set(SOURCES
        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/sub.c"
        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/libprg.c"
        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/lista_linear.c"
+       "${CMAKE_CURRENT_LIST_DIR}/src/libprg/fila_circular.c"
 )
 
-add_library(libprg)
+add_library(libprg
+        src/libprg/sum.c
+        src/libprg/sub.c
+        src/libprg/libprg.c
+        src/libprg/lista_linear.c
+        src/libprg/fila_circular.c)
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
 
