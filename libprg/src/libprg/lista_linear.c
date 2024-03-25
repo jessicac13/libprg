@@ -32,7 +32,7 @@ lista_t* criarLista(bool ordenada)
     return lista;
 }
 
-lista_t* inserirLista(lista_t *lista, int elemento)
+void inserirLista(lista_t *lista, int elemento)
 {
     if (lista->tamanho >= lista->capacidade)
     {
@@ -66,7 +66,6 @@ lista_t* inserirLista(lista_t *lista, int elemento)
         lista->tamanho++;
         lista->ordenada = false;
     }
-    return lista;
 }
 
 void removerLista(lista_t *lista, int alvo)
