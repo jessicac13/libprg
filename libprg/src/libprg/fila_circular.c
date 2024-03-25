@@ -5,7 +5,9 @@
 struct fila_t {
     int *elemento;
     int capacidade;
-
+    int inicio;
+    int fim;
+    int tamanho;
 };
 
 fila_t* criarFila(int capacidade)
@@ -19,6 +21,9 @@ fila_t* criarFila(int capacidade)
     }
 
     fila->capacidade = capacidade;
+    fila->inicio = 0;
+    fila->fim = fila->inicio + fila->capacidade;
+    fila->tamanho = 0;
 
     fila->elemento = (int*)malloc(fila->capacidade * sizeof(int));
     if (fila->elemento == NULL)
