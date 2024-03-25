@@ -32,8 +32,9 @@ void imprimir_indice_busca(int teste);
 typedef struct fila_t fila_t;
 
 fila_t* criarFila(int capacidade);
-//
-//enqueue();
+
+void enqueue(fila_t *fila, int elemento);
+
 //dequeue();
 //head();
 //tail();

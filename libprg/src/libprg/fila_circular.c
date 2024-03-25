@@ -22,7 +22,7 @@ fila_t* criarFila(int capacidade)
 
     fila->capacidade = capacidade;
     fila->inicio = 0;
-    fila->fim = fila->inicio + fila->capacidade;
+    fila->fim = 0;
     fila->tamanho = 0;
 
     fila->elemento = (int*)malloc(fila->capacidade * sizeof(int));
@@ -33,6 +33,14 @@ fila_t* criarFila(int capacidade)
     }
     return fila;
 }
+
+void enqueue(fila_t *fila, int elemento)
+{
+    fila->elemento[fila->tamanho] = elemento;
+    fila->tamanho++;
+    fila->fim++;
+}
+
 
 //enqueue();
 //dequeue();
