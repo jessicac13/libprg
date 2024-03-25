@@ -41,6 +41,16 @@ void enqueue(fila_t *fila, int elemento)
     fila->fim++;
 }
 
+void imprimirFila(fila_t  *fila)
+{
+    printf("Fila de tamanho %d: ", fila->tamanho);
+    for (int i = 0; i < fila->tamanho; i++)
+    {
+        printf("%d ", fila->elemento[i]);
+    }
+    printf("\n");
+}
+
 
 //enqueue();
 //dequeue();
