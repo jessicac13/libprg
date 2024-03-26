@@ -54,6 +54,7 @@ void enqueue(fila_t *fila, int elemento)
     if (fila->fim > fila->capacidade && fila->inicio < fila->capacidade)
     {
         printf("\nNão há espaço para novas inserções\n");
+        fila->fim = 0;
     }
 }
 
@@ -67,7 +68,7 @@ void imprimirFila(fila_t  *fila)
 
     int i = fila->inicio;
     printf("Elementos da fila: ");
-    for (int contador = 1; contador < fila->tamanho; contador++)
+    for (int contador = 0; contador < fila->tamanho; contador++)
     {
         printf("%d ", fila->elemento[i]);
         i = (i + 1) % fila->capacidade; // Avançando para o próximo índice circularmente
