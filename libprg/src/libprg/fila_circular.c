@@ -59,22 +59,38 @@ void enqueue(fila_t *fila, int elemento)
 
 void imprimirFila(fila_t  *fila)
 {
-    if (fila->tamanho == 0) {
+    if (fila->tamanho == 0)
+    {
         printf("Fila vazia\n");
         return;
     }
 
     int i = fila->inicio;
     printf("Elementos da fila: ");
-    for (int contador = 1; contador < fila->tamanho; contador++) {
+    for (int contador = 1; contador < fila->tamanho; contador++)
+    {
         printf("%d ", fila->elemento[i]);
         i = (i + 1) % fila->capacidade; // Avançando para o próximo índice circularmente
     }
     printf("\n");
 
 }
-//enqueue();
-//dequeue();
+
+void dequeue(fila_t *fila)
+{
+    if (fila->tamanho == 0)
+    {
+        printf("Erro: Fila vazia\n");
+        return;
+    }
+
+    int elementoRemovido = fila->elemento[fila->inicio];
+
+    fila->inicio = (fila->inicio + 1) % fila->capacidade;
+
+    fila->tamanho--;
+
+}
 //head();
 //tail();
 //size();
