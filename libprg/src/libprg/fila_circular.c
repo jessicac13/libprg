@@ -37,7 +37,7 @@ fila_t* criarFila(int capacidade)
 
 void enqueue(fila_t *fila, int elemento)
 {
-    if (fila->tamanho <= fila->capacidade)
+    if (fila->tamanho < fila->capacidade)
     {
         if (fila->fim <= fila->capacidade)
         {
