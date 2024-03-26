@@ -62,7 +62,7 @@ void enqueue(fila_t *fila, int elemento)
         else
         {
             printf("\nNão há espaço para novas inserções\n");
-
+            fila->fim =0;
         }
     }
 
