@@ -106,7 +106,7 @@ int head(fila_t  *fila)
 int tail(fila_t  *fila)
 {
 
-        return fila->elemento[(fila->inicio + fila->tamanho) % fila->capacidade];
+        return fila->elemento[(fila->inicio + (fila->tamanho-1)) % fila->capacidade];
 
 }
 
