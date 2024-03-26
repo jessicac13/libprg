@@ -60,7 +60,7 @@ void enqueue(fila_t *fila, int elemento)
 void imprimirFila(fila_t  *fila)
 {
     printf("Fila de tamanho %d: ", fila->tamanho);
-    for (int i = 0; i < fila->tamanho; i++)
+    for (int i = 0; i < fila->capacidade; i++)
     {
         printf("%d ", fila->elemento[i]);
     }
