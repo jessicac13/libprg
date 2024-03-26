@@ -37,25 +37,29 @@ fila_t* criarFila(int capacidade)
 
 void enqueue(fila_t *fila, int elemento)
 {
-    if (fila->fim <= fila->capacidade)
+    if (fila->elemento[fila->fim] == NULL)
     {
-        fila->elemento[fila->fim] = elemento;
-        fila->tamanho++;
-        fila->fim++;
+        if (fila->fim <= fila->capacidade)
+        {
+            fila->elemento[fila->fim] = elemento;
+            fila->tamanho++;
+            fila->fim++;
+        }
+
+        if (fila->fim > fila->capacidade && fila->inicio == fila->capacidade)
+        {
+            fila->fim = 0;
+            fila->elemento[fila->fim] = elemento;
+            fila->tamanho++;
+            fila->fim++;
+        }
+        if (fila->fim > fila->capacidade && fila->inicio < fila->capacidade)
+        {
+            printf("\nNão há espaço para novas inserções\n");
+
+        }
     }
 
-    if (fila->fim > fila->capacidade && fila->inicio == fila->capacidade)
-    {
-        fila->fim = 0;
-        fila->elemento[fila->fim] = elemento;
-        fila->tamanho++;
-        fila->fim++;
-    }
-    if (fila->fim > fila->capacidade && fila->inicio < fila->capacidade)
-    {
-        printf("\nNão há espaço para novas inserções\n");
-
-    }
 }
 
 void imprimirFila(fila_t  *fila)
