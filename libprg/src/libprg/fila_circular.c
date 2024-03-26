@@ -37,27 +37,22 @@ fila_t* criarFila(int capacidade)
 
 void enqueue(fila_t *fila, int elemento)
 {
-    if (fila->fim <= fila->capacidade)
+    if (fila->tamanho < fila->capacidade)
     {
         fila->elemento[fila->fim] = elemento;
         fila->tamanho++;
         fila->fim++;
-    }
 
-    if (fila->fim > fila->capacidade && fila->inicio == fila->capacidade)
-    {
-        fila->fim = 0;
-        fila->elemento[fila->fim] = elemento;
-        fila->tamanho++;
-        fila->fim++;
+        // Se o fim da fila ultrapassar a capacidade, ajuste-o para 0
+        if (fila->fim >= fila->capacidade)
+        {
+            fila->fim = 0;
+        }
     }
-    if (fila->fim > fila->capacidade && fila->inicio < fila->capacidade)
+    else
     {
         printf("\nNão há espaço para novas inserções\n");
-
     }
-
-
 
 }
 
