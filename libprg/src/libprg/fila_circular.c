@@ -100,17 +100,23 @@ void dequeue(fila_t *fila)
 
 int head(fila_t  *fila)
 {
-    return fila->elemento[fila->inicio];
+    int inicio = fila->elemento[fila->inicio];
+    printf("\nO elemento no início da fila é: %d\n", inicio) ;
+    return inicio;
 }
 
 int tail(fila_t  *fila)
 {
-    return fila->elemento[(fila->inicio + (fila->tamanho-1)) % fila->capacidade];
+    int fim = fila->elemento[(fila->inicio + (fila->tamanho-1)) % fila->capacidade];
+    printf("\nO elemento no início da fila é: %d\n", fim) ;
+    return fim;
 }
 
 int size(fila_t  *fila)
 {
-    return fila->tamanho;
+    int tamanho = fila->tamanho;
+    printf("\nO tamanho da fila é: %d\n", tamanho) ;
+    return tamanho;
 }
 
 bool empty(fila_t  *fila)
