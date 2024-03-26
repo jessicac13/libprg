@@ -70,12 +70,11 @@ void imprimirFila(fila_t  *fila)
         return;
     }
 
-    int i = fila->inicio;
     printf("Elementos da fila: ");
-    for (int contador = 0; contador < fila->tamanho; contador++)
+    for (int contador = 0; contador < fila->capacidade; contador++)
     {
-        printf("%d ", fila->elemento[i]);
-        i = (i + 1) % fila->capacidade; // Avançando para o próximo índice circularmente
+        printf("%d ", fila->elemento[contador]);
+
     }
     printf("\n");
 
