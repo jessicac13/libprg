@@ -105,14 +105,9 @@ int head(fila_t  *fila)
 
 int tail(fila_t  *fila)
 {
-    if(fila->fim > 0)
-    {
-        return fila->elemento[(fila->inicio + fila->tamanho)];
-    }
-    else
-    {
-        return fila->elemento[fila->fim];
-    }
+
+        return fila->elemento[(fila->fim + fila->tamanho) % fila->capacidade];
+
 }
 
 //tail();
