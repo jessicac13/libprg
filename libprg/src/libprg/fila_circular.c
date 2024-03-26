@@ -44,7 +44,7 @@ void enqueue(fila_t *fila, int elemento)
         fila->fim++;
 
         // Se o fim da fila ultrapassar a capacidade, ajuste-o para 0
-        if (fila->fim >= fila->capacidade)
+        if (fila->fim > fila->capacidade)
         {
             fila->fim = 0;
         }
