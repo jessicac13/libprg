@@ -56,11 +56,13 @@ void enqueue(fila_t *fila, int elemento)
         if (fila->fim > fila->capacidade && fila->inicio < fila->capacidade)
         {
             printf("\nNão há espaço para novas inserções\n");
+            fila->fim =0;
 
         }
         else
         {
             printf("\nNão há espaço para novas inserções\n");
+
         }
     }
 
@@ -96,7 +98,6 @@ void dequeue(fila_t *fila)
     int elementoRemovido = fila->elemento[fila->inicio];
 
     fila->inicio = (fila->inicio + 1) % fila->capacidade;
-    fila->fim = fila->inicio - 1;
 
     fila->tamanho--;
 
