@@ -132,4 +132,17 @@ bool empty(fila_t  *fila)
         return false;
     }
 }
-//full();
+bool full(fila_t *fila)
+{
+    if(fila->tamanho == fila->capacidade)
+    {
+        printf("\nA fila se encontra cheia!\n");
+        return true;
+    }
+    else
+    {
+        printf("\nA fila não se encontra cheia!\n");
+        return false;
+    }
+
+};

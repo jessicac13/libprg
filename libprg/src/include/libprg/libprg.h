@@ -35,13 +35,12 @@ fila_t* criarFila(int capacidade);
 
 void enqueue(fila_t *fila, int elemento);
 void imprimirFila(fila_t  *fila);
-void  dequeue(fila_t  *fila);
+void dequeue(fila_t  *fila);
 int head(fila_t  *fila);
 int tail(fila_t  *fila);
 int size(fila_t  *fila);
 bool empty(fila_t  *fila);
-
-//full();
+bool full(fila_t  *fila);
 
 
 #endif /* LIBPRG_H */
