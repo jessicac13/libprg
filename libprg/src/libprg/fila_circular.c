@@ -88,6 +88,7 @@ void dequeue(fila_t *fila)
     int elementoRemovido = fila->elemento[fila->inicio];
 
     fila->inicio = (fila->inicio + 1) % fila->capacidade;
+    fila->fim = (fila->fim + 1) % fila->capacidade;
 
     fila->tamanho--;
 
