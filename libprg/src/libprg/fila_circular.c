@@ -60,8 +60,6 @@ void enqueue(fila_t *fila, int elemento)
         printf("\nNão há espaço para novas inserções\n");
 
     }
-
-
 }
 
 void imprimirFila(fila_t  *fila)
@@ -99,7 +97,24 @@ void dequeue(fila_t *fila)
     fila->tamanho--;
 
 }
-//head();
+
+int head(fila_t  *fila)
+{
+    return fila->elemento[fila->inicio];
+}
+
+int tail(fila_t  *fila)
+{
+    if(fila->fim > 0)
+    {
+        return fila->elemento[(fila->fim) - 1];
+    }
+    else
+    {
+        return fila->elemento[fila->fim];
+    }
+}
+
 //tail();
 //size();
 //empty();

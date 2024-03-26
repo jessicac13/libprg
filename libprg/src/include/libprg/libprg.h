@@ -36,9 +36,9 @@ fila_t* criarFila(int capacidade);
 void enqueue(fila_t *fila, int elemento);
 void imprimirFila(fila_t  *fila);
 void  dequeue(fila_t  *fila);
+int head(fila_t  *fila);
+int tail(fila_t  *fila);
 
-//head();
-//tail();
 //size();
 //empty();
 //full();
