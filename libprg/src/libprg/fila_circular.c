@@ -53,19 +53,14 @@ void enqueue(fila_t *fila, int elemento)
             fila->tamanho++;
             fila->fim++;
         }
-        if (fila->fim > fila->capacidade && fila->inicio < fila->capacidade)
-        {
-            printf("\nNão há espaço para novas inserções\n");
-            fila->fim = 0;
 
-        }
-        else
-        {
-            printf("\nNão há espaço para novas inserções\n");
-
-
-        }
     }
+    else
+    {
+        printf("\nNão há espaço para novas inserções\n");
+        fila->fim = 0;
+    }
+
 
 }
 
