@@ -37,8 +37,8 @@ fila_t* criarFila(int capacidade)
 
 void enqueue(fila_t *fila, int elemento)
 {
-
-
+    if (fila->tamanho <= fila->capacidade)
+    {
         if (fila->fim <= fila->capacidade)
         {
             fila->elemento[fila->fim] = elemento;
@@ -58,7 +58,11 @@ void enqueue(fila_t *fila, int elemento)
             printf("\nNão há espaço para novas inserções\n");
 
         }
-
+        else
+        {
+            printf("\nNão há espaço para novas inserções\n");
+        }
+    }
 
 }
 
