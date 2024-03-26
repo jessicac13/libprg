@@ -43,7 +43,7 @@ void enqueue(fila_t *fila, int elemento)
         {
             fila->elemento[fila->fim] = elemento;
             fila->tamanho++;
-            fila->fim++;
+            fila->fim = (fila->fim + 1) % fila->capacidade;
         }
 
         if (fila->fim > fila->capacidade && fila->inicio == fila->capacidade)
@@ -51,14 +51,14 @@ void enqueue(fila_t *fila, int elemento)
             fila->fim = 0;
             fila->elemento[fila->fim] = elemento;
             fila->tamanho++;
-            fila->fim++;
+            fila->fim = (fila->fim + 1) % fila->capacidade;
         }
 
     }
     else
     {
         printf("\nNão há espaço para novas inserções\n");
-        fila->fim = (fila->fim + 1) % fila->capacidade;
+
     }
 
 
