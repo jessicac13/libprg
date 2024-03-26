@@ -105,12 +105,25 @@ int head(fila_t  *fila)
 
 int tail(fila_t  *fila)
 {
-
-        return fila->elemento[(fila->inicio + (fila->tamanho-1)) % fila->capacidade];
-
+    return fila->elemento[(fila->inicio + (fila->tamanho-1)) % fila->capacidade];
 }
 
-//tail();
-//size();
-//empty();
+int size(fila_t  *fila)
+{
+    return fila->tamanho;
+}
+
+bool empty(fila_t  *fila)
+{
+    if(fila->tamanho == 0)
+    {
+        printf("\nA fila se encontra vazia!\n");
+        return true;
+    }
+    else
+    {
+        printf("\nA fila não se encontra vazia!\n");
+        return false;
+    }
+}
 //full();

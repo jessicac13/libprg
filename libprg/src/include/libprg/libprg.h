@@ -38,8 +38,8 @@ void imprimirFila(fila_t  *fila);
 void  dequeue(fila_t  *fila);
 int head(fila_t  *fila);
 int tail(fila_t  *fila);
+bool size(fila_t  *fila);
 
-//size();
 //empty();
 //full();
 
