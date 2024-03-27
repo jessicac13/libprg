@@ -86,7 +86,7 @@ int dequeue(fila_t *fila)
     if (fila->tamanho == 0)
     {
         printf("Erro: Fila vazia\n");
-        return;
+
     }
 
     int elementoRemovido = fila->elemento[fila->inicio];
@@ -94,7 +94,7 @@ int dequeue(fila_t *fila)
     fila->inicio = (fila->inicio + 1) % fila->capacidade;
 
     fila->tamanho--;
-
+    printf("\nO elemento removido da fila foi: %d\n", elementoRemovido) ;
     return elementoRemovido;
 
 }
