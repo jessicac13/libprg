@@ -98,28 +98,28 @@ void dequeue(fila_t *fila)
 
 }
 
-int head(fila_t  *fila)
+int getHead(fila_t  *fila)
 {
     int inicio = fila->elemento[fila->inicio];
     printf("\nO elemento no início da fila é: %d\n", inicio) ;
     return inicio;
 }
 
-int tail(fila_t  *fila)
+int getTail(fila_t  *fila)
 {
     int fim = fila->elemento[(fila->inicio + (fila->tamanho-1)) % fila->capacidade];
     printf("\nO elemento no início da fila é: %d\n", fim) ;
     return fim;
 }
 
-int size(fila_t  *fila)
+int getSize(fila_t  *fila)
 {
     int tamanho = fila->tamanho;
     printf("\nO tamanho da fila é: %d\n", tamanho) ;
     return tamanho;
 }
 
-bool empty(fila_t  *fila)
+bool isEmpty(fila_t  *fila)
 {
     if(fila->tamanho == 0)
     {
@@ -132,7 +132,7 @@ bool empty(fila_t  *fila)
         return false;
     }
 }
-bool full(fila_t *fila)
+bool isFull(fila_t *fila)
 {
     if(fila->tamanho == fila->capacidade)
     {
