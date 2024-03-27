@@ -81,7 +81,7 @@ void imprimirFila(fila_t  *fila)
 
 }
 
-void dequeue(fila_t *fila)
+int dequeue(fila_t *fila)
 {
     if (fila->tamanho == 0)
     {
@@ -93,8 +93,9 @@ void dequeue(fila_t *fila)
 
     fila->inicio = (fila->inicio + 1) % fila->capacidade;
 
-
     fila->tamanho--;
+
+    return elementoRemovido;
 
 }
 
