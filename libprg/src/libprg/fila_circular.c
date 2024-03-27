@@ -39,21 +39,9 @@ void enqueue(fila_t *fila, int elemento)
 {
     if (fila->tamanho < fila->capacidade)
     {
-//        if (fila->fim <= fila->capacidade)
-//        {
             fila->elemento[fila->fim] = elemento;
             fila->tamanho++;
             fila->fim = (fila->fim + 1) % fila->capacidade;
-//        }
-
-        //if (fila->fim > fila->capacidade && fila->inicio == fila->capacidade)
-//        if (fila->inicio == fila->capacidade)
-//        {
-//            fila->elemento[fila->fim] = elemento;
-//            fila->tamanho++;
-//            fila->fim = (fila->fim + 1) % fila->capacidade;
-//        }
-
     }
     else
     {
