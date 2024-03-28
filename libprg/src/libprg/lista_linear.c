@@ -60,11 +60,11 @@ void inserirLista(lista_t *lista, int elemento)
         lista->elemento[posicao] = elemento;
         lista->tamanho++;
     }
-    else
+    if(lista->ordenada == false)
     {
         lista->elemento[lista->tamanho] = elemento;
         lista->tamanho++;
-        lista->ordenada = false;
+
     }
 }
 
