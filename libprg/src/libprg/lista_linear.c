@@ -73,7 +73,7 @@ void removerLista(lista_t *lista, int alvo)
     int indice = buscaLista(lista, alvo);
     if (indice < 0 || indice >= lista->tamanho)
     {
-        printf("Índice fora dos limites da lista\n");
+        printf("\nÍndice fora dos limites da lista\n");
         return;
     }
 
