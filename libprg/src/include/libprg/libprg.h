@@ -21,7 +21,6 @@ typedef struct lista_t lista_t;
 
 lista_t* criarLista(bool ordenada);
 void inserirLista(lista_t *lista, int elemento);
-void imprimirLista(lista_t *lista);
 void removerLista(lista_t *lista, int alvo);
 
 int buscaLista(lista_t *lista, int alvo);
