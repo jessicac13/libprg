@@ -106,7 +106,7 @@ int buscaLista(lista_t *lista, int alvo)
 {
     if (lista->ordenada == false)
     {
-        for(int i=0; i<lista->tamanho; i++)
+        for(int i=0; i<=lista->tamanho; i++)
         {
             if(alvo == lista->elemento[i])
             {
