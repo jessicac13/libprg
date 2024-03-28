@@ -22,7 +22,7 @@ typedef struct lista_t lista_t;
 lista_t* criarLista(bool ordenada);
 void inserirLista(lista_t *lista, int elemento);
 void removerLista(lista_t *lista, int alvo);
-
+void imprimirLista(lista_t *lista);
 int buscaLista(lista_t *lista, int alvo);
 int busca_bin_i(lista_t *lista, int alvo);
 int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo);
