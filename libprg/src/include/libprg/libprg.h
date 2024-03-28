@@ -39,7 +39,7 @@ bool isFull(fila_t  *fila);
 
 lista_t* criarListaContatos(bool ordenada);
 void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char email[100]);
-
+void imprimirListaContatos(lista_t *lista);
 #endif /* LIBPRG_H */
 
 

@@ -78,6 +78,20 @@ void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char
         lista->tamanho++;
     }
 }
+
+void imprimirListaContatos(lista_t *lista)
+{
+    printf("\nLista de Contatos:\n");
+
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        printf("Contato %d:\n", i + 1);
+        printf("Nome: %s\n", lista->elemento[i].nome);
+        printf("Telefone: %s\n", lista->elemento[i].telefone);
+        printf("Email: %s\n", lista->elemento[i].email);
+        printf("\n");
+    }
+}
 //
 //void removerLista(lista_t *lista, int alvo)
 //{
