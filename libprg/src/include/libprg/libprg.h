@@ -31,7 +31,6 @@ void imprimir_indice_busca(int teste);
 typedef struct fila_t fila_t;
 
 fila_t* criarFila(int capacidade);
-
 void enqueue(fila_t *fila, int elemento);
 void imprimirFila(fila_t  *fila);
 int dequeue(fila_t  *fila);
@@ -41,6 +40,7 @@ int getSize(fila_t  *fila);
 bool isEmpty(fila_t  *fila);
 bool isFull(fila_t  *fila);
 
+lista_t* criarListaContatos(bool ordenada);
 
 #endif /* LIBPRG_H */
 
