@@ -128,7 +128,6 @@ int buscaLista(lista_t *lista, int alvo)
         }
         return i;
     }
-
 }
 
 
