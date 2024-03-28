@@ -85,7 +85,7 @@ void removerLista(lista_t *lista, int alvo)
         }
         lista->tamanho--;
     }
-    else
+    if(lista->ordenada == false)
     {
         lista->elemento[indice] = lista->elemento[lista->tamanho - 1];
         lista->tamanho--;
