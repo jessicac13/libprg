@@ -1,10 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<stdbool.h>
+#include <string.h>
 #include <libprg/libprg.h>
 
+struct contatos {
+    char nome[100];
+    char telefone[9];
+    char email[100];
+};
+
 struct lista_t {
-    char *elemento;
+    struct contatos *elemento;
     int tamanho;
     int capacidade;
     bool ordenada;
@@ -23,7 +30,7 @@ lista_t* criarListaContatos(bool ordenada)
     lista->capacidade = 10;
     lista->ordenada = ordenada;
 
-    lista->elemento = (int*)malloc(lista->capacidade * sizeof(int));
+    lista->elemento = (struct contatos*)malloc(lista->capacidade * sizeof(struct contatos));
     if (lista->elemento == NULL)
     {
         printf("Erro de alocação de memória\n");
@@ -32,18 +39,15 @@ lista_t* criarListaContatos(bool ordenada)
     return lista;
 }
 //
-//void inserirLista(lista_t *lista, int elemento)
-//{
-//    if (lista->tamanho >= lista->capacidade)
-//    {
-//        lista->capacidade *= 2;
-//        lista->elemento = (int*)realloc(lista->elemento, lista->capacidade * sizeof(int));
-//        if (lista->elemento == NULL)
-//        {
-//            printf("Erro de realocação de memória\n");
-//            exit(1);
-//        }
-//    }
+void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char email[100]) {
+    if (lista->tamanho >= lista->capacidade) {
+        lista->capacidade *= 2;
+        lista->elemento = (int *) realloc(lista->elemento, lista->capacidade * sizeof(int));
+        if (lista->elemento == NULL) {
+            printf("Erro de realocação de memória\n");
+            exit(1);
+        }
+    }
 //    if(lista->ordenada == true)
 //    {
 //        int posicao = 0;
@@ -60,13 +64,20 @@ lista_t* criarListaContatos(bool ordenada)
 //        lista->elemento[posicao] = elemento;
 //        lista->tamanho++;
 //    }
-//    if(lista->ordenada == false)
-//    {
-//        lista->elemento[lista->tamanho] = elemento;
-//        lista->tamanho++;
-//
-//    }
-//}
+    if (lista->ordenada == false) {
+        strncpy(lista->elemento[lista->tamanho].nome, nome, sizeof(lista->elemento[lista->tamanho].nome) - 1);
+        lista->elemento[lista->tamanho].nome[sizeof(lista->elemento[lista->tamanho].nome) - 1] = '\0';
+
+        strncpy(lista->elemento[lista->tamanho].telefone, telefone,
+                sizeof(lista->elemento[lista->tamanho].telefone) - 1);
+        lista->elemento[lista->tamanho].telefone[sizeof(lista->elemento[lista->tamanho].telefone) - 1] = '\0';
+
+        strncpy(lista->elemento[lista->tamanho].email, email, sizeof(lista->elemento[lista->tamanho].email) - 1);
+        lista->elemento[lista->tamanho].email[sizeof(lista->elemento[lista->tamanho].email) - 1] = '\0';
+
+        lista->tamanho++;
+    }
+}
 //
 //void removerLista(lista_t *lista, int alvo)
 //{
@@ -186,4 +197,4 @@ lista_t* criarListaContatos(bool ordenada)
 //    {
 //        printf("\nElemento não se encontra na lista\n");
 //    }
-//}
+//
