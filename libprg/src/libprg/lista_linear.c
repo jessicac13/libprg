@@ -94,7 +94,7 @@ void removerLista(lista_t *lista, int alvo)
 
 void imprimirLista(lista_t *lista)
 {
-    printf("Lista de tamanho %d: ", lista->tamanho);
+    printf("\nLista de tamanho %d: ", lista->tamanho);
     for (int i = 0; i < lista->tamanho; i++)
     {
         printf("%d ", lista->elemento[i]);
