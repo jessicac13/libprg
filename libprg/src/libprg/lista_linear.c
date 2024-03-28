@@ -106,7 +106,7 @@ int buscaLista(lista_t *lista, int alvo)
 {
     if (lista->ordenada == false)
     {
-        for(int i=1; i<lista->tamanho; i++)
+        for(int i=0; i<lista->tamanho; i++)
         {
             if(alvo == lista->elemento[i])
             {
@@ -135,7 +135,7 @@ int buscaLista(lista_t *lista, int alvo)
 int busca_bin_i(lista_t *lista, int alvo)
 {
     int meio;
-    int inicio = 1;
+    int inicio = 0;
     int fim = lista->tamanho;
     while (inicio <= fim)
     {
