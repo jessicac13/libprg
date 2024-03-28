@@ -118,7 +118,7 @@ int buscaLista(lista_t *lista, int alvo)
     else
     {
         int i = 0;
-        while (lista->elemento[i]<= alvo)
+        while (lista->elemento[i]< alvo)
         {
             i = i+1;
         }
