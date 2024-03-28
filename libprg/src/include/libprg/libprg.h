@@ -1,10 +1,7 @@
 #ifndef LIBPRG_LIBPRG_H
 #define LIBPRG_LIBPRG_H
 
-//#include <stdio.h>
-//#include <stdlib.h>
 #include<stdbool.h>
-//#include <libprg/libprg.h>
 
 typedef struct {
     double value;
@@ -41,6 +38,7 @@ bool isEmpty(fila_t  *fila);
 bool isFull(fila_t  *fila);
 
 lista_t* criarListaContatos(bool ordenada);
+void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char email[100]);
 
 #endif /* LIBPRG_H */
 
