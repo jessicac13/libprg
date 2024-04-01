@@ -125,20 +125,20 @@ void removerListaContados(lista_t *lista, int alvo)
     }
 }
 
-//int buscaListaContatos(lista_t *lista, char alvo[100])
-//{
-//    if (lista->ordenada == false)
-//    {
-//        for(int i=0; i<=lista->tamanho; i++)
-//        {
-//            if(alvo == lista->elemento[i].nome)
-//            {
-//                return i;
-//            }
-//        }
-//        return -1;
-//    }
-//
+int buscaListaContatos(lista_t *lista, char alvo[100])
+{
+    if (lista->ordenada == false)
+    {
+        for(int i=0; i<=lista->tamanho; i++)
+        {
+            if(alvo == lista->elemento[i].nome)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 ////    if (lista->ordenada == true)
 ////    {
 ////        int i = 0;
@@ -152,7 +152,7 @@ void removerListaContados(lista_t *lista, int alvo)
 ////        }
 ////        return i;
 ////    }
-//}
+}
 //
 //
 //int busca_bin_i(lista_t *lista, int alvo)
@@ -200,14 +200,14 @@ void removerListaContados(lista_t *lista, int alvo)
 //    return -1;
 //}
 //
-//void imprimir_indice_busca_contatos(int teste)
-//{
-//    if (teste > -1)
-//    {
-//        printf("\nIndice do elemento de busca: %d\n", teste);
-//    }
-//    else
-//    {
-//        printf("\nElemento não se encontra na lista\n");
-//    }
-//}
+void imprimir_indice_busca_contatos(int teste)
+{
+    if (teste > -1)
+    {
+        printf("\nIndice do elemento de busca: %d\n", teste);
+    }
+    else
+    {
+        printf("\nElemento não se encontra na lista\n");
+    }
+}
