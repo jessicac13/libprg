@@ -93,29 +93,29 @@ void imprimirListaContatos(lista_t *lista)
     }
 }
 //
-//void removerListaContados(lista_t *lista, char alvo[100])
-//{
+void removerListaContados(lista_t *lista, int alvo)
+{
 //    int indice = buscaListaContatos(lista, alvo);
-//    if (indice < 0 || indice >= lista->tamanho)
+    if (indice < 0 || indice >= lista->tamanho)
+    {
+        printf("\nÍndice fora dos limites da lista\n");
+        return;
+    }
+
+//    if(lista->ordenada == true)
 //    {
-//        printf("\nÍndice fora dos limites da lista\n");
-//        return;
-//    }
-//
-////    if(lista->ordenada == true)
-////    {
-////        for (int i = indice; i < lista->tamanho - 1; i++)
-////        {
-////            lista->elemento[i] = lista->elemento[i + 1];
-////        }
-////        lista->tamanho--;
-////    }
-//    if(lista->ordenada == false)
-//    {
-//        lista->elemento[indice] = lista->elemento[lista->tamanho - 1];
+//        for (int i = indice; i < lista->tamanho - 1; i++)
+//        {
+//            lista->elemento[i] = lista->elemento[i + 1];
+//        }
 //        lista->tamanho--;
 //    }
-//}
+    if(lista->ordenada == false)
+    {
+        lista->elemento[indice] = lista->elemento[lista->tamanho - 1];
+        lista->tamanho--;
+    }
+}
 
 int buscaListaContatos(lista_t *lista, char alvo[100])
 {
