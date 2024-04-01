@@ -93,15 +93,15 @@ void imprimirListaContatos(lista_t *lista)
     }
 }
 //
-//void removerLista(lista_t *lista, int alvo)
-//{
-//    int indice = buscaLista(lista, alvo);
-//    if (indice < 0 || indice >= lista->tamanho)
-//    {
-//        printf("\nÍndice fora dos limites da lista\n");
-//        return;
-//    }
-//
+void removerLista(lista_t *lista, int alvo)
+{
+    int indice = buscaLista(lista, alvo);
+    if (indice < 0 || indice >= lista->tamanho)
+    {
+        printf("\nÍndice fora dos limites da lista\n");
+        return;
+    }
+
 //    if(lista->ordenada == true)
 //    {
 //        for (int i = indice; i < lista->tamanho - 1; i++)
@@ -110,36 +110,26 @@ void imprimirListaContatos(lista_t *lista)
 //        }
 //        lista->tamanho--;
 //    }
-//    if(lista->ordenada == false)
-//    {
-//        lista->elemento[indice] = lista->elemento[lista->tamanho - 1];
-//        lista->tamanho--;
-//    }
-//}
-//
-//void imprimirLista(lista_t *lista)
-//{
-//    printf("\nLista de tamanho %d: ", lista->tamanho);
-//    for (int i = 0; i < lista->tamanho; i++)
-//    {
-//        printf("%d ", lista->elemento[i]);
-//    }
-//    printf("\n");
-//}
-//
-//int buscaLista(lista_t *lista, int alvo)
-//{
-//    if (lista->ordenada == false)
-//    {
-//        for(int i=0; i<=lista->tamanho; i++)
-//        {
-//            if(alvo == lista->elemento[i])
-//            {
-//                return i;
-//            }
-//        }
-//        return -1;
-//    }
+    if(lista->ordenada == false)
+    {
+        lista->elemento[indice] = lista->elemento[lista->tamanho - 1];
+        lista->tamanho--;
+    }
+}
+
+int buscaLista(lista_t *lista, int alvo)
+{
+    if (lista->ordenada == false)
+    {
+        for(int i=0; i<=lista->tamanho; i++)
+        {
+            if(alvo == lista->elemento[i].nome)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 //    if (lista->ordenada == true)
 //    {
 //        int i = 0;
@@ -153,7 +143,7 @@ void imprimirListaContatos(lista_t *lista)
 //        }
 //        return i;
 //    }
-//}
+}
 //
 //
 //int busca_bin_i(lista_t *lista, int alvo)

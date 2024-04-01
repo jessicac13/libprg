@@ -40,6 +40,9 @@ bool isFull(fila_t  *fila);
 lista_t* criarListaContatos(bool ordenada);
 void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char email[100]);
 void imprimirListaContatos(lista_t *lista);
+int buscaLista(lista_t *lista, int alvo);
+void removerLista(lista_t *lista, int alvo);
+
 #endif /* LIBPRG_H */
 
 
