@@ -42,7 +42,7 @@ lista_t* criarListaContatos(bool ordenada)
 void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char email[100]) {
     if (lista->tamanho >= lista->capacidade) {
         lista->capacidade *= 2;
-        lista->elemento = (int *) realloc(lista->elemento, lista->capacidade * sizeof(int));
+        lista->elemento = (struct contatos*)malloc(lista->capacidade * sizeof(struct contatos));
         if (lista->elemento == NULL) {
             printf("Erro de realocação de memória\n");
             exit(1);
