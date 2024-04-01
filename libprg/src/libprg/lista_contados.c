@@ -38,7 +38,7 @@ lista_t* criarListaContatos(bool ordenada)
     }
     return lista;
 }
-//
+
 void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char email[100]) {
     if (lista->tamanho >= lista->capacidade) {
         lista->capacidade *= 2;
@@ -114,13 +114,13 @@ void removerListaContados(lista_t *lista, int alvo)
     if(lista->ordenada == false)
     {
 
-        strncpy(lista->elemento[lista->tamanho].telefone, lista->elemento[lista->tamanho - 1].telefone,
+        strncpy(lista->elemento[indice].telefone, lista->elemento[lista->tamanho - 1].telefone,
                 sizeof(lista->elemento[lista->tamanho -1].telefone) - 1);
 
-        strncpy(lista->elemento[lista->tamanho].nome, lista->elemento[lista->tamanho - 1].nome,
+        strncpy(lista->elemento[indice].nome, lista->elemento[lista->tamanho - 1].nome,
                 sizeof(lista->elemento[lista->tamanho -1].nome) - 1);
 
-        strncpy(lista->elemento[lista->tamanho].email, lista->elemento[lista->tamanho - 1].email,
+        strncpy(lista->elemento[indice].email, lista->elemento[lista->tamanho - 1].email,
                 sizeof(lista->elemento[lista->tamanho -1].email) - 1);
 
         lista->tamanho--;
