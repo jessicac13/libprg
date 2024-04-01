@@ -127,34 +127,34 @@ void removerListaContados(lista_t *lista, int alvo)
     }
 }
 
-int buscaListaContatos(lista_t *lista, char alvo[100])
-{
-    if (lista->ordenada == false)
-    {
-        for(int i=0; i<=lista->tamanho; i++)
-        {
-            if(alvo == lista->elemento[i].nome)
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-//    if (lista->ordenada == true)
+//int buscaListaContatos(lista_t *lista, char alvo[100])
+//{
+//    if (lista->ordenada == false)
 //    {
-//        int i = 0;
-//        while (lista->elemento[i]< alvo)
+//        for(int i=0; i<=lista->tamanho; i++)
 //        {
-//            i = i+1;
+//            if(alvo == lista->elemento[i].nome)
+//            {
+//                return i;
+//            }
 //        }
-//        if(i == lista->tamanho || lista->elemento[i] != alvo)
-//        {
-//            return -1;
-//        }
-//        return i;
+//        return -1;
 //    }
-}
+//
+////    if (lista->ordenada == true)
+////    {
+////        int i = 0;
+////        while (lista->elemento[i]< alvo)
+////        {
+////            i = i+1;
+////        }
+////        if(i == lista->tamanho || lista->elemento[i] != alvo)
+////        {
+////            return -1;
+////        }
+////        return i;
+////    }
+//}
 //
 //
 //int busca_bin_i(lista_t *lista, int alvo)
@@ -202,14 +202,14 @@ int buscaListaContatos(lista_t *lista, char alvo[100])
 //    return -1;
 //}
 //
-void imprimir_indice_busca_contatos(int teste)
-{
-    if (teste > -1)
-    {
-        printf("\nIndice do elemento de busca: %d\n", teste);
-    }
-    else
-    {
-        printf("\nElemento não se encontra na lista\n");
-    }
-}
+//void imprimir_indice_busca_contatos(int teste)
+//{
+//    if (teste > -1)
+//    {
+//        printf("\nIndice do elemento de busca: %d\n", teste);
+//    }
+//    else
+//    {
+//        printf("\nElemento não se encontra na lista\n");
+//    }
+//}
