@@ -191,7 +191,7 @@ int buscaListaContatos(lista_t *lista, char alvo[100])
 //    return -1;
 //}
 //
-void imprimir_indice_busca(int teste)
+void imprimir_indice_busca_contatos(int teste)
 {
     if (teste > -1)
     {
