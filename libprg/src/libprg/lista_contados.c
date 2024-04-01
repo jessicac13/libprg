@@ -95,7 +95,7 @@ void imprimirListaContatos(lista_t *lista)
 //
 void removerListaContados(lista_t *lista, char alvo[100])
 {
-    int indice = buscaLista(lista, alvo);
+    int indice = buscaListaContatos(lista, alvo);
     if (indice < 0 || indice >= lista->tamanho)
     {
         printf("\nÍndice fora dos limites da lista\n");
