@@ -130,6 +130,7 @@ int buscaListaContatos(lista_t *lista, char alvo[100])
         }
         return -1;
     }
+
 //    if (lista->ordenada == true)
 //    {
 //        int i = 0;
