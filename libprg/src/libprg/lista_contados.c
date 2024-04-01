@@ -131,7 +131,7 @@ int buscaListaContatos(lista_t *lista, char alvo[100])
     {
         for(int i=0; i<=lista->tamanho; i++)
         {
-            if(strcmp(alvo, lista->elemento[i].nome))
+            if(strcmp(alvo, lista->elemento[i].nome) == 0)
             {
                 return i;
             }
