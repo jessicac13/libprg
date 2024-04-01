@@ -113,7 +113,16 @@ void removerListaContados(lista_t *lista, int alvo)
 //    }
     if(lista->ordenada == false)
     {
-        lista->elemento[indice] = lista->elemento[lista->tamanho - 1];
+
+        strncpy(lista->elemento[lista->tamanho].telefone, lista->elemento[lista->tamanho - 1].telefone,
+                sizeof(lista->elemento[lista->tamanho -1].telefone) - 1);
+
+        strncpy(lista->elemento[lista->tamanho].nome, lista->elemento[lista->tamanho - 1].nome,
+                sizeof(lista->elemento[lista->tamanho -1].nome) - 1);
+
+        strncpy(lista->elemento[lista->tamanho].email, lista->elemento[lista->tamanho - 1].email,
+                sizeof(lista->elemento[lista->tamanho -1].email) - 1);
+
         lista->tamanho--;
     }
 }
