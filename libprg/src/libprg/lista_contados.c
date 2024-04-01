@@ -115,14 +115,11 @@ void removerListaContados(lista_t *lista, int alvo)
     if(lista->ordenada == false)
     {
 
-        strncpy(lista->elemento[indice].telefone, lista->elemento[lista->tamanho - 1].telefone,
-                sizeof(lista->elemento[lista->tamanho -1].telefone));
+        strcpy(lista->elemento[indice].telefone, lista->elemento[lista->tamanho - 1].telefone);
 
-        strncpy(lista->elemento[indice].nome, lista->elemento[lista->tamanho - 1].nome,
-                sizeof(lista->elemento[lista->tamanho -1].nome));
+        strcpy(lista->elemento[indice].nome, lista->elemento[lista->tamanho - 1].nome);
 
-        strncpy(lista->elemento[indice].email, lista->elemento[lista->tamanho - 1].email,
-                sizeof(lista->elemento[lista->tamanho -1].email));
+        strcpy(lista->elemento[indice].email, lista->elemento[lista->tamanho - 1].email);
 
         lista->tamanho--;
     }
