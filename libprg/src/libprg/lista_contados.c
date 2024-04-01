@@ -93,7 +93,7 @@ void imprimirListaContatos(lista_t *lista)
     }
 }
 //
-void removerLista(lista_t *lista, int alvo)
+void removerListaContados(lista_t *lista, int alvo)
 {
     int indice = buscaLista(lista, alvo);
     if (indice < 0 || indice >= lista->tamanho)
@@ -117,7 +117,7 @@ void removerLista(lista_t *lista, int alvo)
     }
 }
 
-int buscaLista(lista_t *lista, int alvo)
+int buscaListaContatos(lista_t *lista, int alvo)
 {
     if (lista->ordenada == false)
     {
