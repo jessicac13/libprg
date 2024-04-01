@@ -93,29 +93,29 @@ void imprimirListaContatos(lista_t *lista)
     }
 }
 //
-void removerListaContados(lista_t *lista, char alvo[100])
-{
-    int indice = buscaListaContatos(lista, alvo);
-    if (indice < 0 || indice >= lista->tamanho)
-    {
-        printf("\nÍndice fora dos limites da lista\n");
-        return;
-    }
-
-//    if(lista->ordenada == true)
+//void removerListaContados(lista_t *lista, char alvo[100])
+//{
+//    int indice = buscaListaContatos(lista, alvo);
+//    if (indice < 0 || indice >= lista->tamanho)
 //    {
-//        for (int i = indice; i < lista->tamanho - 1; i++)
-//        {
-//            lista->elemento[i] = lista->elemento[i + 1];
-//        }
+//        printf("\nÍndice fora dos limites da lista\n");
+//        return;
+//    }
+//
+////    if(lista->ordenada == true)
+////    {
+////        for (int i = indice; i < lista->tamanho - 1; i++)
+////        {
+////            lista->elemento[i] = lista->elemento[i + 1];
+////        }
+////        lista->tamanho--;
+////    }
+//    if(lista->ordenada == false)
+//    {
+//        lista->elemento[indice] = lista->elemento[lista->tamanho - 1];
 //        lista->tamanho--;
 //    }
-    if(lista->ordenada == false)
-    {
-        lista->elemento[indice] = lista->elemento[lista->tamanho - 1];
-        lista->tamanho--;
-    }
-}
+//}
 
 int buscaListaContatos(lista_t *lista, char alvo[100])
 {
@@ -191,14 +191,14 @@ int buscaListaContatos(lista_t *lista, char alvo[100])
 //    return -1;
 //}
 //
-//void imprimir_indice_busca(int teste)
-//{
-//    if (teste > -1)
-//    {
-//        printf("\nIndice do elemento de busca: %d\n", teste);
-//    }
-//    else
-//    {
-//        printf("\nElemento não se encontra na lista\n");
-//    }
-//
+void imprimir_indice_busca(int teste)
+{
+    if (teste > -1)
+    {
+        printf("\nIndice do elemento de busca: %d\n", teste);
+    }
+    else
+    {
+        printf("\nElemento não se encontra na lista\n");
+    }
+}
