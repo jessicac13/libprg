@@ -64,7 +64,8 @@ void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char
 //        lista->elemento[posicao] = elemento;
 //        lista->tamanho++;
 //    }
-    if (lista->ordenada == false) {
+    if (lista->ordenada == false)
+    {
         strncpy(lista->elemento[lista->tamanho].nome, nome, sizeof(lista->elemento[lista->tamanho].nome) - 1);
         lista->elemento[lista->tamanho].nome[sizeof(lista->elemento[lista->tamanho].nome) - 1] = '\0';
 
@@ -115,13 +116,13 @@ void removerListaContados(lista_t *lista, int alvo)
     {
 
         strncpy(lista->elemento[indice].telefone, lista->elemento[lista->tamanho - 1].telefone,
-                sizeof(lista->elemento[lista->tamanho -1].telefone) - 1);
+                sizeof(lista->elemento[lista->tamanho -1].telefone));
 
         strncpy(lista->elemento[indice].nome, lista->elemento[lista->tamanho - 1].nome,
-                sizeof(lista->elemento[lista->tamanho -1].nome) - 1);
+                sizeof(lista->elemento[lista->tamanho -1].nome));
 
         strncpy(lista->elemento[indice].email, lista->elemento[lista->tamanho - 1].email,
-                sizeof(lista->elemento[lista->tamanho -1].email) - 1);
+                sizeof(lista->elemento[lista->tamanho -1].email));
 
         lista->tamanho--;
     }
