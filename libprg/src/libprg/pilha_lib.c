@@ -51,7 +51,7 @@ void empilhar(pilha_t *pilha, int elemento)
 int desempilhar(pilha_t *pilha)
 {
     pilha->tamanho--;
-    return pilha->elemento[pilha->fim--];
+    return pilha->elemento[pilha->fim];
 
 }
 
