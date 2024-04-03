@@ -52,6 +52,7 @@ int desempilhar(pilha_t *pilha)
 {
     int topo = pilha->elemento[(pilha->tamanho) - 1];
     pilha->tamanho = (pilha->tamanho)- 1;
+    pilha->fim = (pilha->fim) -1;
     return topo;
 
 }
