@@ -48,7 +48,7 @@ void empilhar(pilha_t *pilha, int elemento)
     }
 }
 
-int removerPilha(pilha_t *pilha)
+int desempilhar(pilha_t *pilha)
 {
     pilha->tamanho--;
     return pilha->elemento[pilha->fim--];

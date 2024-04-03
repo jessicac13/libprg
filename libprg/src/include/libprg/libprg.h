@@ -49,7 +49,7 @@ typedef struct pilha_t pilha_t;
 
 pilha_t * criarPilha(int capacidade);
 void empilhar(pilha_t *pilha, int elemento);
-int removerPilha(pilha_t *pilha);
+int desempilhar(pilha_t *pilha);
 void imprimirPilha(pilha_t *pilha);
 bool isEmptyPilha(pilha_t *pilha);
 int getSizePilha(pilha_t *pilha);
