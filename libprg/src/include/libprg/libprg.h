@@ -27,23 +27,31 @@ void imprimir_indice_busca(int teste);
 
 typedef struct fila_t fila_t;
 
-fila_t* criarFila(int capacidade);
+fila_t * criarFila(int capacidade);
 void enqueue(fila_t *fila, int elemento);
-void imprimirFila(fila_t  *fila);
-int dequeue(fila_t  *fila);
-int getHead(fila_t  *fila);
-int getTail(fila_t  *fila);
-int getSize(fila_t  *fila);
-bool isEmpty(fila_t  *fila);
-bool isFull(fila_t  *fila);
+void imprimirFila(fila_t *fila);
+int dequeue(fila_t *fila);
+int getHead(fila_t *fila);
+int getTail(fila_t *fila);
+int getSize(fila_t *fila);
+bool isEmpty(fila_t *fila);
+bool isFull(fila_t *fila);
 
 lista_t* criarListaContatos(bool ordenada);
 void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char email[100]);
 void imprimirListaContatos(lista_t *lista);
 void removerListaContatos(lista_t *lista, int alvo);
 int buscaListaContatos(lista_t *lista, char alvo[100]);
-
 void imprimir_indice_busca_contatos(int teste);
+
+
+typedef struct pilha_t pilha_t;
+
+pilha_t * criarPilha(int capacidade);
+int removerPilha(pilha_t *pilha);
+void imprimirPilha(pilha_t *pilha);
+bool isEmptyPilha(pilha_t *pilha);
+int getSizePilha(pilha_t *pilha);
 
 #endif /* LIBPRG_H */
 
