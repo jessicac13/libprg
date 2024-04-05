@@ -93,8 +93,8 @@ void imprimirListaContatos(lista_t *lista)
         printf("\n");
     }
 }
-//
-void removerListaContados(lista_t *lista, char alvo[100])
+
+void removerListaContatos(lista_t *lista, char alvo[100])
 {
     int indice = buscaListaContatos(lista, alvo);
 
