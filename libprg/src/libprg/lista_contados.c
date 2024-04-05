@@ -198,16 +198,19 @@ void editarContatoTel(lista_t *lista, char alvo[100], char telefone[9])
 {
     int indice = buscaListaContatos(lista,alvo);
     strcpy(lista->elemento[indice].telefone, telefone);
+    lista->elemento[indice].telefone[sizeof(lista->elemento[indice].telefone) - 1] = '\0';
 }
 
 void editarContatoEmail(lista_t *lista, char alvo[100], char email[9])
 {
     int indice = buscaListaContatos(lista,alvo);
     strcpy(lista->elemento[indice].email, email);
+    lista->elemento[indice].email[sizeof(lista->elemento[indice].email) - 1] = '\0';
 }
 
 void editarContatoNome(lista_t *lista, char alvo[100], char nome[100])
 {
     int indice = buscaListaContatos(lista,alvo);
     strcpy(lista->elemento[indice].nome, nome);
+    lista->elemento[indice].nome[sizeof(lista->elemento[indice].nome) - 1] = '\0';
 }
