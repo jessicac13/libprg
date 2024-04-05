@@ -188,5 +188,9 @@ void buscarContatos(lista_t *lista, char alvo[100])
             encontrados++;
         }
     }
+    if (encontrados == 0)
+    {
+        printf("Nenhum contato encontrado para '%s'\n", alvo);
+    }
 }
 
