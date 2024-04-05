@@ -150,19 +150,19 @@ int buscaListaContatos(lista_t *lista, char alvo[100])
         return -1;
     }
 
-////    if (lista->ordenada == true)
-////    {
-////        int i = 0;
-////        while (lista->elemento[i]< alvo)
-////        {
-////            i = i+1;
-////        }
-////        if(i == lista->tamanho || lista->elemento[i] != alvo)
-////        {
-////            return -1;
-////        }
-////        return i;
-////    }
+    if (lista->ordenada == true)
+    {
+        int i = 0;
+        while (strcmp(lista->elemento[i].nome,alvo) < 0)
+        {
+            i = i+1;
+        }
+        if(i == lista->tamanho || strcmp(lista->elemento[i].nome, alvo) != 0)
+        {
+            return -1;
+        }
+        return i;
+    }
 }
 
 void imprimir_indice_busca_contatos(int teste)
