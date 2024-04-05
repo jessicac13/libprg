@@ -11,14 +11,13 @@ struct contatos {
 };
 
 struct lista_t {
-    char nome[100];
     struct contatos *elemento;
     int tamanho;
     int capacidade;
     bool ordenada;
 };
 
-lista_t* criarListaContatos(char nome_lista[100], bool ordenada)
+lista_t* criarListaContatos(bool ordenada)
 {
     lista_t *lista = (lista_t*)malloc(sizeof(lista_t));
     if (lista == NULL)
@@ -26,7 +25,7 @@ lista_t* criarListaContatos(char nome_lista[100], bool ordenada)
         printf("Erro de alocação de memória\n");
         exit(1);
     }
-    strcpy(lista->nome,nome_lista);
+
     lista->tamanho = 0;
     lista->capacidade = 10;
     lista->ordenada = ordenada;
