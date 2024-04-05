@@ -6,7 +6,7 @@
 
 struct contatos {
     char nome[100];
-    char telefone[9];
+    char telefone[11];
     char email[100];
 };
 
@@ -39,7 +39,7 @@ lista_t* criarListaContatos(bool ordenada)
     return lista;
 }
 
-void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char email[100]) {
+void inserirListaContatos(lista_t *lista, char nome[100], char telefone[11], char email[100]) {
     if (lista->tamanho >= lista->capacidade) {
         lista->capacidade *= 2;
         lista->elemento = (struct contatos*)malloc(lista->capacidade * sizeof(struct contatos));
@@ -194,14 +194,14 @@ void buscarContatos(lista_t *lista, char alvo[100])
     }
 }
 
-void editarContatoTel(lista_t *lista, char alvo[100], char telefone[9])
+void editarContatoTel(lista_t *lista, char alvo[100], char telefone[11])
 {
     int indice = buscaListaContatos(lista,alvo);
     strcpy(lista->elemento[indice].telefone, telefone);
     lista->elemento[indice].telefone[sizeof(lista->elemento[indice].telefone) - 1] = '\0';
 }
 
-void editarContatoEmail(lista_t *lista, char alvo[100], char email[9])
+void editarContatoEmail(lista_t *lista, char alvo[100], char email[100])
 {
     int indice = buscaListaContatos(lista,alvo);
     strcpy(lista->elemento[indice].email, email);
