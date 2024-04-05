@@ -184,7 +184,7 @@ void buscarContatos(lista_t *lista, char alvo[100])
     {
         if (strstr(lista->elemento[i].nome, alvo) != NULL)
         {
-            printf("\nNome: %s, Telefone: %s\n", lista->elemento[i].nome, lista->elemento[i].telefone);
+            printf("\nNome: %s, Telefone: %s\n", lista->elemento[i].nome, lista->elemento[i].telefone, lista->elemento[i].email);
             encontrados++;
         }
     }
