@@ -113,14 +113,16 @@ void removerListaContatos(lista_t *lista, char alvo[100])
         return;
     }
 
-//    if(lista->ordenada == true)
-//    {
-//        for (int i = indice; i < lista->tamanho - 1; i++)
-//        {
-//            lista->elemento[i] = lista->elemento[i + 1];
-//        }
-//        lista->tamanho--;
-//    }
+    if(lista->ordenada == true)
+    {
+        for (int i = indice; i < lista->tamanho - 1; i++)
+        {
+            strcpy(lista->elemento[i].nome, lista->elemento[i + 1].nome);
+            strcpy(lista->elemento[i].telefone, lista->elemento[i + 1].telefone);
+            strcpy(lista->elemento[i].email, lista->elemento[i + 1].email);
+        }
+        lista->tamanho--;
+    }
     if(lista->ordenada == false)
     {
 
