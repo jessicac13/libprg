@@ -37,7 +37,7 @@ int getSize(fila_t *fila);
 bool isEmpty(fila_t *fila);
 bool isFull(fila_t *fila);
 
-lista_t* criarListaContatos(bool ordenada);
+lista_t* criarListaContatos(char nome_lista[100], bool ordenada);
 void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char email[100]);
 void imprimirListaContatos(lista_t *lista);
 void removerListaContatos(lista_t *lista, char alvo[100]);
