@@ -48,22 +48,31 @@ void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char
             exit(1);
         }
     }
-//    if(lista->ordenada == true)
-//    {
-//        int posicao = 0;
-//        while (posicao < lista->tamanho && lista->elemento[posicao] < elemento)
-//        {
-//            posicao++;
-//        }
-//
-//        for (int i = lista->tamanho; i > posicao; i--)
-//        {
-//            lista->elemento[i] = lista->elemento[i - 1];
-//        }
-//
-//        lista->elemento[posicao] = elemento;
-//        lista->tamanho++;
-//    }
+    if(lista->ordenada == true)
+    {
+        int posicao = 0;
+        while (posicao < lista->tamanho && strcmp(lista->elemento[posicao].nome, nome) < 0)
+        {
+            posicao++;
+        }
+
+        for (int i = lista->tamanho; i > posicao; i--)
+        {
+            strcpy(lista->elemento[i].nome, lista->elemento[i - 1].nome);
+            strcpy(lista->elemento[i].telefone, lista->elemento[i - 1].telefone);
+            strcpy(lista->elemento[i].email, lista->elemento[i - 1].email);
+        }
+
+        strcpy(lista->elemento[posicao].nome, nome);
+        lista->elemento[posicao].nome[sizeof(lista->elemento[posicao].nome) - 1] = '\0';
+
+        strcpy(lista->elemento[posicao].telefone, telefone);
+        lista->elemento[posicao].telefone[sizeof(lista->elemento[posicao].telefone) - 1] = '\0';
+
+        strcpy(lista->elemento[posicao].email, email);
+
+        lista->tamanho++;
+    }
     if (lista->ordenada == false)
     {
         strncpy(lista->elemento[lista->tamanho].nome, nome, sizeof(lista->elemento[lista->tamanho].nome) - 1);
@@ -153,53 +162,7 @@ int buscaListaContatos(lista_t *lista, char alvo[100])
 ////        return i;
 ////    }
 }
-//
-//
-//int busca_bin_i(lista_t *lista, int alvo)
-//{
-//    int meio;
-//    int inicio = 1;
-//    int fim = lista->tamanho;
-//    while (inicio <= fim)
-//    {
-//        meio = inicio + ((fim - inicio)/2);
-//        if(lista->elemento[meio] == alvo)
-//        {
-//            return meio;
-//        }
-//        else if(lista->elemento[meio] < alvo)
-//        {
-//            inicio = meio + 1;
-//        }
-//        else   fim = meio -1;
-//    }
-//    return -1;
-//}
-//
-//int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo)
-//{
-//    int meio;
-//    if (inicio <= fim)
-//    {
-//        meio = inicio + ((fim - inicio) / 2);
-//        if (lista->elemento[meio] == alvo)
-//        {
-//
-//            return meio;
-//        }
-//        if (lista->elemento[meio] > alvo)
-//        {
-//            return busca_bin_r(lista, inicio, meio - 1, alvo);
-//        }
-//        else
-//        {
-//            return busca_bin_r(lista, meio + 1, fim, alvo);
-//        }
-//
-//    }
-//    return -1;
-//}
-//
+
 void imprimir_indice_busca_contatos(int teste)
 {
     if (teste > -1)
