@@ -40,7 +40,7 @@ bool isFull(fila_t *fila);
 lista_t* criarListaContatos(bool ordenada);
 void inserirListaContatos(lista_t *lista, char nome[100], char telefone[9], char email[100]);
 void imprimirListaContatos(lista_t *lista);
-void removerListaContatos(lista_t *lista, char alvo);
+void removerListaContatos(lista_t *lista, char alvo[100]);
 int buscaListaContatos(lista_t *lista, char alvo[100]);
 void imprimir_indice_busca_contatos(int teste);
 

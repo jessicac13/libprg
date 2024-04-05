@@ -94,7 +94,7 @@ void imprimirListaContatos(lista_t *lista)
     }
 }
 //
-void removerListaContados(lista_t *lista, char alvo)
+void removerListaContados(lista_t *lista, char alvo[100])
 {
     int indice = buscaListaContatos(lista, alvo);
 
