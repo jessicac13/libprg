@@ -194,3 +194,20 @@ void buscarContatos(lista_t *lista, char alvo[100])
     }
 }
 
+void editarContatoTel(lista_t *lista, char alvo[100], char telefone[9])
+{
+    int indice = buscaListaContatos(lista,alvo);
+    strcpy(lista->elemento[indice].telefone, telefone);
+}
+
+void editarContatoEmail(lista_t *lista, char alvo[100], char email[9])
+{
+    int indice = buscaListaContatos(lista,alvo);
+    strcpy(lista->elemento[indice].email, email);
+}
+
+void editarContatoNome(lista_t *lista, char alvo[100], char nome[100])
+{
+    int indice = buscaListaContatos(lista,alvo);
+    strcpy(lista->elemento[indice].nome, nome);
+}
