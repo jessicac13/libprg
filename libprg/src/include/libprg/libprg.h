@@ -43,7 +43,7 @@ void imprimirListaContatos(lista_t *lista);
 void removerListaContatos(lista_t *lista, char alvo[100]);
 int buscaListaContatos(lista_t *lista, char alvo[100]);
 void imprimir_indice_busca_contatos(int teste);
-
+void buscarContatos(lista_t *lista, char alvo[100]);
 
 typedef struct pilha_t pilha_t;
 

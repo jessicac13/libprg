@@ -176,3 +176,17 @@ void imprimir_indice_busca_contatos(int teste)
         printf("\nElemento não se encontra na lista\n");
     }
 }
+
+void buscarContatos(lista_t *lista, char alvo[100])
+{
+    int encontrados = 0;
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        if (strstr(lista->elemento[i].nome, alvo) != NULL)
+        {
+            printf("\nNome: %s, Telefone: %s\n", lista->elemento[i].nome, lista->elemento[i].telefone);
+            encontrados++;
+        }
+    }
+}
+
