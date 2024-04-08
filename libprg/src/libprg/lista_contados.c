@@ -208,9 +208,9 @@ void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME])
 }
 
 
-int salvarArquivo(struct lista_t *lista)
+int salvarArquivo(struct lista_t *lista, char diretorio[1000])
 {
-    FILE *arquivo = fopen("dados.bin", "wb");
+    FILE *arquivo = fopen(diretorio, "wb");
 
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo");
@@ -226,7 +226,7 @@ int salvarArquivo(struct lista_t *lista)
     return 0;
 }
 
-lista_t* recarregarListaContatos(char nome_arq[MAX_NOME])
+lista_t* recarregarListaContatos(char nome_arq[MAX_NOME], char ordenada)
 {
     FILE *arquivo = fopen(nome_arq, "rb");
     if (arquivo == NULL)
@@ -238,7 +238,7 @@ lista_t* recarregarListaContatos(char nome_arq[MAX_NOME])
         int tamanho_lista;
         fread(&tamanho_lista, sizeof(int), 1, arquivo);
 
-        lista_t *contatos = criarListaContatos(false);
+        lista_t *contatos = criarListaContatos(ordenada);
         contatos->tamanho = tamanho_lista;
 
         fread(contatos->elemento, sizeof(struct contatos), tamanho_lista, arquivo);
