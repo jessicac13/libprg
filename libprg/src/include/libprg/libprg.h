@@ -19,7 +19,6 @@ typedef struct lista_t lista_t;
 lista_t* criarLista(bool ordenada);
 void inserirLista(lista_t *lista, int elemento);
 void removerLista(lista_t *lista, int alvo);
-void imprimirLista(lista_t *lista);
 int buscaLista(lista_t *lista, int alvo);
 int busca_bin_i(lista_t *lista, int alvo);
 int busca_bin_r(lista_t *lista, int inicio, int fim, int alvo);
@@ -50,8 +49,7 @@ void buscarContatos(lista_t *lista, char alvo[MAX_NOME]);
 void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAIL]);
 void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME]);
 void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TELEFONE]);
-int salvarArquivo(struct lista_t *lista, char diretorio[1000]);
-void recarregarListaContatos(lista_t *lista, const char *nome_arquivo);
+
 
 
 typedef struct pilha_t pilha_t;
