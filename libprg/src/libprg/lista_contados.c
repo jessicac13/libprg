@@ -232,18 +232,20 @@ lista_t* recarregarListaContatos(char nome_arq[MAX_NOME])
     if (arquivo == NULL)
     {
         perror("Erro ao abrir o arquivo");
-        exit(1);
     }
 
-    int tamanho_lista;
-    fread(&tamanho_lista, sizeof(int), 1, arquivo);
+    else
+    {
+        int tamanho_lista;
+        fread(&tamanho_lista, sizeof(int), 1, arquivo);
 
-    lista_t *contatos = criarListaContatos(false);
-    contatos->tamanho = tamanho_lista;
+        lista_t *contatos = criarListaContatos(false);
+        contatos->tamanho = tamanho_lista;
 
-    fread(contatos->elemento, sizeof(struct contatos), tamanho_lista, arquivo);
+        fread(contatos->elemento, sizeof(struct contatos), tamanho_lista, arquivo);
 
-    fclose(arquivo);
+        fclose(arquivo);
+    }
 
     return contatos;
 }
