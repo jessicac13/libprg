@@ -226,9 +226,9 @@ int salvarArquivo(struct lista_t *lista, char diretorio[1000])
     return 0;
 }
 
-void recarregarListaContatos(lista_t *lista, const char *nome_arquivo)
+void recarregarListaContatos(lista_t *lista)
 {
-    FILE *arquivo = fopen(nome_arquivo, "rb");
+    FILE *arquivo = fopen("dados.bin", "rb");
     if (arquivo == NULL)
     {
         perror("Erro ao abrir o arquivo");
