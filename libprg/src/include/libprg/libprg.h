@@ -42,7 +42,6 @@ bool isFull(fila_t *fila);
 
 lista_t* criarListaContatos(bool ordenada);
 void inserirListaContatos(lista_t *lista, char nome[MAX_NOME], char telefone[MAX_TELEFONE], char email[MAX_EMAIL]);
-void imprimirListaContatos(lista_t *lista);
 void removerListaContatos(lista_t *lista, char alvo[MAX_NOME]);
 int buscaListaContatos(lista_t *lista, char alvo[MAX_NOME]);
 void buscarContatos(lista_t *lista, char alvo[MAX_NOME]);
