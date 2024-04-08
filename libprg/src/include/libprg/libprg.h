@@ -47,6 +47,7 @@ void buscarContatos(lista_t *lista, char alvo[100]);
 void editarContatoEmail(lista_t *lista, char alvo[100], char email[11]);
 void editarContatoNome(lista_t *lista, char alvo[100], char nome[100]);
 void editarContatoTel(lista_t *lista, char alvo[100], char telefone[11]);
+int salvarArquivo(struct lista_t *lista);
 
 typedef struct pilha_t pilha_t;
 

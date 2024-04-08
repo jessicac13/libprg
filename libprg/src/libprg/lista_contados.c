@@ -214,3 +214,24 @@ void editarContatoNome(lista_t *lista, char alvo[100], char nome[100])
     strcpy(lista->elemento[indice].nome, nome);
     lista->elemento[indice].nome[sizeof(lista->elemento[indice].nome) - 1] = '\0';
 }
+
+
+int salvarArquivo(struct lista_t *lista)
+{
+    FILE *arquivo = fopen("dados.bin", "wb");
+
+    if (arquivo == NULL) {
+        perror("Erro ao abrir o arquivo");
+        return 1;
+    }
+
+    fwrite(&(lista->tamanho), sizeof(int), 1, arquivo);
+
+   fwrite(lista->elemento, sizeof(struct contatos), lista->tamanho, arquivo);
+
+    fclose(arquivo);
+
+    printf("Dados gravados com sucesso no arquivo 'dados.bin'\n");
+
+    return 0;
+}
