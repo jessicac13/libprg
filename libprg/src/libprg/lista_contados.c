@@ -197,7 +197,7 @@ void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TEL
     else
     {
         strcpy(lista->elemento[indice].telefone, telefone);
-        lista->elemento[indice].telefone[MAX_TELEFONE - 1] = '\0';
+        //lista->elemento[indice].telefone[MAX_TELEFONE - 1] = '\0';
         printf("\nTelefone alterado!\n");
     }
 }
