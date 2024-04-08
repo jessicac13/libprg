@@ -159,7 +159,7 @@ int buscaListaContatos(lista_t *lista, char alvo[MAX_NOME])
         int i = 0;
         while (strcmp(lista->elemento[i].nome,alvo) < 0)
         {
-            i = i+1;
+            i = i++;
         }
         if(i == lista->tamanho || strcmp(lista->elemento[i].nome, alvo) != 0)
         {
