@@ -232,21 +232,47 @@ void recarregarListaContatos(lista_t *lista, const char *nome_arquivo)
     if (arquivo == NULL)
     {
         perror("Erro ao abrir o arquivo");
+        return; // Encerra a função se não for possível abrir o arquivo
     }
 
-    else
-    {
-        while (!feof(arquivo)) {
-            char nome[100], telefone[15], email[100];
+    while (true) {
+        char nome[MAX_NOME], telefone[MAX_TELEFONE], email[MAX_EMAIL];
 
-            if (fscanf(arquivo, "%s %s %s", nome, telefone, email) == 3)
-            {
-
-                inserirListaContatos(lista, nome, telefone, email);
+        // Lê um contato do arquivo
+        size_t result = fread(nome, sizeof(char), MAX_NOME, arquivo);
+        if (result == 0) {
+            if (feof(arquivo)) {
+                // Fim do arquivo alcançado
+                break;
+            } else {
+                // Erro de leitura
+                perror("Erro ao ler do arquivo");
+                fclose(arquivo);
+                return;
             }
         }
+        // Termina a string lida
+        nome[result - 1] = '\0';
 
-        fclose(arquivo); // Fecha o arquivo
+        result = fread(telefone, sizeof(char), MAX_TELEFONE, arquivo);
+        if (result == 0) {
+            perror("Erro ao ler do arquivo");
+            fclose(arquivo);
+            return;
+        }
+        telefone[result - 1] = '\0';
+
+        result = fread(email, sizeof(char), MAX_EMAIL, arquivo);
+        if (result == 0) {
+            perror("Erro ao ler do arquivo");
+            fclose(arquivo);
+            return;
+        }
+        email[result - 1] = '\0';
+
+        // Insere o contato na lista
+        inserirListaContatos(lista, nome, telefone, email);
     }
 
+    fclose(arquivo); // Fecha o arquivo
 }
