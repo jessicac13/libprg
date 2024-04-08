@@ -226,9 +226,9 @@ int salvarArquivo(struct lista_t *lista)
     return 0;
 }
 
-lista_t* recarregarListaContatos()
+lista_t* recarregarListaContatos(char nome_arq[MAX_NOME])
 {
-    FILE *arquivo = fopen("dados.bin", "rb");
+    FILE *arquivo = fopen(nome_arq, "rb");
     if (arquivo == NULL)
     {
         perror("Erro ao abrir o arquivo");
