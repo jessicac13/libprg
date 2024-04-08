@@ -226,25 +226,27 @@ int salvarArquivo(struct lista_t *lista, char diretorio[1000])
     return 0;
 }
 
-void recarregarListaContatos(lista_t *contatos, const char *nome_arquivo)
+void recarregarListaContatos(lista_t *lista, const char *nome_arquivo)
 {
     FILE *arquivo = fopen(nome_arquivo, "rb");
     if (arquivo == NULL)
     {
         perror("Erro ao abrir o arquivo");
-        exit(1);
     }
 
+    else
+    {
+        while (!feof(arquivo)) {
+            char nome[100], telefone[15], email[100];
 
-    while (!feof(arquivo)) {
-        char nome[100], telefone[15], email[100];
+            if (fscanf(arquivo, "%s %s %s", nome, telefone, email) == 3)
+            {
 
-        if (fscanf(arquivo, "%s %s %s", nome, telefone, email) == 3)
-        {
-
-            inserirListaContatos(contatos, nome, telefone, email);
+                inserirListaContatos(lista, nome, telefone, email);
+            }
         }
+
+        fclose(arquivo); // Fecha o arquivo
     }
 
-    fclose(arquivo); // Fecha o arquivo
 }
