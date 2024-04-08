@@ -191,6 +191,10 @@ void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TEL
     int indice = buscaListaContatos(lista,alvo);
     strcpy(lista->elemento[indice].telefone, telefone);
     lista->elemento[indice].telefone[MAX_TELEFONE - 1] = '\0';
+    if( indice == -1)
+    {
+        printf("Nenhum contato encontrado para '%s'\n", alvo);
+    }
 }
 
 void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAIL])
@@ -198,6 +202,10 @@ void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAI
     int indice = buscaListaContatos(lista,alvo);
     strcpy(lista->elemento[indice].email, email);
     lista->elemento[indice].email[MAX_EMAIL - 1] = '\0';
+    if( indice == -1)
+    {
+        printf("Nenhum contato encontrado para '%s'\n", alvo);
+    }
 }
 
 void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME])
@@ -205,6 +213,10 @@ void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME])
     int indice = buscaListaContatos(lista,alvo);
     strcpy(lista->elemento[indice].nome, nome);
     lista->elemento[indice].nome[MAX_NOME - 1] = '\0';
+    if( indice == -1)
+    {
+        printf("Nenhum contato encontrado para '%s'\n", alvo);
+    }
 }
 
 
