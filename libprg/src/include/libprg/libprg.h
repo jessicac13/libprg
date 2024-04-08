@@ -37,17 +37,20 @@ int getSize(fila_t *fila);
 bool isEmpty(fila_t *fila);
 bool isFull(fila_t *fila);
 
-lista_t* criarListaContatos(bool ordenada);
-void inserirListaContatos(lista_t *lista, char nome[100], char telefone[11], char email[100]);
-void imprimirListaContatos(lista_t *lista);
-void removerListaContatos(lista_t *lista, char alvo[100]);
-int buscaListaContatos(lista_t *lista, char alvo[100]);
-void buscarContatos(lista_t *lista, char alvo[100]);
-void editarContatoEmail(lista_t *lista, char alvo[100], char email[11]);
-void editarContatoNome(lista_t *lista, char alvo[100], char nome[100]);
-void editarContatoTel(lista_t *lista, char alvo[100], char telefone[11]);
-int salvarArquivo(struct lista_t *lista);
+#define MAX_NOME 100
+#define MAX_TELEFONE 15
+#define MAX_EMAIL 100
 
+lista_t* criarListaContatos(bool ordenada);
+void inserirListaContatos(lista_t *lista, char nome[MAX_NOME], char telefone[MAX_TELEFONE], char email[MAX_EMAIL]);
+void imprimirListaContatos(lista_t *lista);
+void removerListaContatos(lista_t *lista, char alvo[MAX_NOME]);
+int buscaListaContatos(lista_t *lista, char alvo[MAX_NOME]);
+void buscarContatos(lista_t *lista, char alvo[MAX_NOME]);
+void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAIL]);
+void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME]);
+void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TELEFONE]);
+int salvarArquivo(lista_t *lista);
 
 typedef struct pilha_t pilha_t;
 

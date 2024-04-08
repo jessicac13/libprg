@@ -1,13 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include<stdbool.h>
+#include <stdbool.h>
 #include <string.h>
 #include <libprg/libprg.h>
 
+#define MAX_NOME 100
+#define MAX_TELEFONE 15
+#define MAX_EMAIL 100
+#define CAPACIDADE_INICIAL 10
+
 struct contatos {
-    char nome[100];
-    char telefone[11];
-    char email[100];
+    char nome[MAX_NOME];
+    char telefone[MAX_TELEFONE];
+    char email[MAX_EMAIL];
 };
 
 struct lista_t {
@@ -27,7 +32,7 @@ lista_t* criarListaContatos(bool ordenada)
     }
 
     lista->tamanho = 0;
-    lista->capacidade = 10;
+    lista->capacidade = CAPACIDADE_INICIAL;
     lista->ordenada = ordenada;
 
     lista->elemento = (struct contatos*)malloc(lista->capacidade * sizeof(struct contatos));
@@ -39,7 +44,7 @@ lista_t* criarListaContatos(bool ordenada)
     return lista;
 }
 
-void inserirListaContatos(lista_t *lista, char nome[100], char telefone[11], char email[100]) {
+void inserirListaContatos(lista_t *lista, char nome[MAX_NOME], char telefone[MAX_TELEFONE], char email[MAX_EMAIL]) {
     if (lista->tamanho >= lista->capacidade) {
         lista->capacidade *= 2;
         lista->elemento = (struct contatos*)malloc(lista->capacidade * sizeof(struct contatos));
@@ -64,10 +69,10 @@ void inserirListaContatos(lista_t *lista, char nome[100], char telefone[11], cha
         }
 
         strcpy(lista->elemento[posicao].nome, nome);
-        lista->elemento[posicao].nome[sizeof(lista->elemento[posicao].nome) - 1] = '\0';
+        lista->elemento[posicao].nome[MAX_NOME - 1] = '\0';
 
         strcpy(lista->elemento[posicao].telefone, telefone);
-        lista->elemento[posicao].telefone[sizeof(lista->elemento[posicao].telefone) - 1] = '\0';
+        lista->elemento[posicao].telefone[MAX_TELEFONE - 1] = '\0';
 
         strcpy(lista->elemento[posicao].email, email);
 
@@ -75,15 +80,14 @@ void inserirListaContatos(lista_t *lista, char nome[100], char telefone[11], cha
     }
     if (lista->ordenada == false)
     {
-        strncpy(lista->elemento[lista->tamanho].nome, nome, sizeof(lista->elemento[lista->tamanho].nome) - 1);
-        lista->elemento[lista->tamanho].nome[sizeof(lista->elemento[lista->tamanho].nome) - 1] = '\0';
+        strncpy(lista->elemento[lista->tamanho].nome, nome, MAX_NOME - 1);
+        lista->elemento[lista->tamanho].nome[MAX_NOME - 1] = '\0';
 
-        strncpy(lista->elemento[lista->tamanho].telefone, telefone,
-                sizeof(lista->elemento[lista->tamanho].telefone) - 1);
-        lista->elemento[lista->tamanho].telefone[sizeof(lista->elemento[lista->tamanho].telefone) - 1] = '\0';
+        strncpy(lista->elemento[lista->tamanho].telefone, telefone, MAX_TELEFONE - 1);
+        lista->elemento[lista->tamanho].telefone[MAX_TELEFONE - 1] = '\0';
 
-        strncpy(lista->elemento[lista->tamanho].email, email, sizeof(lista->elemento[lista->tamanho].email) - 1);
-        lista->elemento[lista->tamanho].email[sizeof(lista->elemento[lista->tamanho].email) - 1] = '\0';
+        strncpy(lista->elemento[lista->tamanho].email, email, MAX_EMAIL - 1);
+        lista->elemento[lista->tamanho].email[MAX_EMAIL - 1] = '\0';
 
         lista->tamanho++;
     }
@@ -103,7 +107,7 @@ void imprimirListaContatos(lista_t *lista)
     }
 }
 
-void removerListaContatos(lista_t *lista, char alvo[100])
+void removerListaContatos(lista_t *lista, char alvo[MAX_NOME])
 {
     int indice = buscaListaContatos(lista, alvo);
 
@@ -136,11 +140,11 @@ void removerListaContatos(lista_t *lista, char alvo[100])
     }
 }
 
-int buscaListaContatos(lista_t *lista, char alvo[100])
+int buscaListaContatos(lista_t *lista, char alvo[MAX_NOME])
 {
     if (lista->ordenada == false)
     {
-        for(int i=0; i<=lista->tamanho; i++)
+        for(int i=0; i<lista->tamanho; i++)
         {
             if(strcmp(alvo, lista->elemento[i].nome) == 0)
             {
@@ -165,7 +169,7 @@ int buscaListaContatos(lista_t *lista, char alvo[100])
     }
 }
 
-void buscarContatos(lista_t *lista, char alvo[100])
+void buscarContatos(lista_t *lista, char alvo[MAX_NOME])
 {
     int encontrados = 0;
     for (int i = 0; i < lista->tamanho; i++)
@@ -182,25 +186,25 @@ void buscarContatos(lista_t *lista, char alvo[100])
     }
 }
 
-void editarContatoTel(lista_t *lista, char alvo[100], char telefone[11])
+void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TELEFONE])
 {
     int indice = buscaListaContatos(lista,alvo);
     strcpy(lista->elemento[indice].telefone, telefone);
-    lista->elemento[indice].telefone[sizeof(lista->elemento[indice].telefone) - 1] = '\0';
+    lista->elemento[indice].telefone[MAX_TELEFONE - 1] = '\0';
 }
 
-void editarContatoEmail(lista_t *lista, char alvo[100], char email[100])
+void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAIL])
 {
     int indice = buscaListaContatos(lista,alvo);
     strcpy(lista->elemento[indice].email, email);
-    lista->elemento[indice].email[sizeof(lista->elemento[indice].email) - 1] = '\0';
+    lista->elemento[indice].email[MAX_EMAIL - 1] = '\0';
 }
 
-void editarContatoNome(lista_t *lista, char alvo[100], char nome[100])
+void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME])
 {
     int indice = buscaListaContatos(lista,alvo);
     strcpy(lista->elemento[indice].nome, nome);
-    lista->elemento[indice].nome[sizeof(lista->elemento[indice].nome) - 1] = '\0';
+    lista->elemento[indice].nome[MAX_NOME - 1] = '\0';
 }
 
 
@@ -215,11 +219,9 @@ int salvarArquivo(struct lista_t *lista)
 
     fwrite(&(lista->tamanho), sizeof(int), 1, arquivo);
 
-   fwrite(lista->elemento, sizeof(struct contatos), lista->tamanho, arquivo);
+    fwrite(lista->elemento, sizeof(struct contatos), lista->tamanho, arquivo);
 
     fclose(arquivo);
 
     return 0;
 }
-
-
