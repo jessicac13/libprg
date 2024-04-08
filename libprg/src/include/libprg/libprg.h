@@ -42,13 +42,12 @@ void inserirListaContatos(lista_t *lista, char nome[100], char telefone[11], cha
 void imprimirListaContatos(lista_t *lista);
 void removerListaContatos(lista_t *lista, char alvo[100]);
 int buscaListaContatos(lista_t *lista, char alvo[100]);
-void imprimir_indice_busca_contatos(int teste);
 void buscarContatos(lista_t *lista, char alvo[100]);
 void editarContatoEmail(lista_t *lista, char alvo[100], char email[11]);
 void editarContatoNome(lista_t *lista, char alvo[100], char nome[100]);
 void editarContatoTel(lista_t *lista, char alvo[100], char telefone[11]);
 int salvarArquivo(struct lista_t *lista);
-void converterBinParaTexto(const char *nomeArquivoBinario, const char *nomeArquivoTexto);
+
 
 typedef struct pilha_t pilha_t;
 
