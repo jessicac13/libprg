@@ -226,9 +226,9 @@ int salvarArquivo(struct lista_t *lista, char diretorio[1000])
     return 0;
 }
 
-void recarregarListaContatos(lista_t *lista)
+void recarregarListaContatos(lista_t *lista, const char *nome_arquivo)
 {
-    FILE *arquivo = fopen("dados.bin", "rb");
+    FILE *arquivo = fopen(nome_arquivo, "rb");
     if (arquivo == NULL)
     {
         perror("Erro ao abrir o arquivo");
@@ -239,36 +239,32 @@ void recarregarListaContatos(lista_t *lista)
         char nome[MAX_NOME], telefone[MAX_TELEFONE], email[MAX_EMAIL];
 
         // Lê um contato do arquivo
-        size_t result = fread(nome, sizeof(char), MAX_NOME, arquivo);
-        if (result == 0) {
+        if (fread(nome, sizeof(char), MAX_NOME, arquivo) != MAX_NOME) {
             if (feof(arquivo)) {
                 // Fim do arquivo alcançado
                 break;
             } else {
                 // Erro de leitura
-                perror("Erro ao ler do arquivo");
+                fprintf(stderr, "Erro ao ler o nome do arquivo\n");
                 fclose(arquivo);
                 return;
             }
         }
-        // Termina a string lida
-        nome[result - 1] = '\0';
+        nome[MAX_NOME - 1] = '\0'; // Garante que o nome seja terminado corretamente
 
-        result = fread(telefone, sizeof(char), MAX_TELEFONE, arquivo);
-        if (result == 0) {
-            perror("Erro ao ler do arquivo");
+        if (fread(telefone, sizeof(char), MAX_TELEFONE, arquivo) != MAX_TELEFONE) {
+            fprintf(stderr, "Erro ao ler o telefone do arquivo\n");
             fclose(arquivo);
             return;
         }
-        telefone[result - 1] = '\0';
+        telefone[MAX_TELEFONE - 1] = '\0';
 
-        result = fread(email, sizeof(char), MAX_EMAIL, arquivo);
-        if (result == 0) {
-            perror("Erro ao ler do arquivo");
+        if (fread(email, sizeof(char), MAX_EMAIL, arquivo) != MAX_EMAIL) {
+            fprintf(stderr, "Erro ao ler o email do arquivo\n");
             fclose(arquivo);
             return;
         }
-        email[result - 1] = '\0';
+        email[MAX_EMAIL - 1] = '\0';
 
         // Insere o contato na lista
         inserirListaContatos(lista, nome, telefone, email);
