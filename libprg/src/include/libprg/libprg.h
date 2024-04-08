@@ -50,8 +50,9 @@ void buscarContatos(lista_t *lista, char alvo[MAX_NOME]);
 void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAIL]);
 void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME]);
 void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TELEFONE]);
-int salvarArquivo(lista_t *lista, char diretorio[1000]);
+int salvarArquivo(struct lista_t *lista, char diretorio[1000]);
 void recarregarListaContatos(lista_t *lista, const char *nome_arquivo);
+
 
 typedef struct pilha_t pilha_t;
 
