@@ -51,6 +51,7 @@ void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAI
 void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME]);
 void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TELEFONE]);
 int salvarArquivo(lista_t *lista);
+lista_t* recarregarListaContatos();
 
 typedef struct pilha_t pilha_t;
 

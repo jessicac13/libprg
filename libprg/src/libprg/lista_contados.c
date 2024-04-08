@@ -225,3 +225,25 @@ int salvarArquivo(struct lista_t *lista)
 
     return 0;
 }
+
+lista_t* recarregarListaContatos()
+{
+    FILE *arquivo = fopen("dados.bin", "rb");
+    if (arquivo == NULL)
+    {
+        perror("Erro ao abrir o arquivo");
+        exit(1);
+    }
+
+    int tamanho_lista;
+    fread(&tamanho_lista, sizeof(int), 1, arquivo);
+
+    lista_t *contatos = criarListaContatos(false);
+    contatos->tamanho = tamanho_lista;
+
+    fread(contatos->elemento, sizeof(struct contatos), tamanho_lista, arquivo);
+
+    fclose(arquivo);
+
+    return contatos;
+}
