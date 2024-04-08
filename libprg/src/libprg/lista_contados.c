@@ -234,8 +234,7 @@ lista_t* recarregarListaContatos(char nome_arq[MAX_NOME])
         perror("Erro ao abrir o arquivo");
     }
 
-    else
-    {
+    else {
         int tamanho_lista;
         fread(&tamanho_lista, sizeof(int), 1, arquivo);
 
@@ -245,7 +244,7 @@ lista_t* recarregarListaContatos(char nome_arq[MAX_NOME])
         fread(contatos->elemento, sizeof(struct contatos), tamanho_lista, arquivo);
 
         fclose(arquivo);
-    }
 
-    return contatos;
+        return contatos;
+    }
 }
