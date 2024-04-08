@@ -192,6 +192,7 @@ void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TEL
     if( indice == -1)
     {
         printf("\nNenhum contato encontrado para '%s'\n", alvo);
+        return;
     }
     else
     {
@@ -207,6 +208,7 @@ void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAI
     if( indice == -1)
     {
         printf("\nNenhum contato encontrado para '%s'\n", alvo);
+        return;
     }
     else
     {
@@ -222,6 +224,7 @@ void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME])
     if( indice == -1)
     {
         printf("\nNenhum contato encontrado para '%s'\n", alvo);
+        return;
     }
     else
     {
