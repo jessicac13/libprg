@@ -226,25 +226,25 @@ int salvarArquivo(struct lista_t *lista, char diretorio[1000])
     return 0;
 }
 
-lista_t* recarregarListaContatos(char nome_arq[MAX_NOME], char ordenada)
+void recarregarListaContatos(lista_t *contatos, const char *nome_arquivo)
 {
-    FILE *arquivo = fopen(nome_arq, "rb");
+    FILE *arquivo = fopen(nome_arquivo, "rb");
     if (arquivo == NULL)
     {
         perror("Erro ao abrir o arquivo");
+        exit(1);
     }
 
-    else {
-        int tamanho_lista;
-        fread(&tamanho_lista, sizeof(int), 1, arquivo);
 
-        lista_t *contatos = criarListaContatos(ordenada);
-        contatos->tamanho = tamanho_lista;
+    while (!feof(arquivo)) {
+        char nome[100], telefone[15], email[100];
 
-        fread(contatos->elemento, sizeof(struct contatos), tamanho_lista, arquivo);
+        if (fscanf(arquivo, "%s %s %s", nome, telefone, email) == 3)
+        {
 
-        fclose(arquivo);
-
-        return contatos;
+            inserirListaContatos(contatos, nome, telefone, email);
+        }
     }
+
+    fclose(arquivo); // Fecha o arquivo
 }
