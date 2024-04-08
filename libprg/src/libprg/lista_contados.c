@@ -234,19 +234,18 @@ void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME])
     }
 }
 
-
 int salvarArquivo(struct lista_t *lista, char diretorio[1000])
 {
-    FILE *arquivo = fopen(diretorio, "wb");
+    FILE *arquivo = fopen(diretorio, "w");
 
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo");
         return 1;
     }
 
-    fwrite(&(lista->tamanho), sizeof(int), 1, arquivo);
-
-    fwrite(lista->elemento, sizeof(struct contatos), lista->tamanho, arquivo);
+    for (int i = 0; i < lista->tamanho; i++) {
+        fprintf(arquivo, "%s,%s,%s\n", lista->elemento[i].nome, lista->elemento[i].telefone, lista->elemento[i].email);
+    }
 
     fclose(arquivo);
 
@@ -255,45 +254,18 @@ int salvarArquivo(struct lista_t *lista, char diretorio[1000])
 
 void recarregarListaContatos(lista_t *lista, const char *nome_arquivo)
 {
-    FILE *arquivo = fopen(nome_arquivo, "rb");
+    FILE *arquivo = fopen(nome_arquivo, "r");
     if (arquivo == NULL)
     {
         perror("Erro ao abrir o arquivo");
         return; // Encerra a função se não for possível abrir o arquivo
     }
 
-    while (true) {
+    char linha[MAX_NOME + MAX_TELEFONE + MAX_EMAIL + 3]; // Tamanho máximo de uma linha
+
+    while (fgets(linha, sizeof(linha), arquivo) != NULL) {
         char nome[MAX_NOME], telefone[MAX_TELEFONE], email[MAX_EMAIL];
-
-        // Lê um contato do arquivo
-        if (fread(nome, sizeof(char), MAX_NOME, arquivo) != MAX_NOME) {
-            if (feof(arquivo)) {
-                // Fim do arquivo alcançado
-                break;
-            } else {
-                // Erro de leitura
-                fprintf(stderr, "Erro ao ler o nome do arquivo\n");
-                fclose(arquivo);
-                return;
-            }
-        }
-        nome[MAX_NOME - 1] = '\0'; // Garante que o nome seja terminado corretamente
-
-        if (fread(telefone, sizeof(char), MAX_TELEFONE, arquivo) != MAX_TELEFONE) {
-            fprintf(stderr, "Erro ao ler o telefone do arquivo\n");
-            fclose(arquivo);
-            return;
-        }
-        telefone[MAX_TELEFONE - 1] = '\0';
-
-        if (fread(email, sizeof(char), MAX_EMAIL, arquivo) != MAX_EMAIL) {
-            fprintf(stderr, "Erro ao ler o email do arquivo\n");
-            fclose(arquivo);
-            return;
-        }
-        email[MAX_EMAIL - 1] = '\0';
-
-        // Insere o contato na lista
+        sscanf(linha, "%[^,],%[^,],%s", nome, telefone, email);
         inserirListaContatos(lista, nome, telefone, email);
     }
 
