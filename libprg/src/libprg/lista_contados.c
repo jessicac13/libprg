@@ -235,3 +235,34 @@ int salvarArquivo(struct lista_t *lista)
 
     return 0;
 }
+
+void converterBinParaTexto(const char *nomeArquivoBinario, const char *nomeArquivoTexto)
+{
+    // Abrir o arquivo binário para leitura
+    FILE *arquivoBinario = fopen(nomeArquivoBinario, "rb");
+    if (arquivoBinario == NULL) {
+        perror("Erro ao abrir o arquivo binário");
+        return;
+    }
+
+    // Abrir o arquivo de texto para escrita
+    FILE *arquivoTexto = fopen(nomeArquivoTexto, "w");
+    if (arquivoTexto == NULL) {
+        perror("Erro ao abrir o arquivo de texto");
+        fclose(arquivoBinario);
+        return;
+    }
+
+    // Ler e converter os dados do arquivo binário para texto
+    struct contatos contato;
+    while (fread(&contato, sizeof(struct contatos), 1, arquivoBinario) == 1) {
+        fprintf(arquivoTexto, "Nome: %s\nTelefone: %s\nEmail: %s\n\n", contato.nome, contato.telefone, contato.email);
+    }
+
+    // Fechar os arquivos
+    fclose(arquivoBinario);
+    fclose(arquivoTexto);
+
+    printf("Conversão concluída com sucesso!\n");
+}
+
