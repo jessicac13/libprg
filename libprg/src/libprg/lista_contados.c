@@ -172,59 +172,52 @@ void buscarContatos(lista_t *lista, char alvo[MAX_NOME])
     }
 }
 
-void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME]) {
-    int indice = buscaListaContatos(lista, alvo);
-    if (indice == -1) {
+void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TELEFONE])
+{
+    int indice = buscaListaContatos(lista,alvo);
+    if( indice == -1)
+    {
         printf("\nNenhum contato encontrado para '%s'\n", alvo);
         return;
-    } else {
-        // Verificar se o novo nome já existe na lista
-        for (int i = 0; i < lista->tamanho; i++) {
-            if (strcmp(lista->elemento[i].nome, nome) == 0 && i != indice) {
-                printf("\nJá existe um contato com o nome '%s'\n", nome);
-                return;
-            }
-        }
-
-        if (indice >= 0 && indice < lista->tamanho) {
-            strncpy(lista->elemento[indice].nome, nome, MAX_NOME - 1);
-            lista->elemento[indice].nome[MAX_NOME - 1] = '\0';
-            printf("\nNome alterado!\n");
-        } else {
-            printf("\nÍndice fora dos limites da lista\n");
-        }
+    }
+    else
+    {
+        strcpy(lista->elemento[indice].telefone, telefone);
+        lista->elemento[indice].telefone[MAX_TELEFONE - 1] = '\0';
+        printf("\nTelefone alterado!\n");
     }
 }
 
-void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TELEFONE]) {
-    int indice = buscaListaContatos(lista, alvo);
-    if (indice == -1) {
+void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAIL])
+{
+    int indice = buscaListaContatos(lista,alvo);
+    if( indice == -1)
+    {
         printf("\nNenhum contato encontrado para '%s'\n", alvo);
         return;
-    } else {
-        if (indice >= 0 && indice < lista->tamanho) {
-            strncpy(lista->elemento[indice].telefone, telefone, MAX_TELEFONE - 1);
-            lista->elemento[indice].telefone[MAX_TELEFONE - 1] = '\0';
-            printf("\nTelefone alterado!\n");
-        } else {
-            printf("\nÍndice fora dos limites da lista\n");
-        }
+    }
+    else
+    {
+        strcpy(lista->elemento[indice].email, email);
+        lista->elemento[indice].email[MAX_EMAIL - 1] = '\0';
+        printf("\nEmail alterado!\n");
     }
 }
 
-void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAIL]) {
-    int indice = buscaListaContatos(lista, alvo);
-    if (indice == -1) {
+void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME])
+{
+    int indice = buscaListaContatos(lista,alvo);
+    if( indice == -1)
+    {
         printf("\nNenhum contato encontrado para '%s'\n", alvo);
         return;
-    } else {
-        if (indice >= 0 && indice < lista->tamanho) {
-            strncpy(lista->elemento[indice].email, email, MAX_EMAIL - 1);
-            lista->elemento[indice].email[MAX_EMAIL - 1] = '\0';
-            printf("\nE-mail alterado!\n");
-        } else {
-            printf("\nÍndice fora dos limites da lista\n");
-        }
+    }
+    else
+    {
+        strcpy(lista->elemento[indice].nome, nome);
+        lista->elemento[indice].nome[MAX_NOME - 1] = '\0';
+        printf("\nNome alterado!\n");
     }
 }
+
 
