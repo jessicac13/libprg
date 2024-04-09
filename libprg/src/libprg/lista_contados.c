@@ -175,7 +175,7 @@ void buscarContatos(lista_t *lista, char alvo[MAX_NOME])
 void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TELEFONE])
 {
     int indice = buscaListaContatos(lista,alvo);
-    if( indice == -1)
+    if( indice < 0)
     {
         printf("\nNenhum contato encontrado para '%s'\n", alvo);
         return;
@@ -191,7 +191,7 @@ void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TEL
 void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAIL])
 {
     int indice = buscaListaContatos(lista,alvo);
-    if( indice == -1)
+    if( indice < 0)
     {
         printf("\nNenhum contato encontrado para '%s'\n", alvo);
         return;
@@ -207,7 +207,7 @@ void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAI
 void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME])
 {
     int indice = buscaListaContatos(lista,alvo);
-    if( indice == -1)
+    if( indice < 0)
     {
         printf("\nNenhum contato encontrado para '%s'\n", alvo);
         return;
