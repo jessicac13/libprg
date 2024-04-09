@@ -171,36 +171,6 @@ void buscarContatos(lista_t *lista, char alvo[MAX_NOME])
         printf("Nenhum contato encontrado para '%s'\n", alvo);
     }
 }
-void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME]) {
-    int indice = buscaListaContatos(lista, alvo);
-    if (indice == -1)
-    {
-        printf("\nNenhum contato encontrado para '%s'\n", alvo);
-
-    }
-    else
-    {
-        for (int i = 0; i < lista->tamanho; i++)
-        {
-            if (strcmp(lista->elemento[i].nome, nome) == 0 && i != indice)
-            {
-                printf("\nJá existe um contato com o nome '%s'\n", nome);
-                return;
-            }
-        }
-
-        if (indice >= 0 && indice < lista->tamanho)
-        {
-            strncpy(lista->elemento[indice].nome, nome, MAX_NOME - 1);
-            lista->elemento[indice].nome[MAX_NOME - 1] = '\0';
-            printf("\nNome alterado!\n");
-        }
-        else
-        {
-            printf("\nÍndice fora dos limites da lista\n");
-        }
-    }
-}
 
 void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME]) {
     int indice = buscaListaContatos(lista, alvo);
