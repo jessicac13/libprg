@@ -182,8 +182,8 @@ void editarContatoTel(lista_t *lista, char alvo[MAX_NOME], char telefone[MAX_TEL
     }
     else
     {
-        strcpy(lista->elemento[indice].telefone, telefone);
-        lista->elemento[indice].telefone[MAX_TELEFONE - 1] = '\0';
+        inserirListaContatos(lista, lista->elemento[indice].nome,telefone,lista->elemento[indice].email);
+        removerListaContatos(lista, alvo);
         printf("\nTelefone alterado!\n");
     }
 }
@@ -198,9 +198,9 @@ void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAI
     }
     else
     {
-        strcpy(lista->elemento[indice].email, email);
-        lista->elemento[indice].email[MAX_EMAIL - 1] = '\0';
-        printf("\nEmail alterado!\n");
+        inserirListaContatos(lista, lista->elemento[indice].nome,lista->elemento[indice].telefone,email);
+        removerListaContatos(lista, alvo);
+        printf("\nTelefone alterado!\n");
     }
 }
 
@@ -214,9 +214,9 @@ void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME])
     }
     else
     {
-        strcpy(lista->elemento[indice].nome, nome);
-        lista->elemento[indice].nome[MAX_NOME - 1] = '\0';
-        printf("\nNome alterado!\n");
+        inserirListaContatos(lista, nome,lista->elemento[indice].telefone,lista->elemento[indice].email);
+        removerListaContatos(lista, alvo);
+        printf("\nTelefone alterado!\n");
     }
 }
 
