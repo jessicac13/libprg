@@ -200,7 +200,7 @@ void editarContatoEmail(lista_t *lista, char alvo[MAX_NOME], char email[MAX_EMAI
     {
         inserirListaContatos(lista, lista->elemento[indice].nome,lista->elemento[indice].telefone,email);
         removerListaContatos(lista, alvo);
-        printf("\nTelefone alterado!\n");
+        printf("\nEmail alterado!\n");
     }
 }
 
@@ -216,7 +216,7 @@ void editarContatoNome(lista_t *lista, char alvo[MAX_NOME], char nome[MAX_NOME])
     {
         inserirListaContatos(lista, nome,lista->elemento[indice].telefone,lista->elemento[indice].email);
         removerListaContatos(lista, alvo);
-        printf("\nTelefone alterado!\n");
+        printf("\nNome alterado!\n");
     }
 }
 
