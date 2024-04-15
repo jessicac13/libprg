@@ -61,6 +61,14 @@ void imprimirPilha(pilha_t *pilha);
 bool isEmptyPilha(pilha_t *pilha);
 int getSizePilha(pilha_t *pilha);
 
+typedef struct no no_t;
+
+void adicionar(no_t** inicio, int dado);
+bool remover(no_t** inicio, int dado);
+void destruir(no_t** inicio);
+no_t* buscar(no_t **inicio, int dado);
+
+
 #endif /* LIBPRG_H */
 
 
