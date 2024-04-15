@@ -5,7 +5,7 @@
 #include <string.h>
 #include <libprg/libprg.h>
 
-typedef struct no_t{
+typedef struct no{
     int dado;
     struct no* proximo;
 } no_t;
