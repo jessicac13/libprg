@@ -61,7 +61,7 @@ void imprimirPilha(pilha_t *pilha);
 bool isEmptyPilha(pilha_t *pilha);
 int getSizePilha(pilha_t *pilha);
 
-typedef struct no no_t;
+typedef struct no_t no_t;
 
 void adicionar(no_t** inicio, int dado);
 bool remover(no_t** inicio, int dado);
