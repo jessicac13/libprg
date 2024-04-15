@@ -5,10 +5,10 @@
 #include <string.h>
 #include <libprg/libprg.h>
 
-typedef struct no{
+struct no_t{
     int dado;
     struct no* proximo;
-} no_t;
+};
 
 void adicionar(no_t** inicio, int dado)
 {
