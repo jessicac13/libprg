@@ -69,6 +69,10 @@ void destruirListaEncadeada(no_t** inicio);
 no_t* buscarListaEncadeada(no_t **inicio, int dado);
 void imprimirListaEncadeada(no_t **inicio);
 
+typedef struct noOrdenado noOrdenado_t;
+
+void adicionarListaEncadeadaO(noOrdenado_t** inicio, int dado);
+
 
 #endif /* LIBPRG_H */
 
