@@ -10,7 +10,7 @@ typedef struct no{
     struct no* proximo;
 } no_t;
 
-void adicionar(no_t** inicio, int dado)
+void adicionarListaEncadeada(no_t** inicio, int dado)
 {
     no_t* novo = (no_t*) malloc(sizeof (no_t));
     novo->dado = dado;
@@ -18,7 +18,7 @@ void adicionar(no_t** inicio, int dado)
     *inicio = novo;
 }
 
-bool remover(no_t** inicio, int dado)
+bool removerListaEncadeada(no_t** inicio, int dado)
 {
     no_t* atual = *inicio;
     no_t* anterior = NULL;
@@ -43,7 +43,7 @@ bool remover(no_t** inicio, int dado)
     return false;
 }
 
-void destruir(no_t** inicio)
+void destruirListaEncadeada(no_t** inicio)
 {
     no_t* atual = *inicio;
     no_t* prox;
@@ -55,7 +55,7 @@ void destruir(no_t** inicio)
     }
     *inicio = NULL;
 }
-no_t* buscar(no_t **inicio, int dado)
+no_t* buscarListaEncadeada(no_t **inicio, int dado)
 {
     no_t *atual = *inicio;
     no_t *anterior = NULL;
@@ -73,7 +73,7 @@ no_t* buscar(no_t **inicio, int dado)
 
     }
 }
-void imprimirEncadeada(no_t **inicio)
+void imprimirListaEncadeada(no_t **inicio)
 {
     no_t *atual = *inicio;
 

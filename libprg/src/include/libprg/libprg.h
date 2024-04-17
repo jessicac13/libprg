@@ -63,11 +63,11 @@ int getSizePilha(pilha_t *pilha);
 
 typedef struct no no_t;
 
-void adicionar(no_t** inicio, int dado);
-bool remover(no_t** inicio, int dado);
-void destruir(no_t** inicio);
-no_t* buscar(no_t **inicio, int dado);
-void imprimirEncadeada(no_t **inicio);
+void adicionarListaEncadeada(no_t** inicio, int dado);
+bool removerListaEncadeada(no_t** inicio, int dado);
+void destruirListaEncadeada(no_t** inicio);
+no_t* buscarListaEncadeada(no_t **inicio, int dado);
+void imprimirListaEncadeada(no_t **inicio);
 
 
 #endif /* LIBPRG_H */
