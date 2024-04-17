@@ -73,3 +73,14 @@ no_t* buscar(no_t **inicio, int dado)
 
     }
 }
+void imprimirEncadeada(no_t **inicio)
+{
+    no_t *atual = *inicio;
+
+    while(atual != NULL)
+    {
+        printf("%d ", atual->dado);
+        atual = atual->proximo;
+    }
+
+}

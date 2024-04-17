@@ -67,6 +67,7 @@ void adicionar(no_t** inicio, int dado);
 bool remover(no_t** inicio, int dado);
 void destruir(no_t** inicio);
 no_t* buscar(no_t **inicio, int dado);
+void imprimirEncadeada(no_t **inicio);
 
 
 #endif /* LIBPRG_H */
