@@ -77,6 +77,31 @@ bool removerListaEncadeada(no_t** inicio, int dado)
     return false;
 }
 
+bool removerListaEncadeadaO(noOrdenado_t** inicio, int dado)
+{
+    noOrdenado_t* atual = *inicio;
+    noOrdenado_t* anterior = NULL;
+    while(atual != NULL)
+    {
+        if (atual->dado == dado)
+        {
+            if (anterior == NULL)
+            {
+                *inicio = atual->proximo;
+            }
+            else
+            {
+                anterior->proximo = atual->proximo;
+            }
+            free(atual);
+            return true;
+        }
+        anterior = atual;
+        atual = atual->proximo;
+    }
+    return false;
+}
+
 void destruirListaEncadeada(no_t** inicio)
 {
     no_t* atual = *inicio;
@@ -89,15 +114,34 @@ void destruirListaEncadeada(no_t** inicio)
     }
     *inicio = NULL;
 }
+
+void destruirListaEncadeadaO(noOrdenado_t** inicio)
+{
+    noOrdenado_t* atual = *inicio;
+    noOrdenado_t* prox;
+    while(atual != NULL)
+    {
+        prox = atual->proximo;
+        free(atual);
+        atual = prox;
+    }
+    *inicio = NULL;
+}
+
 no_t* buscarListaEncadeada(no_t **inicio, int dado)
 {
     no_t *atual = *inicio;
     no_t *anterior = NULL;
-    while (atual != NULL) {
-        if (atual->dado == dado) {
-            if (anterior == NULL) {
+    while (atual != NULL)
+    {
+        if (atual->dado == dado)
+        {
+            if (anterior == NULL)
+            {
                 *inicio = atual->proximo;
-            } else {
+            }
+            else
+            {
                 anterior->proximo = atual->proximo;
             }
             return atual;
@@ -107,6 +151,31 @@ no_t* buscarListaEncadeada(no_t **inicio, int dado)
 
     }
 }
+
+no_t* buscarListaEncadeadaO(noOrdenado_t **inicio, int dado)
+{
+    noOrdenado_t  *atual = *inicio;
+    noOrdenado_t  *anterior = NULL;
+    while (atual != NULL)
+    {
+        if (atual->dado == dado)
+        {
+            if (anterior == NULL)
+            {
+                *inicio = atual->proximo;
+            }
+            else
+            {
+                anterior->proximo = atual->proximo;
+            }
+            return atual;
+        }
+        anterior = atual;
+        atual = atual->proximo;
+
+    }
+}
+
 void imprimirListaEncadeada(no_t **inicio)
 {
     no_t *atual = *inicio;
