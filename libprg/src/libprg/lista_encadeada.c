@@ -43,7 +43,6 @@ void adicionarListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado)
 
     *inicioDuplo = novo;
 
-    *inicioDuplo = novo;
 }
 
 void adicionarListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado)
