@@ -71,11 +71,11 @@ void imprimirListaEncadeada(no_t **inicio);
 
 typedef struct noOrdenado noOrdenado_t;
 
-void adicionarListaEncadeadaO(noOrdenado_t** inicio, int dado);
-void imprimirListaEncadeadaO(noOrdenado_t** inicio);
-bool removerListaEncadeadaO(noOrdenado_t** inicio, int dado);
-void destruirListaEncadeadaO(noOrdenado_t** inicio);
-no_t* buscarListaEncadeadaO(noOrdenado_t** inicio, int dado);
+void adicionarListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado);
+void imprimirListaEncadeadaO(noOrdenado_t** inicioOrdenado);
+bool removerListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado);
+void destruirListaEncadeadaO(noOrdenado_t** inicioOrdenado);
+no_t* buscarListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado);
 
 typedef struct noDuplo noDuplo_t;
 

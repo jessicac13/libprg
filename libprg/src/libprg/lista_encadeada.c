@@ -34,6 +34,7 @@ void adicionarListaEncadeadaDuplo(noDuplo_t** inicio, int dado)
     noDuplo_t* novo = (noDuplo_t*) malloc(sizeof (noDuplo_t));
     novo->dado = dado;
     novo->proximo = *inicio;
+    if(incio)
     novo->anterior = NULL;
     novo->proximo->anterior = novo;
     *inicio = novo;
@@ -93,9 +94,9 @@ bool removerListaEncadeada(no_t** inicio, int dado)
     return false;
 }
 
-bool removerListaEncadeadaO(noOrdenado_t** inicio, int dado)
+bool removerListaEncadeadaO(noOrdenado_t** inicioOrdendo, int dado)
 {
-    noOrdenado_t* atual = *inicio;
+    noOrdenado_t* atual = *inicioOrdendo;
     noOrdenado_t* anterior = NULL;
     while(atual != NULL)
     {
@@ -103,7 +104,7 @@ bool removerListaEncadeadaO(noOrdenado_t** inicio, int dado)
         {
             if (anterior == NULL)
             {
-                *inicio = atual->proximo;
+                *inicioOrdendo = atual->proximo;
             }
             else
             {
@@ -131,9 +132,9 @@ void destruirListaEncadeada(no_t** inicio)
     *inicio = NULL;
 }
 
-void destruirListaEncadeadaO(noOrdenado_t** inicio)
+void destruirListaEncadeadaO(noOrdenado_t** inicioOrdenado)
 {
-    noOrdenado_t* atual = *inicio;
+    noOrdenado_t* atual = *inicioOrdenado;
     noOrdenado_t* prox;
     while(atual != NULL)
     {
@@ -141,7 +142,7 @@ void destruirListaEncadeadaO(noOrdenado_t** inicio)
         free(atual);
         atual = prox;
     }
-    *inicio = NULL;
+    *inicioOrdenado = NULL;
 }
 
 no_t* buscarListaEncadeada(no_t **inicio, int dado)
@@ -169,9 +170,9 @@ no_t* buscarListaEncadeada(no_t **inicio, int dado)
     return NULL;
 }
 
-no_t* buscarListaEncadeadaO(noOrdenado_t **inicio, int dado)
+no_t* buscarListaEncadeadaO(noOrdenado_t **inicioOrdenado, int dado)
 {
-    noOrdenado_t  *atual = *inicio;
+    noOrdenado_t  *atual = *inicioOrdenado;
     noOrdenado_t  *anterior = NULL;
     while (atual != NULL)
     {
@@ -179,7 +180,7 @@ no_t* buscarListaEncadeadaO(noOrdenado_t **inicio, int dado)
         {
             if (anterior == NULL)
             {
-                *inicio = atual->proximo;
+                *inicioOrdenado = atual->proximo;
             }
             else
             {
@@ -205,9 +206,9 @@ void imprimirListaEncadeada(no_t **inicio)
 
 }
 
-void imprimirListaEncadeadaO(noOrdenado_t **inicio)
+void imprimirListaEncadeadaO(noOrdenado_t **inicioOrdenado)
 {
-    noOrdenado_t *atual = *inicio;
+    noOrdenado_t *atual = *inicioOrdenado;
 
     while(atual != NULL)
     {
