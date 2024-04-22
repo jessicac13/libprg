@@ -23,17 +23,25 @@ void adicionarListaEncadeada(no_t** inicio, int dado)
     *inicio = novo;
 }
 
-void adicionarListaEncadeadaO(noOrdenado_t** inicio, int dado)
+void adicionarListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado)
 {
     noOrdenado_t* novo = (noOrdenado_t*) malloc(sizeof (noOrdenado_t ));
-    noOrdenado_t* atual = *inicio;
 
-    if(dado < atual->proximo)
+    noOrdenado_t* atual = *inicioOrdenado;
+    noOrdenado_t* anterior = NULL;
+
+    while (atual != NULL)
     {
-        novo->dado = dado;
-        novo->proximo = NULL;
-        *inicio = novo;
+        if(dado < atual->proximo->dado)
+        {
+            novo->dado = dado;
+            novo->proximo = NULL;
+
+        }
+
     }
+    anterior = atual;
+    atual = atual->proximo;
 
 }
 
