@@ -10,9 +10,15 @@ typedef struct no{
     struct no* proximo;
 } no_t;
 
+typedef struct noDuplo{
+    int dado;
+    struct noDuplo* proximo;
+    struct noDuplo* anterior;
+} noDuplo_t;
+
 typedef struct noOrdenado{
     int dado;
-    struct no* proximo;
+    struct noOrdenado* proximo;
 } noOrdenado_t;
 
 void adicionarListaEncadeada(no_t** inicio, int dado)
@@ -20,6 +26,16 @@ void adicionarListaEncadeada(no_t** inicio, int dado)
     no_t* novo = (no_t*) malloc(sizeof (no_t));
     novo->dado = dado;
     novo->proximo = *inicio;
+    *inicio = novo;
+}
+
+void adicionarListaEncadeadaDuplo(noDuplo_t** inicio, int dado)
+{
+    noDuplo_t* novo = (noDuplo_t*) malloc(sizeof (noDuplo_t));
+    novo->dado = dado;
+    novo->proximo = *inicio;
+    novo->anterior = NULL;
+    novo->proximo->anterior = novo;
     *inicio = novo;
 }
 

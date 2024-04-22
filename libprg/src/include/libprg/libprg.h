@@ -77,6 +77,10 @@ bool removerListaEncadeadaO(noOrdenado_t** inicio, int dado);
 void destruirListaEncadeadaO(noOrdenado_t** inicio);
 no_t* buscarListaEncadeadaO(noOrdenado_t** inicio, int dado);
 
+typedef struct noDuplo noDuplo_t;
+
+void adicionarListaEncadeadaDuplo(noDuplo_t** inicio, int dado);
+
 #endif /* LIBPRG_H */
 
 
