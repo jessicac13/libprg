@@ -72,7 +72,7 @@ void imprimirListaEncadeada(no_t **inicio);
 typedef struct noOrdenado noOrdenado_t;
 
 void adicionarListaEncadeadaO(noOrdenado_t** inicio, int dado);
-
+void imprimirListaEncadeadaO(noOrdenado_t **inicio);
 
 #endif /* LIBPRG_H */
 

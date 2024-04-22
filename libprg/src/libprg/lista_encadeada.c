@@ -118,3 +118,16 @@ void imprimirListaEncadeada(no_t **inicio)
     }
 
 }
+
+void imprimirListaEncadeadaO(noOrdenado_t **inicio)
+{
+    noOrdenado_t *atual = *inicio;
+
+    while(atual != NULL)
+    {
+        printf("%d ", atual->dado);
+        atual = atual->proximo;
+    }
+
+}
+
