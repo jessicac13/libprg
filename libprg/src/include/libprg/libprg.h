@@ -75,7 +75,7 @@ void adicionarListaEncadeadaO(noOrdenado_t** inicio, int dado);
 void imprimirListaEncadeadaO(noOrdenado_t** inicio);
 bool removerListaEncadeadaO(noOrdenado_t** inicio, int dado);
 void destruirListaEncadeadaO(noOrdenado_t** inicio);
-no_t* buscarListaEncadeada0(noOrdenado_t** inicio, int dado);
+no_t* buscarListaEncadeadaO(noOrdenado_t** inicio, int dado);
 
 #endif /* LIBPRG_H */
 
