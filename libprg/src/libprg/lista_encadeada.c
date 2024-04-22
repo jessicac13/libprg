@@ -36,10 +36,12 @@ void adicionarListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado)
     novo->proximo = *inicioDuplo;
     novo->anterior = NULL;
 
-    if(*inicioDuplo != NULL)
+    if (*inicioDuplo != NULL)
     {
-        novo->proximo->anterior = novo;
+        (*inicioDuplo)->anterior = novo;
     }
+
+    *inicioDuplo = novo;
 
     *inicioDuplo = novo;
 }
