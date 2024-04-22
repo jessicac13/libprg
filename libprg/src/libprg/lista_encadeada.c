@@ -150,6 +150,7 @@ no_t* buscarListaEncadeada(no_t **inicio, int dado)
         atual = atual->proximo;
 
     }
+    return NULL;
 }
 
 no_t* buscarListaEncadeadaO(noOrdenado_t **inicio, int dado)
@@ -172,8 +173,8 @@ no_t* buscarListaEncadeadaO(noOrdenado_t **inicio, int dado)
         }
         anterior = atual;
         atual = atual->proximo;
-
     }
+    return NULL;
 }
 
 void imprimirListaEncadeada(no_t **inicio)
