@@ -79,8 +79,8 @@ no_t* buscarListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado);
 
 typedef struct noDuplo noDuplo_t;
 
-void adicionarListaEncadeadaDuplo(noDuplo_t** inicio, int dado);
-void imprimirListaEncadeadaDuplo(noDuplo_t **inicio);
+void adicionarListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado);
+void imprimirListaEncadeadaDuplo(noDuplo_t **inicioDuplo);
 
 
 #endif /* LIBPRG_H */
