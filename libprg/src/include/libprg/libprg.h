@@ -64,6 +64,7 @@ int getSizePilha(pilha_t *pilha);
 typedef struct no no_t;
 
 void adicionarListaEncadeada(no_t** inicio, int dado);
+void adicionarListaEncadeadaO(no_t** inicio, int dado);
 bool removerListaEncadeada(no_t** inicio, int dado);
 void destruirListaEncadeada(no_t** inicio);
 no_t* buscarListaEncadeada(no_t **inicio, int dado);
