@@ -34,16 +34,9 @@ void adicionarListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado)
     noDuplo_t* novo = (noDuplo_t*) malloc(sizeof (noDuplo_t));
     novo->dado = dado;
     novo->proximo = *inicioDuplo;
+    novo->anterior = NULL;
 
-    if(*inicioDuplo == NULL)
-    {
-        novo->anterior = NULL;
-    }
-    else
-    {
-        novo->anterior = *inicioDuplo;
-
-    }
+    novo->proximo->anterior = novo;
 
     *inicioDuplo = novo;
 }
