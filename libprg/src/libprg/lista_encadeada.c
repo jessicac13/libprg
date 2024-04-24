@@ -27,12 +27,8 @@ void adicionarListaEncadeada(no_t** inicio, int dado)
     novo->dado = dado;
     novo->proximo = *inicio;
 
-    if((*inicio)->proximo = NULL)
-    {
-        (*inicio)->proximo == *inicio;
-    }
-
     *inicio = novo;
+    (*inicio)->proximo = *inicio;
 
 }
 
