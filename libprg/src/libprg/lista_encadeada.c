@@ -23,13 +23,25 @@ typedef struct noOrdenado{
 
 void adicionarListaEncadeada(no_t** inicio, int dado)
 {
-    no_t* novo = (no_t*) malloc(sizeof (no_t));
+
+    no_t* novo = (no_t*) malloc(sizeof(no_t));
     novo->dado = dado;
-    novo->proximo = *inicio;
 
-    *inicio = novo;
-    (*inicio)->proximo = *inicio;
-
+    if (*inicio == NULL)
+    {
+        novo->proximo = novo;
+    }
+    else
+    {
+        novo->proximo = *inicio;
+        no_t* ultimo = *inicio;
+        while (ultimo->proximo != *inicio)
+        {
+            ultimo = ultimo->proximo;
+        }
+        ultimo->proximo = novo;
+    }
+        *inicio = novo;
 }
 
 void adicionarListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado)
