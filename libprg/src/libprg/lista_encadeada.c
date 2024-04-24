@@ -27,10 +27,12 @@ void adicionarListaEncadeada(no_t** inicio, int dado)
     novo->dado = dado;
     novo->proximo = *inicio;
     *inicio = novo;
-    if (*inicio != NULL)
+
+    if((*inicio)->proximo = NULL)
     {
-        (*inicio)->proximo = novo;
+        (*inicio)->proximo == *inicio;
     }
+
 }
 
 void adicionarListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado)
