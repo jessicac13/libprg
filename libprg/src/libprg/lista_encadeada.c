@@ -63,33 +63,45 @@ void adicionarListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado)
 void adicionarListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado)
 {
     noOrdenado_t* novo = (noOrdenado_t*) malloc(sizeof(noOrdenado_t));
+
     novo->dado = dado;
+    novo->proximo = NULL;
+
+    noOrdenado_t* atual = *inicioOrdenado;
+    noOrdenado_t* anterior = NULL;
 
     if (*inicioOrdenado == NULL || dado < (*inicioOrdenado)->dado)
     {
-        novo->proximo = *inicioOrdenado;
-        *inicioOrdenado = novo;
+        novo->dado = dado;
 
-        if (*inicioOrdenado != NULL)
+        if (*inicioOrdenado == NULL)
         {
-            noOrdenado_t* ultimo = *inicioOrdenado;
-            while (ultimo->proximo != NULL && ultimo->proximo != *inicioOrdenado)
+            novo->proximo = novo;
+        }
+        else
+        {
+            novo->proximo = *inicioOrdenado;
+            no_t* ultimo = *inicioOrdenado;
+            while (ultimo->proximo != *inicioOrdenado)
             {
                 ultimo = ultimo->proximo;
             }
-            ultimo->proximo = *inicioOrdenado;
+            ultimo->proximo = novo;
         }
+        *inicioOrdenado = novo;
         return;
     }
 
-    noOrdenado_t* atual = *inicioOrdenado;
-    while (atual->proximo != *inicioOrdenado && dado >= atual->proximo->dado)
+    while (atual != NULL && dado >= atual->dado)
     {
+        anterior = atual;
         atual = atual->proximo;
     }
-    novo->proximo = atual->proximo;
-    atual->proximo = novo;
+
+    anterior->proximo = novo;
+    novo->proximo = atual;
 }
+
 
 bool removerListaEncadeada(no_t** inicio, int dado)
 {
