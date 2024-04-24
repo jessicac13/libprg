@@ -27,6 +27,10 @@ void adicionarListaEncadeada(no_t** inicio, int dado)
     novo->dado = dado;
     novo->proximo = *inicio;
     *inicio = novo;
+    if (*inicio != NULL)
+    {
+        (*inicio)->proximo = novo;
+    }
 }
 
 void adicionarListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado)
@@ -99,6 +103,32 @@ bool removerListaEncadeada(no_t** inicio, int dado)
     return false;
 }
 
+
+bool removerListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado)
+{
+    noDuplo_t* atual = *inicioDuplo;
+    noDuplo_t* anterior = NULL;
+    while(atual != NULL)
+    {
+        if (atual->dado == dado)
+        {
+            if (anterior == NULL)
+            {
+                *inicioDuplo = atual->proximo;
+            }
+            else
+            {
+                anterior->proximo = atual->proximo;
+            }
+            free(atual);
+            return true;
+        }
+        anterior = atual;
+        atual = atual->proximo;
+    }
+    return false;
+}
+
 bool removerListaEncadeadaO(noOrdenado_t** inicioOrdendo, int dado)
 {
     noOrdenado_t* atual = *inicioOrdendo;
@@ -135,6 +165,20 @@ void destruirListaEncadeada(no_t** inicio)
         atual = prox;
     }
     *inicio = NULL;
+}
+
+
+void destruirListaEncadeadaDuplo(noDuplo_t** inicioDuplo)
+{
+    noDuplo_t* atual = *inicioDuplo;
+    no_t* prox;
+    while(atual != NULL)
+    {
+        prox = atual->proximo;
+        free(atual);
+        atual = prox;
+    }
+    *inicioDuplo = NULL;
 }
 
 void destruirListaEncadeadaO(noOrdenado_t** inicioOrdenado)
@@ -175,7 +219,7 @@ no_t* buscarListaEncadeada(no_t **inicio, int dado)
     return NULL;
 }
 
-no_t* buscarListaEncadeadaO(noOrdenado_t **inicioOrdenado, int dado)
+noOrdenado_t* buscarListaEncadeadaO(noOrdenado_t **inicioOrdenado, int dado)
 {
     noOrdenado_t  *atual = *inicioOrdenado;
     noOrdenado_t  *anterior = NULL;
@@ -186,6 +230,31 @@ no_t* buscarListaEncadeadaO(noOrdenado_t **inicioOrdenado, int dado)
             if (anterior == NULL)
             {
                 *inicioOrdenado = atual->proximo;
+            }
+            else
+            {
+                anterior->proximo = atual->proximo;
+            }
+            return atual;
+        }
+        anterior = atual;
+        atual = atual->proximo;
+    }
+    return NULL;
+}
+
+
+noDuplo_t* buscarListaEncadeadaDuplo(noDuplo_t **inicioDuplo, int dado)
+{
+    noDuplo_t *atual = *inicioDuplo;
+    noDuplo_t *anterior = NULL;
+    while (atual != NULL)
+    {
+        if (atual->dado == dado)
+        {
+            if (anterior == NULL)
+            {
+                *inicioDuplo = atual->proximo;
             }
             else
             {
@@ -211,6 +280,17 @@ void imprimirListaEncadeada(no_t **inicio)
 
 }
 
+void imprimirListaEncadeadaDuplo(noDuplo_t **inicioDuplo)
+{
+    noDuplo_t *atual = *inicioDuplo;
+
+    while(atual != NULL)
+    {
+        printf("%d ", atual->dado);
+        atual = atual->proximo;
+    }
+}
+
 void imprimirListaEncadeadaO(noOrdenado_t **inicioOrdenado)
 {
     noOrdenado_t *atual = *inicioOrdenado;
@@ -223,15 +303,4 @@ void imprimirListaEncadeadaO(noOrdenado_t **inicioOrdenado)
 
 }
 
-void imprimirListaEncadeadaDuplo(noDuplo_t **inicio)
-{
-    noDuplo_t *atual = *inicio;
-
-    while(atual != NULL)
-    {
-        printf("%d ", atual->dado);
-        atual = atual->proximo;
-    }
-
-}
 

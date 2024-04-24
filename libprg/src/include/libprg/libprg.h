@@ -75,12 +75,16 @@ void adicionarListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado);
 void imprimirListaEncadeadaO(noOrdenado_t** inicioOrdenado);
 bool removerListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado);
 void destruirListaEncadeadaO(noOrdenado_t** inicioOrdenado);
-no_t* buscarListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado);
+noOrdenado_t* buscarListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado);
 
 typedef struct noDuplo noDuplo_t;
 
 void adicionarListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado);
 void imprimirListaEncadeadaDuplo(noDuplo_t **inicioDuplo);
+bool removerListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado);
+noDuplo_t* buscarListaEncadeadaDuplo(noDuplo_t **inicioDuplo, int dado);
+void imprimirListaEncadeadaDuplo(noDuplo_t **inicioDuplo);
+
 
 
 #endif /* LIBPRG_H */
