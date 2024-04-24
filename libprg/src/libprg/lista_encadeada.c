@@ -26,12 +26,13 @@ void adicionarListaEncadeada(no_t** inicio, int dado)
     no_t* novo = (no_t*) malloc(sizeof (no_t));
     novo->dado = dado;
     novo->proximo = *inicio;
-    *inicio = novo;
 
     if((*inicio)->proximo = NULL)
     {
         (*inicio)->proximo == *inicio;
     }
+
+    *inicio = novo;
 
 }
 
