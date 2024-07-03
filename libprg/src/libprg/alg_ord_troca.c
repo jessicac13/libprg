@@ -9,7 +9,7 @@ int* bubbleSort(int* vetor, int tamanho)
     {
         for(j= 1; j< (tamanho - i); j++)
         {
-            if(vetor[j] < vetor[j-1])
+            if(vetor[j] > vetor[j-1])
             {
                 aux = vetor[j];
                 vetor[j] = vetor[j-1];
