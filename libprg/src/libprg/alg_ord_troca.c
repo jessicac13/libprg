@@ -18,14 +18,15 @@ int* bubbleSort(int* vetor, int tamanho, bool crescente)
                     vetor[j-1] = aux;
                 }
             }
-
+            if(crescente = false)
+            {
                 if(vetor[j] > vetor[j-1])
                 {
                     aux = vetor[j];
                     vetor[j] = vetor[j-1];
                     vetor[j-1] = aux;
                 }
-
+            }
         }
     }
     return vetor;
