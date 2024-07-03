@@ -1,4 +1,5 @@
-#include "libprg/libprg.h"
+#include <libprg/libprg.h>
+
 
 int* bubbleSort(int* vetor, int tamanho)
 {
