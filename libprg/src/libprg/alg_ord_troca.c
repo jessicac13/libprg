@@ -1,21 +1,40 @@
 #include <libprg/libprg.h>
 
 
-int* bubbleSort(int* vetor, int tamanho)
+int* bubbleSort(int* vetor, int tamanho, bool crescente)
 {
     int i, j, aux;
 
-    for(i=0; i<tamanho; i++)
+    if(crescente = true)
     {
-        for(j= 1; j< (tamanho - i); j++)
+        for(i=0; i<tamanho; i++)
         {
-            if(vetor[j] > vetor[j-1])
+            for(j= 1; j< (tamanho - i); j++)
             {
-                aux = vetor[j];
-                vetor[j] = vetor[j-1];
-                vetor[j-1] = aux;
+                if(vetor[j] < vetor[j-1])
+                {
+                    aux = vetor[j];
+                    vetor[j] = vetor[j-1];
+                    vetor[j-1] = aux;
+                }
             }
         }
     }
+    if (crescente = false)
+    {
+        for(i=0; i<tamanho; i++)
+        {
+            for(j= 1; j< (tamanho - i); j++)
+            {
+                if(vetor[j] > vetor[j-1])
+                {
+                    aux = vetor[j];
+                    vetor[j] = vetor[j-1];
+                    vetor[j-1] = aux;
+                }
+            }
+        }
+    }
+
     return vetor;
 }
