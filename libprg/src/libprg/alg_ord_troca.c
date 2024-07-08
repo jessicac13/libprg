@@ -67,7 +67,7 @@ int* insertionSort(int* vetor, int tamanho, bool crescente)
 
         if (crescente == false)
         {
-            while (j<=0 && vetor[j]< chave)
+            while (j>=0 && vetor[j]< chave)
             {
                 vetor[j+1] = vetor[j];
                 j = j-1;
