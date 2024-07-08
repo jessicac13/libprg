@@ -62,4 +62,5 @@ int* insertionSort(int* vetor, int tamanho)
         }
         vetor[j+1] = chave;
     }
+    return vetor;
 }
