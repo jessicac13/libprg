@@ -33,3 +33,33 @@ int* bubbleSort(int* vetor, int tamanho, bool crescente)
     }
     return vetor;
 }
+//Algoritmo 2: Insertion sort
+//Entrada: vetor[1..n]
+//Saída: vetor ordenado
+//1 para i de 1 até n − 1 faça
+//2 chave ← vetor[i];
+//3 j ← i − 1;
+//4 enquanto j ≥ 0 E vetor[j] > chave faça
+//5 vetor[j + 1] ← vetor[j];
+//6 j ← j − 1;
+//7 fim
+//8 vetor[j + 1] ← chave
+//9 fim
+
+int* insertionSort(int* vetor, int tamanho)
+{
+    int j, chave;
+
+    for(int i=0; i<tamanho; i++)
+    {
+        chave = vetor[i];
+        j =i-1;
+
+        while (j>=0 && vetor[j]> chave)
+        {
+            vetor[j+1] = vetor[j];
+            j = j-1;
+        }
+        vetor[j+1] = chave;
+    }
+}

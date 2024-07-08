@@ -86,6 +86,7 @@ noDuplo_t* buscarListaEncadeadaDuplo(noDuplo_t **inicioDuplo, int dado);
 void imprimirListaEncadeadaDuplo(noDuplo_t **inicioDuplo);
 
 int* bubbleSort(int* vetor, int tamanho, bool crescente);
+int* insertionSort(int* vetor, int tamanho);
 
 #endif /* LIBPRG_H */
 
