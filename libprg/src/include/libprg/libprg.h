@@ -87,7 +87,7 @@ void imprimirListaEncadeadaDuplo(noDuplo_t **inicioDuplo);
 
 int* bubbleSort(int* vetor, int tamanho, bool crescente);
 int* insertionSort(int* vetor, int tamanho, bool crescente);
-int* selectionSort(int* vetor, int tamanho);
+int* selectionSort(int* vetor, int tamanho, bool crescente);
 
 #endif /* LIBPRG_H */
 

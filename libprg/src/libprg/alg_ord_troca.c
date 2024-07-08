@@ -83,7 +83,7 @@ int* insertionSort(int* vetor, int tamanho, bool crescente)
 //12 fim
 //13 fim
 
-int* selectionSort(int* vetor, int tamanho)
+int* selectionSort(int* vetor, int tamanho, bool crescente)
 {
     int min, aux;
 
@@ -92,10 +92,21 @@ int* selectionSort(int* vetor, int tamanho)
         min = i;
         for (int j = i+1; j < tamanho; j++)
         {
-            if(vetor[j] < vetor[min])
+            if(crescente == true)
             {
-                min = j;
+                if(vetor[j] < vetor[min])
+                {
+                    min = j;
+                }
             }
+            else
+            {
+                if(vetor[j] < vetor[min])
+                {
+                    min = j;
+                }
+            }
+
         }
         if( i != min)
         {
