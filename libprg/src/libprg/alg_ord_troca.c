@@ -33,18 +33,6 @@ int* bubbleSort(int* vetor, int tamanho, bool crescente)
     }
     return vetor;
 }
-//Algoritmo 2: Insertion sort
-//Entrada: vetor[1..n]
-//Saída: vetor ordenado
-//1 para i de 1 até n − 1 faça
-//2 chave ← vetor[i];
-//3 j ← i − 1;
-//4 enquanto j ≥ 0 E vetor[j] > chave faça
-//5 vetor[j + 1] ← vetor[j];
-//6 j ← j − 1;
-//7 fim
-//8 vetor[j + 1] ← chave
-//9 fim
 
 int* insertionSort(int* vetor, int tamanho, bool crescente)
 {
@@ -74,8 +62,47 @@ int* insertionSort(int* vetor, int tamanho, bool crescente)
             }
             vetor[j+1] = chave;
         }
+    }
+    return vetor;
+}
 
+//Algoritmo 3: Selection sort
+//Entrada: vetor[1..n]
+//Saída: vetor ordenado
+//1 para i de 1 até n − 1 faça
+//2 min ← i;
+//3 para j de (i+1) até n faça
+//4 se vetor[j] < vetor[min] então
+//5 min ← j;
+//6 fim
+//7 fim
+//8 se i ̸= min então
+//9 aux ← vetor[i];
+//10 vetor[i] ← vetor[min];
+//11 vetor[min] ← aux;
+//12 fim
+//13 fim
 
+int* selectionSort(int* vetor, int tamanho)
+{
+    int min, aux;
+
+    for(int i=0; i<tamanho;i++)
+    {
+        min = i;
+        for (int j = i+1; j < tamanho; j++)
+        {
+            if(vetor[j] < vetor[min])
+            {
+                min = j;
+            }
+        }
+        if( i != min)
+        {
+            aux = vetor[i];
+            vetor[i] = vetor[min];
+            vetor[min] = aux;
+        }
     }
     return vetor;
 }
