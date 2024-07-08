@@ -46,7 +46,7 @@ int* bubbleSort(int* vetor, int tamanho, bool crescente)
 //8 vetor[j + 1] ← chave
 //9 fim
 
-int* insertionSort(int* vetor, int tamanho)
+int* insertionSort(int* vetor, int tamanho, bool crescente)
 {
     int j, chave;
 
@@ -55,12 +55,27 @@ int* insertionSort(int* vetor, int tamanho)
         chave = vetor[i];
         j =i-1;
 
-        while (j>=0 && vetor[j]> chave)
+        if (crescente == true)
         {
-            vetor[j+1] = vetor[j];
-            j = j-1;
+            while (j>=0 && vetor[j]> chave)
+            {
+                vetor[j+1] = vetor[j];
+                j = j-1;
+            }
+            vetor[j+1] = chave;
         }
-        vetor[j+1] = chave;
+
+        if (crescente == false)
+        {
+            while (j<=0 && vetor[j]< chave)
+            {
+                vetor[j+1] = vetor[j];
+                j = j-1;
+            }
+            vetor[j+1] = chave;
+        }
+
+
     }
     return vetor;
 }
