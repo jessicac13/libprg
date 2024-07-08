@@ -99,7 +99,7 @@ int* selectionSort(int* vetor, int tamanho, bool crescente)
                     min = j;
                 }
             }
-            else
+            if(crescente == false)
             {
                 if(vetor[j] < vetor[min])
                 {
