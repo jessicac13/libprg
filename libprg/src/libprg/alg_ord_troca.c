@@ -101,7 +101,7 @@ int* selectionSort(int* vetor, int tamanho, bool crescente)
             }
             if(crescente == false)
             {
-                if(vetor[j] < vetor[min])
+                if(vetor[j] > vetor[min])
                 {
                     min = j;
                 }
