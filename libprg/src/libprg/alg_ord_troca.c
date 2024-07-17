@@ -131,10 +131,13 @@ int* merge(int *vetor, int esquerda, int meio, int direita)
     }
     while (j <= direita)
     {
-        for (i= esquerda;  i<= direita; i++)
-        {
-            vetor[i] = aux[i - esquerda];
-        }
+        aux[k] = vetor[j];
+        j++;
+        k++;
+    }
+    for (i= esquerda;  i<= direita; i++)
+    {
+        vetor[i] = aux[i - esquerda];
     }
     return vetor;
 }
