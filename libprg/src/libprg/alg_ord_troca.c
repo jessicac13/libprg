@@ -66,23 +66,6 @@ int* insertionSort(int* vetor, int tamanho, bool crescente)
     return vetor;
 }
 
-//Algoritmo 3: Selection sort
-//Entrada: vetor[1..n]
-//Saída: vetor ordenado
-//1 para i de 1 até n − 1 faça
-//2 min ← i;
-//3 para j de (i+1) até n faça
-//4 se vetor[j] < vetor[min] então
-//5 min ← j;
-//6 fim
-//7 fim
-//8 se i ̸= min então
-//9 aux ← vetor[i];
-//10 vetor[i] ← vetor[min];
-//11 vetor[min] ← aux;
-//12 fim
-//13 fim
-
 int* selectionSort(int* vetor, int tamanho, bool crescente)
 {
     int min, aux;
@@ -106,13 +89,52 @@ int* selectionSort(int* vetor, int tamanho, bool crescente)
                     min = j;
                 }
             }
-
         }
         if( i != min)
         {
             aux = vetor[i];
             vetor[i] = vetor[min];
             vetor[min] = aux;
+        }
+    }
+    return vetor;
+}
+
+
+int* mergeSort(int *vetor, int esquerda, int meio, int direita)
+{
+    int *aux;
+    aux[(direita - esquerda +1)];
+    int i = esquerda;
+    int j = (meio + 1);
+    int k = 0;
+
+    while(i<= meio & j <= direita)
+    {
+        if ( vetor[i] <= vetor[j])
+        {
+            aux[k] = vetor[i];
+            i++;
+        }
+        else
+        {
+            aux[k] = vetor[j];
+            j++;
+
+        }
+        k++;
+    }
+    while ( i <= meio)
+    {
+        aux[k] = vetor[i];
+        i++;
+        k++;
+    }
+    while (j <= direita)
+    {
+        for (i= esquerda;  i<= direita; i++)
+        {
+            vetor[i] = aux[i - esquerda];
         }
     }
     return vetor;
