@@ -90,6 +90,8 @@ int* insertionSort(int* vetor, int tamanho, bool crescente);
 int* selectionSort(int* vetor, int tamanho, bool crescente);
 int* merge(int *vetor, int esquerda, int meio, int direita);
 int* mergeSort(int* vetor, int esquerda, int direita);
+int particiona(int* vetor, int inicio, int fim);
+int* quickSort(int* vetor, int inicio, int fim);
 #endif /* LIBPRG_H */
 
 

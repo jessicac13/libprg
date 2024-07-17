@@ -154,3 +154,36 @@ int* mergeSort(int* vetor, int esquerda, int direita)
     return vetor;
 }
 
+int particiona(int* vetor, int inicio, int fim)
+{
+    int aux;
+    int pivo = vetor[fim];
+    int i= inicio -1;
+    for(int j= inicio; j<= fim - 1; i++)
+    {
+        if(vetor[j] <= pivo)
+        {
+            i++;
+            aux = vetor[i];
+            vetor[i] = vetor[j];
+            vetor[j]= aux;
+        }
+    }
+    i++;
+    aux = vetor[i];
+    vetor[i] = vetor[fim];
+    vetor[fim]= aux;
+    return i;
+}
+
+
+int* quickSort(int *vetor, int inicio, int fim)
+{
+    if(inicio < fim )
+    {
+        int p = particiona(vetor, inicio, fim);
+        quickSort(vetor, inicio, p - 1);
+        quickSort(vetor, p + 1, fim);
+    }
+    return vetor;
+}
