@@ -102,8 +102,7 @@ int* selectionSort(int* vetor, int tamanho, bool crescente)
 
 int* merge(int *vetor, int esquerda, int meio, int direita)
 {
-    int *aux;
-    aux[(direita - esquerda +1)];
+    int aux[(direita - esquerda +1)];
     int i = esquerda;
     int j = (meio + 1);
     int k = 0;
