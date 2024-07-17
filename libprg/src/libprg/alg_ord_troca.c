@@ -100,8 +100,7 @@ int* selectionSort(int* vetor, int tamanho, bool crescente)
     return vetor;
 }
 
-
-int* mergeSort(int *vetor, int esquerda, int meio, int direita)
+int* merge(int *vetor, int esquerda, int meio, int direita)
 {
     int *aux;
     aux[(direita - esquerda +1)];
@@ -139,3 +138,17 @@ int* mergeSort(int *vetor, int esquerda, int meio, int direita)
     }
     return vetor;
 }
+
+int* mergeSort(int* vetor, int esquerda, int direita)
+{
+    int meio;
+    if(esquerda < direita)
+    {
+        meio = esquerda + (direita - esquerda)/2;
+        mergeSort(vetor, esquerda, meio);
+        mergeSort(vetor, meio + 1, direita);
+        merge(vetor, esquerda, meio, direita);
+    }
+    return vetor;
+}
+
