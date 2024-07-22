@@ -179,7 +179,7 @@ int particiona(int* vetor, int inicio, int fim)
 
 int* quickSort(int *vetor, int inicio, int fim)
 {
-    if(inicio < fim )
+    if(inicio <= fim )
     {
         int p = particiona(vetor, inicio, fim);
         quickSort(vetor, inicio, p - 1);
