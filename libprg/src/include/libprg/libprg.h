@@ -108,6 +108,10 @@ void imprimir_pessoa(dicionario_t *d, char *chave);
 typedef struct no_arvore no_arvore_t;
 
 no_arvore_t* criar_no_arvore(int valor);
+void destruir_no_arvore(no_arvore_t *no_arvore);
+no_arvore_t  *inserir_valor_arvore(no_arvore_t  *raiz, int valor);
+bool busca_arvore(no_arvore_t  *raiz, int valor);
+no_arvore_t *remover_valor_arvore(no_arvore_t *raiz, int valor);
 
 
 #endif /* LIBPRG_H */

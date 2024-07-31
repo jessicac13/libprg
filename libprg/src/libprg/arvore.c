@@ -43,7 +43,7 @@ no_arvore_t  *inserir_valor_arvore(no_arvore_t  *raiz, int valor)
     return raiz;
 }
 
-bool busca(no_arvore_t  *raiz, int valor)
+bool busca_arvore(no_arvore_t  *raiz, int valor)
 {
     if (raiz == NULL)
     {
@@ -55,7 +55,28 @@ bool busca(no_arvore_t  *raiz, int valor)
     }
     if (valor < raiz->valor)
     {
-        return busca(raiz->esquerda, valor);
+        return busca_arvore(raiz->esquerda, valor);
     }
-    return busca(raiz->direita, valor);
+    return busca_arvore(raiz->direita, valor);
+}
+
+no_arvore_t *remover_valor_arvore(no_arvore_t *raiz, int valor)
+{
+    if (raiz == NULL)
+    {
+        return raiz;
+    }
+    if (valor < raiz->valor)
+    {
+        raiz->esquerda = remover_valor_arvore(raiz, valor);
+    } else if (valor > raiz->valor)
+    {
+         raiz->direita = remover_valor_arvore(raiz, valor);
+    } else
+    {
+    // IF nó folha ou nó com um filho
+    // ELSE nó com dois filhos
+
+    }
+    return raiz;
 }
