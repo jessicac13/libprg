@@ -1,4 +1,3 @@
-#include <malloc.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -78,7 +77,7 @@ void adicionarListaEncadeadaO(noOrdenado_t** inicioOrdenado, int dado)
         else
         {
             novo->proximo = *inicioOrdenado;
-            no_t* ultimo = *inicioOrdenado;
+            noOrdenado_t* ultimo = *inicioOrdenado;
             while (ultimo->proximo != *inicioOrdenado)
             {
                 ultimo = ultimo->proximo;
@@ -193,7 +192,7 @@ void destruirListaEncadeada(no_t** inicio)
 void destruirListaEncadeadaDuplo(noDuplo_t** inicioDuplo)
 {
     noDuplo_t* atual = *inicioDuplo;
-    no_t* prox;
+    noDuplo_t * prox;
     while(atual != NULL)
     {
         prox = atual->proximo;
