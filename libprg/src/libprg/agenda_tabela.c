@@ -10,15 +10,15 @@ typedef struct pessoa{
     char *email;
 } pessoa_t;
 
-typedef struct no {
+typedef struct no_hash {
     char *chave;
     pessoa_t *valor;
-    struct no *prox;
-} no_t;
+    struct no_hash *prox;
+} no_hash_t;
 
 typedef struct dicionario {
     int tamanho; // tamanho do vetor
-    no_t **vetor;
+    no_hash_t **vetor;
 } dicionario_t;
 
 dicionario_t *criar_dicionario(int m)
@@ -31,7 +31,7 @@ dicionario_t *criar_dicionario(int m)
         return NULL;
     }
     d->tamanho = m;
-    if ((d->vetor = calloc(m, sizeof(no_t *))) == NULL) {
+    if ((d->vetor = calloc(m, sizeof(no_hash_t *))) == NULL) {
         return NULL;
     }
 // O calloc já deve colocar NULL, mas deixo aqui de forma explícita
@@ -58,13 +58,13 @@ void destruir_pessoa(pessoa_t *pessoa)
     free(pessoa);
 }
 
-void destruir_no(no_t *no)
+void destruir_no_hash(no_hash_t  *no_hash)
 {
-    if (no != NULL)
+    if (no_hash != NULL)
     {
-        free(no->chave);
-        destruir_pessoa(no->valor);
-        free(no);
+        free(no_hash->chave);
+        destruir_pessoa(no_hash->valor);
+        free(no_hash);
     }
 }
 
@@ -75,7 +75,7 @@ void destruir_dicionario(dicionario_t *d)
         for (int i = 0; i < d->tamanho; ++i)
         {
             // TODO destruir lista encadeada
-            destruir_no(d->vetor[i]);
+            destruir_no_hash(d->vetor[i]);
         }
         free(d->vetor);
         free(d);
@@ -93,30 +93,30 @@ int hash(const char *chave, int m)
 return soma % m;
 }
 
-bool inserir(dicionario_t *d, char *chave, pessoa_t *valor)
+bool inserir_hash(dicionario_t *d, char *chave, pessoa_t *valor)
 {
     int indice = hash(chave, d->tamanho);
-    no_t *no = malloc(sizeof(no_t));
-    if (no == NULL)
+    no_hash_t *no_hash = malloc(sizeof(no_hash_t));
+    if (no_hash == NULL)
     {
         return false;
     }
 
     // strdup reserva memória para fazer a cópia da string. Presente em string.h padrão
     // C23 https://en.cppreference.com/w/c/string/byte/strdup
-    no->chave = strdup(chave);
-    if (no->chave == NULL)
+    no_hash->chave = strdup(chave);
+    if (no_hash->chave == NULL)
     {
-        free(no);
+        free(no_hash);
         return false;
     }
-    no->valor = valor;
+    no_hash->valor = valor;
     // TODO não está tratando colisões
     // se houver colisão é necessário usar uma lista encadeada
-    no->prox = NULL;
+    no_hash->prox = NULL;
     // libera a memória se existir um nó anterior na posição
-    destruir_no(d->vetor[indice]);
-    d->vetor[indice] = no;
+    destruir_no_hash(d->vetor[indice]);
+    d->vetor[indice] = no_hash;
     return true;
 }
 

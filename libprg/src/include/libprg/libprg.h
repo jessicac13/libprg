@@ -83,7 +83,6 @@ void adicionarListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado);
 void imprimirListaEncadeadaDuplo(noDuplo_t **inicioDuplo);
 bool removerListaEncadeadaDuplo(noDuplo_t** inicioDuplo, int dado);
 noDuplo_t* buscarListaEncadeadaDuplo(noDuplo_t **inicioDuplo, int dado);
-void imprimirListaEncadeadaDuplo(noDuplo_t **inicioDuplo);
 
 int* bubbleSort(int* vetor, int tamanho, bool crescente);
 int* insertionSort(int* vetor, int tamanho, bool crescente);
@@ -94,17 +93,22 @@ int particiona(int* vetor, int inicio, int fim);
 int* quickSort(int* vetor, int inicio, int fim);
 
 typedef struct pessoa pessoa_t;
-typedef struct no no_t;
+typedef struct no_hash no_hash_t;
 typedef struct dicionario dicionario_t;
 
 dicionario_t *criar_dicionario(int m);
 void destruir_pessoa(pessoa_t *pessoa);
-void destruir_no(no_t *no);
+void destruir_no_hash(no_hash_t *no);
 void destruir_dicionario(dicionario_t *d);
 int hash(const char *chave, int m);
-bool inserir(dicionario_t *d, char *chave, pessoa_t *valor);
+bool inserir_hash(dicionario_t *d, char *chave, pessoa_t *valor);
 pessoa_t *buscar(dicionario_t *d, char *chave);
 void imprimir_pessoa(dicionario_t *d, char *chave);
+
+typedef struct no_arvore no_arvore_t;
+
+no_arvore_t* criar_no_arvore(int valor);
+
 
 #endif /* LIBPRG_H */
 

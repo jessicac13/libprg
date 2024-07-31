@@ -24,6 +24,7 @@ add_library(libprg
         src/libprg/lista_encadeada.c
         src/libprg/alg_ord_troca.c
         src/libprg/agenda_tabela.c
+        src/libprg/arvore.c
 )
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
