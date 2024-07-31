@@ -68,14 +68,23 @@ no_arvore_t *remover_valor_arvore(no_arvore_t *raiz, int valor)
     }
     if (valor < raiz->valor)
     {
-        raiz->esquerda = remover_valor_arvore(raiz, valor);
+        raiz->esquerda = remover_valor_arvore(raiz->esquerda, valor);
     } else if (valor > raiz->valor)
     {
-         raiz->direita = remover_valor_arvore(raiz, valor);
+         raiz->direita = remover_valor_arvore(raiz->direita, valor);
     } else
     {
-    // IF nó folha ou nó com um filho
-    // ELSE nó com dois filhos
+        // IF nó folha ou nó com um filho
+        // ELSE nó com dois filhos
+        if (raiz->direita && raiz->esquerda == 0)
+        {
+            remover_valor_arvore(raiz, valor);
+        }
+        else
+        {
+            remover_valor_arvore(raiz->direita, valor);
+            remover_valor_arvore(raiz->esquerda, valor);
+        }
 
     }
     return raiz;
