@@ -76,9 +76,17 @@ no_arvore_t *remover_valor_arvore(no_arvore_t *raiz, int valor)
     {
         // IF nó folha ou nó com um filho
         // ELSE nó com dois filhos
-        if ((raiz->direita && raiz->esquerda == NULL) || (raiz->direita || raiz->esquerda == NULL) )
+        if (raiz->direita || raiz->esquerda == NULL)
         {
-            remover_valor_arvore(raiz, valor);
+            if(raiz->esquerda == NULL)
+            {
+                remover_valor_arvore(raiz->direita, valor);
+            }
+            if (raiz->direita == NULL)
+            {
+                remover_valor_arvore(raiz->esquerda, valor);
+            }
+
         }
         else
         {
