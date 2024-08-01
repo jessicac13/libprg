@@ -132,6 +132,12 @@ void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO]);
 void editaPrio(lista_t *lista, char prioridade[MAX_PRIORIDADE]);
 void editarPrazo(lista_t *lista, char prazo[MAX_PRIORIDADE]);
 void editarConclusao(lista_t *lista, char conclusao[MAX_PRAZO]);
+void ordenarPorDescricao(lista_t *lista, bool crescente);
+void ordenarPorPrioridade(lista_t *lista, bool crescente);
+void ordenarPorPrazo(lista_t *lista, bool crescente);
+void ordenarPorConclusao(lista_t *lista, bool crescente);
+void listarListaTarefas(lista_t *lista);
+void destruirListaTarefas(lista_t *lista);
 
 #endif /* LIBPRG_H */
 
