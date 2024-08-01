@@ -131,7 +131,7 @@ void buscarTarefasPrazo(lista_t *lista, char prazo[MAX_PRAZO]);
 void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO]);
 void editaPrio(lista_t *lista, char prioridade[MAX_PRIORIDADE]);
 void editarPrazo(lista_t *lista, char prazo[MAX_PRIORIDADE]);
-void editarConclusao(lista_t *lista, char conclusao[MAX_PRAZO])
+void editarConclusao(lista_t *lista, char conclusao[MAX_PRAZO]);
 
 #endif /* LIBPRG_H */
 
