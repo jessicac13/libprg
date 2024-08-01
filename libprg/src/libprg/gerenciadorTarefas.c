@@ -68,7 +68,7 @@ void inserirListaTarefas(lista_t *lista, char descricao[MAX_DESCRICAO], char pri
     strncpy(lista->elemento[lista->tamanho].prazo, prazo, MAX_PRAZO- 1);
     lista->elemento[lista->tamanho].prazo[MAX_PRAZO - 1] = '\0';
 
-    lista->elemento[lista->tamanho].ID = ID_g + 1;
+    lista->elemento[lista->tamanho].ID = ID_g ++;
 
     strcpy(lista->elemento[lista->tamanho].conclusao, "NÃO CONCLUÍDO!");
 
@@ -209,7 +209,7 @@ void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO])
     else
     {
         inserirListaTarefas(lista, descricao,lista->elemento[indice].prioridade,lista->elemento[indice].prazo);
-        removerListaContatos(lista, descricao);
+        removerListaTarefas(lista, descricao);
         printf("\nDescrição alterada!\n");
     }
 }
@@ -225,7 +225,7 @@ void editaPrio(lista_t *lista, char prioridade[MAX_PRIORIDADE])
     else
     {
         inserirListaTarefas(lista, lista->elemento[indice].descricao, prioridade,lista->elemento[indice].prazo);
-        removerListaContatos(lista, lista->elemento[indice].descricao);
+        removerListaTarefas(lista, lista->elemento[indice].descricao);
         printf("\nPrioridade alterada!\n");
     }
 }
@@ -242,7 +242,7 @@ void editarPrazo(lista_t *lista, char prazo[MAX_PRIORIDADE])
     else
     {
         inserirListaTarefas(lista, lista->elemento[indice].descricao, lista->elemento[indice].prioridade,prazo);
-        removerListaContatos(lista, lista->elemento[indice].descricao);
+        removerListaTarefas(lista, lista->elemento[indice].descricao);
         printf("\nPrazo alterada!\n");
     }
 }
@@ -258,9 +258,7 @@ void editarConclusao(lista_t *lista, char conclusao[MAX_PRAZO])
     }
     else
     {
-        inserirListaTarefas(lista, lista->elemento[indice].descricao, lista->elemento[indice].prioridade,lista->elemento[indice].prazo);
         strcpy(lista->elemento[indice].conclusao, conclusao);
-        removerListaContatos(lista, lista->elemento[indice].descricao);
         printf("\nConclusão alterada!\n");
     }
 }
