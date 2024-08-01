@@ -261,5 +261,155 @@ void editarConclusao(lista_t *lista, char conclusao[MAX_PRAZO])
     }
 }
 
+void listarListaTarefas(lista_t *lista)
+{
+    printf("\nTarefas cadastradas: \n");
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        printf("ID: %d, Descrição: %s, Prioridade: %s, Prazo: %s, Conclusão: %s\n", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
+    }
+}
 
+void destruirListaTarefas(lista_t *lista)
+{
+    free(lista->elemento);
+    free(lista);
+}
+
+int* insertionSort(int* vetor, int tamanho, bool crescente)
+{
+    int j, chave;
+
+    for(int i=0; i<tamanho; i++)
+    {
+        chave = vetor[i];
+        j =i-1;
+
+        if (crescente == true)
+        {
+            while (j>=0 && vetor[j]> chave)
+            {
+                vetor[j+1] = vetor[j];
+                j = j-1;
+            }
+            vetor[j+1] = chave;
+        }
+
+        if (crescente == false)
+        {
+            while (j>=0 && vetor[j] < chave)
+            {
+                vetor[j+1] = vetor[j];
+                j = j-1;
+            }
+            vetor[j+1] = chave;
+        }
+    }
+    return vetor;
+}
+
+void ordenarPorDescricao(lista_t *lista, bool crescente)
+{
+    int *indices = malloc(lista->tamanho * sizeof(int));
+
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        indices[i] = i;
+    }
+
+    insertionSort(indices, lista->tamanho, crescente);
+
+    struct tarefas *temp = malloc(lista->tamanho * sizeof(struct tarefas));
+
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        temp[i] = lista->elemento[indices[i]];
+    }
+
+    memcpy(lista->elemento, temp, lista->tamanho * sizeof(struct tarefas));
+
+    free(indices);
+    free(temp);
+}
+
+void ordenarPorPrioridade(lista_t *lista, bool crescente)
+{
+    int *indices = malloc(lista->tamanho * sizeof(int));
+    char **prioridades = malloc(lista->tamanho * sizeof(char *));
+
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        indices[i] = i;
+        prioridades[i] = lista->elemento[i].prioridade;
+    }
+
+    insertionSort(indices, lista->tamanho, crescente);
+
+    struct tarefas *temp = malloc(lista->tamanho * sizeof(struct tarefas));
+
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        temp[i] = lista->elemento[indices[i]];
+    }
+
+    memcpy(lista->elemento, temp, lista->tamanho * sizeof(struct tarefas));
+
+    free(indices);
+    free(prioridades);
+    free(temp);
+}
+
+void ordenarPorPrazo(lista_t *lista, bool crescente)
+{
+    int *indices = malloc(lista->tamanho * sizeof(int));
+    char **prazos = malloc(lista->tamanho * sizeof(char *));
+
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        indices[i] = i;
+        prazos[i] = lista->elemento[i].prazo;
+    }
+
+    insertionSort(indices, lista->tamanho, crescente);
+
+    struct tarefas *temp = malloc(lista->tamanho * sizeof(struct tarefas));
+
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        temp[i] = lista->elemento[indices[i]];
+    }
+
+    memcpy(lista->elemento, temp, lista->tamanho * sizeof(struct tarefas));
+
+    free(indices);
+    free(prazos);
+    free(temp);
+}
+
+void ordenarPorConclusao(lista_t *lista, bool crescente)
+{
+    int *indices = malloc(lista->tamanho * sizeof(int));
+    char **conclusoes = malloc(lista->tamanho * sizeof(char *));
+
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        indices[i] = i;
+        conclusoes[i] = lista->elemento[i].conclusao;
+    }
+
+    insertionSort(indices, lista->tamanho, crescente);
+
+    struct tarefas *temp = malloc(lista->tamanho * sizeof(struct tarefas));
+
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        temp[i] = lista->elemento[indices[i]];
+    }
+
+    memcpy(lista->elemento, temp, lista->tamanho * sizeof(struct tarefas));
+
+    free(indices);
+    free(conclusoes);
+    free(temp);
+}
 
