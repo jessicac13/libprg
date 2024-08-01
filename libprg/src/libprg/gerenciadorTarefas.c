@@ -69,6 +69,7 @@ void inserirListaTarefas(lista_t *lista, char descricao[MAX_DESCRICAO], char pri
     lista->elemento[lista->tamanho].prazo[MAX_PRAZO - 1] = '\0';
 
     lista->elemento[lista->tamanho].ID = ID_g ++;
+    ID_g ++;
 
     strcpy(lista->elemento[lista->tamanho].conclusao, "NÃO CONCLUÍDO!");
 
@@ -259,4 +260,6 @@ void editarConclusao(lista_t *lista, char conclusao[MAX_PRAZO])
         printf("\nConclusão alterada!\n");
     }
 }
+
+
 
