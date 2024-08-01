@@ -208,8 +208,7 @@ void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO])
     }
     else
     {
-        inserirListaTarefas(lista, descricao,lista->elemento[indice].prioridade,lista->elemento[indice].prazo);
-        removerListaTarefas(lista, descricao);
+        strcpy(lista->elemento[indice].descricao, descricao);
         printf("\nDescrição alterada!\n");
     }
 }
@@ -224,8 +223,7 @@ void editaPrio(lista_t *lista, char prioridade[MAX_PRIORIDADE])
     }
     else
     {
-        inserirListaTarefas(lista, lista->elemento[indice].descricao, prioridade,lista->elemento[indice].prazo);
-        removerListaTarefas(lista, lista->elemento[indice].descricao);
+        strcpy(lista->elemento[indice].prioridade, prioridade);
         printf("\nPrioridade alterada!\n");
     }
 }
@@ -241,8 +239,7 @@ void editarPrazo(lista_t *lista, char prazo[MAX_PRIORIDADE])
     }
     else
     {
-        inserirListaTarefas(lista, lista->elemento[indice].descricao, lista->elemento[indice].prioridade,prazo);
-        removerListaTarefas(lista, lista->elemento[indice].descricao);
+        strcpy(lista->elemento[indice].prazo, prazo);
         printf("\nPrazo alterada!\n");
     }
 }

@@ -113,6 +113,25 @@ no_arvore_t  *inserir_valor_arvore(no_arvore_t  *raiz, int valor);
 bool busca_arvore(no_arvore_t  *raiz, int valor);
 no_arvore_t *remover_valor_arvore(no_arvore_t *raiz, int valor);
 
+#define MAX_DESCRICAO 1000
+#define MAX_PRIORIDADE 5
+#define MAX_PRAZO 10
+#define CAPACIDADE_INICIAL 10
+
+lista_t* criarListaTarefas();
+void inserirListaTarefas(lista_t *lista, char descricao[MAX_DESCRICAO], char prioridade[MAX_PRIORIDADE], char prazo[MAX_PRAZO]);
+int buscaListaTarefasDes(lista_t *lista, char alvo[MAX_DESCRICAO]);
+int buscaListaTarefasPrio(lista_t *lista, char alvo[MAX_PRIORIDADE]);
+int buscaListaTarefasPrazo(lista_t *lista, char alvo[MAX_PRAZO]);
+int buscaListaTarefasConclusao(lista_t *lista, char alvo[MAX_PRAZO]);
+void removerListaTarefas(lista_t *lista, char alvo[MAX_DESCRICAO]);
+void buscarTarefasDescricao(lista_t *lista, char descricao[MAX_DESCRICAO]);
+void buscarTarefasPrioridade(lista_t *lista, char prioridades[MAX_PRIORIDADE]);
+void buscarTarefasPrazo(lista_t *lista, char prazo[MAX_PRAZO]);
+void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO]);
+void editaPrio(lista_t *lista, char prioridade[MAX_PRIORIDADE]);
+void editarPrazo(lista_t *lista, char prazo[MAX_PRIORIDADE]);
+void editarConclusao(lista_t *lista, char conclusao[MAX_PRAZO])
 
 #endif /* LIBPRG_H */
 
