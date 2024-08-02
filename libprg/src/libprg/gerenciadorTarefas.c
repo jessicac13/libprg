@@ -26,6 +26,7 @@ struct lista_t {
 
 lista_t* criarListaTarefas()
 {
+
     lista_t *lista = (lista_t*)malloc(sizeof(lista_t));
     if (lista == NULL)
     {
@@ -36,6 +37,7 @@ lista_t* criarListaTarefas()
     lista->tamanho = 0;
     lista->capacidade = CAPACIDADE_INICIAL;
 
+    free(lista->elemento);
     lista->elemento = (struct tarefas*)malloc(lista->capacidade * sizeof(struct tarefas));
     if (lista->elemento == NULL)
     {
