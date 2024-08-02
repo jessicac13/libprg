@@ -4,9 +4,9 @@
 #include <string.h>
 #include <libprg/libprg.h>
 
-#define MAX_DESCRICAO 1000
-#define MAX_PRIORIDADE 5
-#define MAX_PRAZO 10
+#define MAX_DESCRICAO 1001
+#define MAX_PRIORIDADE 6
+#define MAX_PRAZO 11
 #define CAPACIDADE_INICIAL 10
 
 struct tarefas {
