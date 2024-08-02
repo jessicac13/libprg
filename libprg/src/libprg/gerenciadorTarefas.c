@@ -9,8 +9,6 @@
 #define MAX_PRAZO 10
 #define CAPACIDADE_INICIAL 10
 
-
-
 struct tarefas {
     char descricao[MAX_DESCRICAO];
     char prioridade[MAX_PRIORIDADE];
@@ -25,6 +23,13 @@ struct lista_t {
     int tamanho;
     int capacidade;
 };
+
+int ID_g = 0; // Variável global para gerar IDs únicos
+
+int gerarID()
+{
+    return ID_g++;
+}
 
 lista_t* criarListaTarefas()
 {
@@ -70,8 +75,9 @@ void inserirListaTarefas(lista_t *lista, char descricao[MAX_DESCRICAO], char pri
 
     strcpy(lista->elemento[lista->tamanho].conclusao, "NÃO CONCLUÍDO!");
 
+    lista->elemento[lista->tamanho].ID = gerarID();
     lista->tamanho++;
-    lista->elemento[lista->tamanho].ID = lista->tamanho;
+
 }
 
 int buscaListaTarefasDes(lista_t *lista, char alvo[MAX_DESCRICAO])
