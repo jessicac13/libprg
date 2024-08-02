@@ -89,40 +89,6 @@ int buscaListaTarefasDes(lista_t *lista, char alvo[MAX_DESCRICAO])
    return -1;
 }
 
-int buscaListaTarefasPrio(lista_t *lista, char alvo[MAX_PRIORIDADE])
-{
-    for(int i=0; i<lista->tamanho; i++)
-    {
-        if(strcmp(alvo, lista->elemento[i].prioridade) == 0)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
-
-int buscaListaTarefasPrazo(lista_t *lista, char alvo[MAX_PRAZO])
-{
-    for(int i=0; i<lista->tamanho; i++)
-    {
-        if(strcmp(alvo, lista->elemento[i].prazo) == 0)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
-
-int buscaListaTarefasConclusao(lista_t *lista, char alvo[MAX_PRAZO])
-{
-    for (int i = 0; i < lista->tamanho; i++) {
-        if (strcmp(alvo, lista->elemento[i].conclusao) == 0)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
 void removerListaTarefas(lista_t *lista, char alvo[MAX_DESCRICAO])
 {
     int indice = buscaListaTarefasDes(lista, alvo);
@@ -215,7 +181,7 @@ void buscarTarefasConclusao(lista_t *lista, char conclusao[MAX_PRAZO])
     }
 }
 
-void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO])
+void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO], char descricaoNova[MAX_DESCRICAO] )
 {
     int indice = buscaListaTarefasDes(lista,descricao);
     if( indice < 0)
@@ -225,17 +191,17 @@ void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO])
     }
     else
     {
-        strcpy(lista->elemento[indice].descricao, descricao);
+        strcpy(lista->elemento[indice].descricao, descricaoNova);
         printf("\nDescrição alterada!\n");
     }
 }
 
-void editaPrio(lista_t *lista, char prioridade[MAX_PRIORIDADE])
+void editarPrio(lista_t *lista, char descricao[MAX_DESCRICAO], char prioridade[MAX_PRIORIDADE])
 {
-    int indice = buscaListaTarefasPrio(lista,prioridade);
+    int indice = buscaListaTarefasDes(lista,descricao);
     if( indice < 0)
     {
-        printf("\nNenhuma tarefa encontrada para '%s'\n", prioridade);
+        printf("\nNenhuma tarefa encontrada para '%s'\n", descricao);
         return;
     }
     else
@@ -246,9 +212,9 @@ void editaPrio(lista_t *lista, char prioridade[MAX_PRIORIDADE])
 }
 
 
-void editarPrazo(lista_t *lista, char prazo[MAX_PRIORIDADE])
+void editarPrazo(lista_t *lista, char descricao[MAX_DESCRICAO], char prazo[MAX_PRIORIDADE] )
 {
-    int indice = buscaListaTarefasPrazo(lista,prazo);
+    int indice = buscaListaTarefasDes(lista,prazo);
     if( indice < 0)
     {
         printf("\nNenhuma tarefa encontrada para '%s'\n", prazo);
@@ -262,9 +228,9 @@ void editarPrazo(lista_t *lista, char prazo[MAX_PRIORIDADE])
 }
 
 
-void editarConclusao(lista_t *lista, char conclusao[MAX_PRAZO])
+void editarConclusao(lista_t *lista,char descricao[MAX_DESCRICAO], char conclusao[MAX_PRAZO])
 {
-    int indice = buscaListaTarefasConclusao(lista,conclusao);
+    int indice = buscaListaTarefasDes(lista,conclusao);
     if( indice < 0)
     {
         printf("\nNenhuma tarefa encontrada para '%s'\n", conclusao);
