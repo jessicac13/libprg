@@ -42,7 +42,7 @@ lista_t* criarListaTarefas()
         printf("Erro de alocação de memória\n");
         exit(1);
     }
-    lista->elemento[lista->tamanho].ID =0;
+
     return lista;
 }
 
@@ -69,7 +69,14 @@ void inserirListaTarefas(lista_t *lista, char descricao[MAX_DESCRICAO], char pri
 
     strcpy(lista->elemento[lista->tamanho].conclusao, "NÃO CONCLUÍDO!");
 
-    lista->elemento[lista->tamanho].ID = lista->elemento[lista->tamanho].ID++;
+    if(lista->tamanho== 0)
+    {
+        lista->elemento[lista->tamanho].ID = 0;
+    }
+    if(lista->tamanho!= 0)
+    {
+        lista->elemento[lista->tamanho].ID = lista->elemento[lista->tamanho-1].ID++;
+    }
     lista->tamanho++;
 
 }
