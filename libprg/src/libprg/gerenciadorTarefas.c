@@ -24,7 +24,7 @@ struct lista_t {
     int capacidade;
 };
 
-int ID_g = 0; // Variável global para gerar IDs únicos
+int ID_g = 1; // Variável global para gerar IDs únicos
 
 int gerarID()
 {
