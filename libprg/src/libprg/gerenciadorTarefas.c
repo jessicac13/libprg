@@ -70,9 +70,8 @@ void inserirListaTarefas(lista_t *lista, char descricao[MAX_DESCRICAO], char pri
 
     strcpy(lista->elemento[lista->tamanho].conclusao, "NÃO CONCLUÍDO!");
 
-    lista->elemento[lista->tamanho].ID = lista->tamanho++;
     lista->tamanho++;
-
+    lista->elemento[lista->tamanho].ID = lista->tamanho;
 }
 
 int buscaListaTarefasDes(lista_t *lista, char alvo[MAX_DESCRICAO])
