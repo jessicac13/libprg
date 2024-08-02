@@ -9,7 +9,7 @@
 #define MAX_PRAZO 10
 #define CAPACIDADE_INICIAL 10
 
-int ID_g = 0;
+
 
 struct tarefas {
     char descricao[MAX_DESCRICAO];
@@ -68,11 +68,9 @@ void inserirListaTarefas(lista_t *lista, char descricao[MAX_DESCRICAO], char pri
     strncpy(lista->elemento[lista->tamanho].prazo, prazo, MAX_PRAZO- 1);
     lista->elemento[lista->tamanho].prazo[MAX_PRAZO - 1] = '\0';
 
-    lista->elemento[lista->tamanho].ID = ID_g ++;
-    ID_g ++;
-
     strcpy(lista->elemento[lista->tamanho].conclusao, "NÃO CONCLUÍDO!");
 
+    lista->elemento[lista->tamanho].ID = lista->tamanho++;
     lista->tamanho++;
 
 }
