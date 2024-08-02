@@ -277,26 +277,6 @@ void editarConclusao(lista_t *lista, char conclusao[MAX_PRAZO])
     }
 }
 
-void listarListaTarefas(lista_t *lista)
-{
-    if (lista->tamanho == 0)
-    {
-        printf("Nenhuma tarefa encontrada.\n");
-        return;
-    }
-    printf("============================================\n");
-    printf("||           LISTA DE TAREFAS             ||\n");
-    printf("============================================\n");
-    for (int i = 0; i < lista->tamanho; i++)
-    {
-        printf("ID: %d\n", lista->elemento[i].ID);
-        printf("Descrição: %s\n", lista->elemento[i].descricao);
-        printf("Prioridade: %s\n", lista->elemento[i].prioridade);
-        printf("Prazo: %s\n", lista->elemento[i].prazo);
-        printf("Conclusão: %s\n", lista->elemento[i].conclusao);
-        printf("--------------------------------------------\n");
-    }
-}
 
 void destruirListaTarefas(lista_t *lista)
 {

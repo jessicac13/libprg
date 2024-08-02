@@ -137,7 +137,7 @@ void ordenarPorDescricao(lista_t *lista, bool crescente);
 void ordenarPorPrioridade(lista_t *lista, bool crescente);
 void ordenarPorPrazo(lista_t *lista, bool crescente);
 void ordenarPorConclusao(lista_t *lista, bool crescente);
-void listarListaTarefas(lista_t *lista);
+
 void destruirListaTarefas(lista_t *lista);
 
 #endif /* LIBPRG_H */
