@@ -113,9 +113,9 @@ no_arvore_t  *inserir_valor_arvore(no_arvore_t  *raiz, int valor);
 bool busca_arvore(no_arvore_t  *raiz, int valor);
 no_arvore_t *remover_valor_arvore(no_arvore_t *raiz, int valor);
 
-#define MAX_DESCRICAO 1000
-#define MAX_PRIORIDADE 5
-#define MAX_PRAZO 10
+#define MAX_DESCRICAO 1001
+#define MAX_PRIORIDADE 6
+#define MAX_PRAZO 11
 #define CAPACIDADE_INICIAL 10
 
 lista_t* criarListaTarefas();
