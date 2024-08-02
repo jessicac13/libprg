@@ -214,10 +214,10 @@ void editarPrio(lista_t *lista, char descricao[MAX_DESCRICAO], char prioridade[M
 
 void editarPrazo(lista_t *lista, char descricao[MAX_DESCRICAO], char prazo[MAX_PRIORIDADE] )
 {
-    int indice = buscaListaTarefasDes(lista,prazo);
+    int indice = buscaListaTarefasDes(lista,descricao);
     if( indice < 0)
     {
-        printf("\nNenhuma tarefa encontrada para '%s'\n", prazo);
+        printf("\nNenhuma tarefa encontrada para '%s'\n", descricao);
         return;
     }
     else
@@ -230,10 +230,10 @@ void editarPrazo(lista_t *lista, char descricao[MAX_DESCRICAO], char prazo[MAX_P
 
 void editarConclusao(lista_t *lista,char descricao[MAX_DESCRICAO], char conclusao[MAX_PRAZO])
 {
-    int indice = buscaListaTarefasDes(lista,conclusao);
+    int indice = buscaListaTarefasDes(lista,descricao);
     if( indice < 0)
     {
-        printf("\nNenhuma tarefa encontrada para '%s'\n", conclusao);
+        printf("\nNenhuma tarefa encontrada para '%s'\n", descricao);
         return;
     }
     else
