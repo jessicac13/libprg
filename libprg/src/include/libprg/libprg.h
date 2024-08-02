@@ -128,6 +128,7 @@ void removerListaTarefas(lista_t *lista, char alvo[MAX_DESCRICAO]);
 void buscarTarefasDescricao(lista_t *lista, char descricao[MAX_DESCRICAO]);
 void buscarTarefasPrioridade(lista_t *lista, char prioridades[MAX_PRIORIDADE]);
 void buscarTarefasPrazo(lista_t *lista, char prazo[MAX_PRAZO]);
+void buscarTarefasConclusao(lista_t *lista, char conclusao[MAX_PRAZO]);
 void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO]);
 void editaPrio(lista_t *lista, char prioridade[MAX_PRIORIDADE]);
 void editarPrazo(lista_t *lista, char prazo[MAX_PRIORIDADE]);

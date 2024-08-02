@@ -181,7 +181,6 @@ void buscarTarefasPrioridade(lista_t *lista, char prioridades[MAX_PRIORIDADE])
     }
 }
 
-
 void buscarTarefasPrazo(lista_t *lista, char prazo[MAX_PRAZO])
 {
     int encontrados = 0;
@@ -196,6 +195,23 @@ void buscarTarefasPrazo(lista_t *lista, char prazo[MAX_PRAZO])
     if (encontrados == 0)
     {
         printf("Nenhuma tarefa encontrada para '%s'\n", prazo);
+    }
+}
+
+void buscarTarefasConclusao(lista_t *lista, char conclusao[MAX_PRAZO])
+{
+    int encontrados = 0;
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        if (strstr(lista->elemento[i].conclusao, conclusao) != NULL)
+        {
+            printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
+            encontrados++;
+        }
+    }
+    if (encontrados == 0)
+    {
+        printf("Nenhuma tarefa encontrada para '%s'\n", conclusao);
     }
 }
 
