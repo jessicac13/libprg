@@ -75,7 +75,7 @@ void inserirListaTarefas(lista_t *lista, char descricao[MAX_DESCRICAO], char pri
     }
     if(lista->tamanho!= 0)
     {
-        lista->elemento[lista->tamanho].ID = lista->elemento[lista->tamanho-1].ID++;
+        lista->elemento[lista->tamanho].ID = (lista->elemento[lista->tamanho-1].ID) +1;
     }
     lista->tamanho++;
 
