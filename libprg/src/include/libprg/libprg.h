@@ -131,7 +131,7 @@ void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO], char descricaoNova
 void editarPrio(lista_t *lista, char descricao[MAX_DESCRICAO], char prioridade[MAX_PRIORIDADE]);
 void editarPrazo(lista_t *lista,char descricao[MAX_DESCRICAO], char prazo[MAX_PRIORIDADE]);
 void editarConclusao(lista_t *lista, char descricao[MAX_DESCRICAO], char conclusao[MAX_PRAZO]);
-void insertionSortDes(lista_t* vetor, int tamanho, bool crescente);
+void insertionSortDes(lista_t* lista, bool crescente);
 
 void destruirListaTarefas(lista_t *lista);
 

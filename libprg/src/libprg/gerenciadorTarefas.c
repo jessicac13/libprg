@@ -256,25 +256,34 @@ void destruirListaTarefas(lista_t *lista)
     free(lista);
 }
 
-void insertionSortDes(lista_t* vetor, int tamanho, bool crescente) {
-    int j;
-    lista_t chave;
 
-    for(int i = 1; i < tamanho; i++) {
-        chave = vetor[i];
+// Função de comparação para prioridades
+int compararDes(char* p1, char* p2, bool crescente)
+{
+    if (crescente)
+    {
+        return strcmp(p1, p2);
+    }
+    else
+    {
+        return strcmp(p2, p1);
+    }
+}
+
+// Função insertionSort para ordenar a lista de tarefas
+void insertionSortDes(lista_t* lista, bool crescente)
+{
+    int j;
+    struct tarefas chave;
+
+    for (int i = 1; i < lista->tamanho; i++) {
+        chave = lista->elemento[i];
         j = i - 1;
 
-        if (crescente) {
-            while (j >= 0 && vetor[j].elemento->descricao > chave.elemento->descricao) {
-                vetor[j + 1] = vetor[j];
-                j = j - 1;
-            }
-        } else {
-            while (j >= 0 && vetor[j].elemento->descricao < chave.elemento->descricao) {
-                vetor[j + 1] = vetor[j];
-                j = j - 1;
-            }
+        while (j >= 0 && compararDes(lista->elemento[j].descricao, chave.descricao, crescente) > 0) {
+            lista->elemento[j + 1] = lista->elemento[j];
+            j = j - 1;
         }
-        vetor[j + 1] = chave;
+        lista->elemento[j + 1] = chave;
     }
 }
