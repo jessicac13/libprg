@@ -115,7 +115,7 @@ no_arvore_t *remover_valor_arvore(no_arvore_t *raiz, int valor);
 
 #define MAX_DESCRICAO 1001
 #define MAX_PRIORIDADE 6
-#define MAX_PRAZO 20
+#define MAX_PRAZO 11
 #define CAPACIDADE_INICIAL 10
 
 lista_t* criarListaTarefas();
