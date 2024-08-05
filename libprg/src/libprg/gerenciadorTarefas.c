@@ -153,40 +153,6 @@ void buscarTarefasPrioridade(lista_t *lista, char prioridades[MAX_PRIORIDADE])
     }
 }
 
-void buscarTarefasPrazo(lista_t *lista, char prazo[MAX_PRAZO])
-{
-    int encontrados = 0;
-    for (int i = 0; i < lista->tamanho; i++)
-    {
-        if (strstr(lista->elemento[i].prazo, prazo) != NULL)
-        {
-            printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
-            encontrados++;
-        }
-    }
-    if (encontrados == 0)
-    {
-        printf("Nenhuma tarefa encontrada para '%s'\n", prazo);
-    }
-}
-
-void buscarTarefasConclusao(lista_t *lista, char conclusao[MAX_PRAZO])
-{
-    int encontrados = 0;
-    for (int i = 0; i < lista->tamanho; i++)
-    {
-        if (strstr(lista->elemento[i].conclusao, conclusao) != NULL)
-        {
-            printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
-            encontrados++;
-        }
-    }
-    if (encontrados == 0)
-    {
-        printf("Nenhuma tarefa encontrada para '%s'\n", conclusao);
-    }
-}
-
 void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO], char descricaoNova[MAX_DESCRICAO] )
 {
     int indice = buscaListaTarefasDes(lista,descricao);
@@ -373,5 +339,65 @@ void insertionSortConclusao(lista_t* lista, bool crescente)
             j = j - 1;
         }
         lista->elemento[j + 1] = chave;
+    }
+}
+
+void buscarTarefaPrazo(const lista_t* lista, const char* data, const char* criterio)
+{
+    int dataBusca = converterData(data);
+
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        int dataTarefa = converterData(lista->elemento[i].prazo);
+        bool exibir = false;
+
+        if (strcmp(criterio, "antes") == 0 && dataTarefa < dataBusca)
+        {
+            exibir = true;
+        }
+        else if (strcmp(criterio, "depois") == 0 && dataTarefa > dataBusca)
+        {
+            exibir = true;
+        }
+        else if (strcmp(criterio, "exatamente") == 0 && dataTarefa == dataBusca)
+        {
+            exibir = true;
+        }
+
+        if (exibir)
+        {
+            printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
+
+        }
+    }
+}
+
+void buscarTarefaConclusao(const lista_t* lista, const char* data, const char* criterio)
+{
+    int dataBusca = converterData(data);
+
+    for (int i = 0; i < lista->tamanho; i++)
+    {
+        int dataTarefa = converterData(lista->elemento[i].conclusao);
+        bool exibir = false;
+
+        if (strcmp(criterio, "antes") == 0 && dataTarefa < dataBusca)
+        {
+            exibir = true;
+        }
+        else if (strcmp(criterio, "depois") == 0 && dataTarefa > dataBusca)
+        {
+            exibir = true;
+        }
+        else if (strcmp(criterio, "exatamente") == 0 && dataTarefa == dataBusca)
+        {
+            exibir = true;
+        }
+
+        if (exibir)
+        {
+            printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
+
+        }
     }
 }

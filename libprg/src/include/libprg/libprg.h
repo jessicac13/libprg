@@ -124,8 +124,6 @@ int buscaListaTarefasDes(lista_t *lista, char alvo[MAX_DESCRICAO]);
 void removerListaTarefas(lista_t *lista, char alvo[MAX_DESCRICAO]);
 void buscarTarefasDescricao(lista_t *lista, char descricao[MAX_DESCRICAO]);
 void buscarTarefasPrioridade(lista_t *lista, char prioridades[MAX_PRIORIDADE]);
-void buscarTarefasPrazo(lista_t *lista, char prazo[MAX_PRAZO]);
-void buscarTarefasConclusao(lista_t *lista, char conclusao[MAX_PRAZO]);
 void editarDes(lista_t *lista, char descricao[MAX_DESCRICAO], char descricaoNova[MAX_DESCRICAO]);
 void editarPrio(lista_t *lista, char descricao[MAX_DESCRICAO], char prioridade[MAX_PRIORIDADE]);
 void editarPrazo(lista_t *lista,char descricao[MAX_DESCRICAO], char prazo[MAX_PRIORIDADE]);
@@ -134,6 +132,8 @@ void insertionSortDes(lista_t* lista, bool crescente);
 void insertionSortPrio(lista_t* lista, bool crescente);
 void insertionSortPrazo(lista_t* lista, bool crescente);
 void insertionSortConclusao(lista_t* lista, bool crescente);
+void buscarTarefaPrazo(const lista_t* lista, const char* data, const char* criterio);
+void buscarTarefaConclusao(const lista_t* lista, const char* data, const char* criterio);
 void destruirListaTarefas(lista_t *lista);
 
 #endif /* LIBPRG_H */
