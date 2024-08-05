@@ -257,7 +257,7 @@ void destruirListaTarefas(lista_t *lista)
 }
 
 
-// Função de comparação para prioridades
+
 int compararDes(char* p1, char* p2, bool crescente)
 {
     if (crescente)
@@ -270,7 +270,7 @@ int compararDes(char* p1, char* p2, bool crescente)
     }
 }
 
-// Função insertionSort para ordenar a lista de tarefas
+
 void insertionSortDes(lista_t* lista, bool crescente)
 {
     int j;
@@ -281,6 +281,41 @@ void insertionSortDes(lista_t* lista, bool crescente)
         j = i - 1;
 
         while (j >= 0 && compararDes(lista->elemento[j].descricao, chave.descricao, crescente) > 0) {
+            lista->elemento[j + 1] = lista->elemento[j];
+            j = j - 1;
+        }
+        lista->elemento[j + 1] = chave;
+    }
+}
+
+int compararPrioridade(char* p1, char* p2, bool crescente) {
+    int peso1, peso2;
+
+    if (strcmp(p1, "Alta") == 0) peso1 = 3;
+    else if (strcmp(p1, "Média") == 0) peso1 = 2;
+    else if (strcmp(p1, "Baixa") == 0) peso1 = 1;
+    else peso1 = 0;
+
+    if (strcmp(p2, "Alta") == 0) peso2 = 3;
+    else if (strcmp(p2, "Média") == 0) peso2 = 2;
+    else if (strcmp(p2, "Baixa") == 0) peso2 = 1;
+    else peso2 = 0;
+
+    return crescente ? (peso1 - peso2) : (peso2 - peso1);
+}
+
+
+void insertionSortPrio(lista_t* lista, bool crescente)
+{
+    int j;
+    struct tarefas chave;
+
+    for (int i = 1; i < lista->tamanho; i++)
+    {
+        chave = lista->elemento[i];
+        j = i - 1;
+
+        while (j >= 0 && compararPrioridade(lista->elemento[j].prioridade, chave.prioridade, crescente) > 0) {
             lista->elemento[j + 1] = lista->elemento[j];
             j = j - 1;
         }
