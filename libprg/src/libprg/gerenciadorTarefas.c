@@ -323,12 +323,19 @@ void insertionSortPrio(lista_t* lista, bool crescente)
     }
 }
 
+
+// Função para converter data "dd/mm/aa" em um número inteiro "aammdd" para comparação
 int converterData(const char* data) {
     int dia, mes, ano;
     sscanf(data, "%d/%d/%d", &dia, &mes, &ano);
+    // Ajusta ano para um valor de 4 dígitos
+    if (ano < 100) {
+        ano += 2000;
+    }
     return (ano * 10000) + (mes * 100) + dia;
 }
 
+// Função de comparação para datas
 int compararData(const char* d1, const char* d2, bool crescente) {
     int data1 = converterData(d1);
     int data2 = converterData(d2);
@@ -340,8 +347,7 @@ void insertionSortPrazo(lista_t* lista, bool crescente)
     int j;
     struct tarefas chave;
 
-    for (int i = 1; i < lista->tamanho; i++)
-    {
+    for (int i = 1; i < lista->tamanho; i++) {
         chave = lista->elemento[i];
         j = i - 1;
 
@@ -353,14 +359,12 @@ void insertionSortPrazo(lista_t* lista, bool crescente)
     }
 }
 
-
 void insertionSortConclusao(lista_t* lista, bool crescente)
 {
     int j;
     struct tarefas chave;
 
-    for (int i = 1; i < lista->tamanho; i++)
-    {
+    for (int i = 1; i < lista->tamanho; i++) {
         chave = lista->elemento[i];
         j = i - 1;
 
