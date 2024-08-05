@@ -132,8 +132,9 @@ void editarPrazo(lista_t *lista,char descricao[MAX_DESCRICAO], char prazo[MAX_PR
 void editarConclusao(lista_t *lista, char descricao[MAX_DESCRICAO], char conclusao[MAX_PRAZO]);
 void insertionSortDes(lista_t* lista, bool crescente);
 void insertionSortPrio(lista_t* lista, bool crescente);
-
-        void destruirListaTarefas(lista_t *lista);
+void insertionSortPrazo(lista_t* lista, bool crescente);
+void insertionSortConclusao(lista_t* lista, bool crescente);
+void destruirListaTarefas(lista_t *lista);
 
 #endif /* LIBPRG_H */
 

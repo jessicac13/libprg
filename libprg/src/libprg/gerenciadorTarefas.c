@@ -322,3 +322,52 @@ void insertionSortPrio(lista_t* lista, bool crescente)
         lista->elemento[j + 1] = chave;
     }
 }
+
+int converterData(const char* data) {
+    int dia, mes, ano;
+    sscanf(data, "%d/%d/%d", &dia, &mes, &ano);
+    return (ano * 10000) + (mes * 100) + dia;
+}
+
+int compararData(const char* d1, const char* d2, bool crescente) {
+    int data1 = converterData(d1);
+    int data2 = converterData(d2);
+    return crescente ? (data1 - data2) : (data2 - data1);
+}
+
+void insertionSortPrazo(lista_t* lista, bool crescente)
+{
+    int j;
+    struct tarefas chave;
+
+    for (int i = 1; i < lista->tamanho; i++)
+    {
+        chave = lista->elemento[i];
+        j = i - 1;
+
+        while (j >= 0 && compararData(lista->elemento[j].prazo, chave.prazo, crescente) > 0) {
+            lista->elemento[j + 1] = lista->elemento[j];
+            j = j - 1;
+        }
+        lista->elemento[j + 1] = chave;
+    }
+}
+
+
+void insertionSortConclusao(lista_t* lista, bool crescente)
+{
+    int j;
+    struct tarefas chave;
+
+    for (int i = 1; i < lista->tamanho; i++)
+    {
+        chave = lista->elemento[i];
+        j = i - 1;
+
+        while (j >= 0 && compararData(lista->elemento[j].conclusao, chave.conclusao, crescente) > 0) {
+            lista->elemento[j + 1] = lista->elemento[j];
+            j = j - 1;
+        }
+        lista->elemento[j + 1] = chave;
+    }
+}
