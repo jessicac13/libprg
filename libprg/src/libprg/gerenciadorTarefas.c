@@ -345,6 +345,7 @@ void insertionSortConclusao(lista_t* lista, bool crescente)
 void buscarTarefaPrazo(const lista_t* lista, const char* data, const char* criterio)
 {
     int dataBusca = converterData(data);
+    bool encontrou = false;
 
     for (int i = 0; i < lista->tamanho; i++)
     {
@@ -365,20 +366,22 @@ void buscarTarefaPrazo(const lista_t* lista, const char* data, const char* crite
         }
 
         if (exibir)
-        {
+        {   encontrou= true;
             printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
+        }
 
-        }
-        if(exibir=false)
+        if (!encontrou)
         {
-            printf("\nNão há tarefas para esse tipo de busca!\n");
+            printf("\nNenhuma tarefa encontrada para o critério de busca fornecido.\n");
         }
+
     }
 }
 
 void buscarTarefaConclusao(const lista_t* lista, const char* data, const char* criterio)
 {
     int dataBusca = converterData(data);
+    bool encontrou = false;
 
     for (int i = 0; i < lista->tamanho; i++)
     {
@@ -400,12 +403,15 @@ void buscarTarefaConclusao(const lista_t* lista, const char* data, const char* c
 
         if (exibir)
         {
+            encontrou = true;
             printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
 
         }
-        if(exibir=false)
+
+        if (!encontrou)
         {
-            printf("\nNão há tarefas para esse tipo de busca!\n");
+            printf("\nNenhuma tarefa encontrada para o critério de busca fornecido.\n");
         }
+
     }
 }
