@@ -115,9 +115,8 @@ no_arvore_t *remover_valor_arvore(no_arvore_t *raiz, int valor);
 
 #define MAX_DESCRICAO 1001
 #define MAX_PRIORIDADE 6
-#define MAX_PRAZO 11
+#define MAX_PRAZO 20
 #define CAPACIDADE_INICIAL 10
-typedef struct tarefas tarefas_t;
 
 lista_t* criarListaTarefas();
 void inserirListaTarefas(lista_t *lista, char descricao[MAX_DESCRICAO], char prioridade[MAX_PRIORIDADE], char prazo[MAX_PRAZO]);

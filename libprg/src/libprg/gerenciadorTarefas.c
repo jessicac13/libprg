@@ -6,7 +6,7 @@
 
 #define MAX_DESCRICAO 1001
 #define MAX_PRIORIDADE 6
-#define MAX_PRAZO 11
+#define MAX_PRAZO 20
 #define CAPACIDADE_INICIAL 10
 
 struct tarefas {
