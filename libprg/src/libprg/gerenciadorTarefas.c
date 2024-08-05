@@ -256,21 +256,21 @@ void destruirListaTarefas(lista_t *lista)
     free(lista);
 }
 
-void insertionSortDes(struct tarefas* vetor, int tamanho, bool crescente) {
+void insertionSortDes(lista_t* vetor, int tamanho, bool crescente) {
     int j;
-    struct tarefas chave;
+    lista_t chave;
 
     for(int i = 1; i < tamanho; i++) {
         chave = vetor[i];
         j = i - 1;
 
         if (crescente) {
-            while (j >= 0 && vetor[j].descricao > chave.descricao) {
+            while (j >= 0 && vetor[j].elemento->descricao > chave.elemento->descricao) {
                 vetor[j + 1] = vetor[j];
                 j = j - 1;
             }
         } else {
-            while (j >= 0 && vetor[j].descricao < chave.descricao) {
+            while (j >= 0 && vetor[j].elemento->descricao < chave.elemento->descricao) {
                 vetor[j + 1] = vetor[j];
                 j = j - 1;
             }
