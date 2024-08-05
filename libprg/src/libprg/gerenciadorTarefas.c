@@ -69,7 +69,7 @@ void inserirListaTarefas(lista_t *lista, char descricao[MAX_DESCRICAO], char pri
     strncpy(lista->elemento[lista->tamanho].prazo, prazo, MAX_PRAZO- 1);
     lista->elemento[lista->tamanho].prazo[MAX_PRAZO - 1] = '\0';
 
-    strcpy(lista->elemento[lista->tamanho].conclusao, "NÃO CONCLUÍDO!");
+    strcpy(lista->elemento[lista->tamanho].conclusao, "99/99/99");
 
     if(lista->tamanho== 0)
     {
