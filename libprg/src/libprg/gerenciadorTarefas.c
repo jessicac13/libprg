@@ -369,6 +369,10 @@ void buscarTarefaPrazo(const lista_t* lista, const char* data, const char* crite
             printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
 
         }
+        if(exibir=false)
+        {
+            printf("\nNão há tarefas para esse tipo de busca!\n");
+        }
     }
 }
 
@@ -398,6 +402,10 @@ void buscarTarefaConclusao(const lista_t* lista, const char* data, const char* c
         {
             printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
 
+        }
+        if(exibir=false)
+        {
+            printf("\nNão há tarefas para esse tipo de busca!\n");
         }
     }
 }
