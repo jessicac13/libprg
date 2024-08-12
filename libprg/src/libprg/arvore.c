@@ -133,7 +133,7 @@ void percursoLargura(no_arvore_t* x)
     fila_t *fila;
     fila = criarFila(4);
 
-    if(x!=NULL)
+    while (x!=NULL)
     {
         printf("%d, ",x->valor);
         if(x->esquerda!=NULL)
