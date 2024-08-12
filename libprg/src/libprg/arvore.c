@@ -97,3 +97,53 @@ no_arvore_t *remover_valor_arvore(no_arvore_t *raiz, int valor)
     }
     return raiz;
 }
+
+void travessiaInOrder(no_arvore_t *x)
+{
+   if(x!=NULL)
+   {
+       travessiaInOrder(x->esquerda);
+       printf("%d",x->valor);
+       travessiaInOrder(x->esquerda);
+   }
+}
+
+void travessiaPreOrder(no_arvore_t *x)
+{
+    if(x!=NULL)
+    {
+        printf("%d",x->valor);
+        travessiaPreOrder(x->esquerda);
+        travessiaPreOrder(x->esquerda);
+    }
+}
+
+void travessiaPosOrder(no_arvore_t *x)
+{
+    if(x!=NULL)
+    {
+        travessiaPosOrder(x->esquerda);
+        travessiaPosOrder(x->esquerda);
+        printf("%d",x->valor);
+    }
+}
+
+void percursoLargura(no_arvore_t* x)
+{
+    fila_t *fila;
+    fila = criarFila(4);
+
+    while(x!=NULL)
+    {
+        printf("%d",x->valor);
+        if(x->esquerda!=NULL)
+        {
+            enqueue(fila, x->esquerda->valor);
+        }
+        if(x->direita!=NULL)
+        {
+            enqueue(fila, x->direita->valor);
+        }
+        x->valor = dequeue(fila);
+    }
+}

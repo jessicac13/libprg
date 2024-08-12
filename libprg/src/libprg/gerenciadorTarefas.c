@@ -369,12 +369,10 @@ void buscarTarefaPrazo(const lista_t* lista, const char* data, const char* crite
         {   encontrou= true;
             printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
         }
-
-        if (!encontrou)
-        {
-            printf("\nNenhuma tarefa encontrada para o critério de busca fornecido.\n");
-        }
-
+    }
+    if (!encontrou)
+    {
+        printf("\nNenhuma tarefa encontrada para o critério de busca fornecido.\n");
     }
 }
 
@@ -383,35 +381,28 @@ void buscarTarefaConclusao(const lista_t* lista, const char* data, const char* c
     int dataBusca = converterData(data);
     bool encontrou = false;
 
-    for (int i = 0; i < lista->tamanho; i++)
-    {
+    for (int i = 0; i < lista->tamanho; i++) {
         int dataTarefa = converterData(lista->elemento[i].conclusao);
         bool exibir = false;
 
-        if (strcmp(criterio, "antes") == 0 && dataTarefa < dataBusca)
-        {
+        if (strcmp(criterio, "antes") == 0 && dataTarefa < dataBusca) {
             exibir = true;
-        }
-        else if (strcmp(criterio, "depois") == 0 && dataTarefa > dataBusca)
-        {
+        } else if (strcmp(criterio, "depois") == 0 && dataTarefa > dataBusca) {
             exibir = true;
-        }
-        else if (strcmp(criterio, "exatamente") == 0 && dataTarefa == dataBusca)
-        {
+        } else if (strcmp(criterio, "exatamente") == 0 && dataTarefa == dataBusca) {
             exibir = true;
         }
 
-        if (exibir)
-        {
+        if (exibir) {
             encontrou = true;
-            printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID, lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo, lista->elemento[i].conclusao);
+            printf("\nID: %d, Descrição: %s, Prioridade: %s, Prazo: %s\n, Conclusão: %s", lista->elemento[i].ID,
+                   lista->elemento[i].descricao, lista->elemento[i].prioridade, lista->elemento[i].prazo,
+                   lista->elemento[i].conclusao);
 
         }
-
-        if (!encontrou)
-        {
-            printf("\nNenhuma tarefa encontrada para o critério de busca fornecido.\n");
-        }
-
+    }
+    if (!encontrou)
+    {
+        printf("\nNenhuma tarefa encontrada para o critério de busca fornecido.\n");
     }
 }
