@@ -103,7 +103,7 @@ void travessiaInOrder(no_arvore_t *x)
    if(x!=NULL)
    {
        travessiaInOrder(x->esquerda);
-       printf("%d",x->valor);
+       printf("%d, ",x->valor);
        travessiaInOrder(x->direita);
    }
 }
