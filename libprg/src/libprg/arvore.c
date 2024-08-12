@@ -112,7 +112,7 @@ void travessiaPreOrder(no_arvore_t *x)
 {
     if(x!=NULL)
     {
-        printf("%d",x->valor);
+        printf("%d, ",x->valor);
         travessiaPreOrder(x->esquerda);
         travessiaPreOrder(x->direita);
     }
@@ -124,7 +124,7 @@ void travessiaPosOrder(no_arvore_t *x)
     {
         travessiaPosOrder(x->esquerda);
         travessiaPosOrder(x->direita);
-        printf("%d",x->valor);
+        printf("%d, ",x->valor);
     }
 }
 
@@ -135,7 +135,7 @@ void percursoLargura(no_arvore_t* x)
 
     if(x!=NULL)
     {
-        printf("%d",x->valor);
+        printf("%d, ",x->valor);
         if(x->esquerda!=NULL)
         {
             enqueue(fila, x->esquerda->valor);
