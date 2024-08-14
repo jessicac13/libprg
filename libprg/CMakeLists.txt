@@ -26,6 +26,7 @@ add_library(libprg
         src/libprg/agenda_tabela.c
         src/libprg/arvore.c
         src/libprg/gerenciadorTarefas.c
+        src/libprg/arvoreAVL.c
 )
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)

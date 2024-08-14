@@ -142,6 +142,17 @@ void buscarTarefaPrazo(const lista_t* lista, const char* data, const char* crite
 void buscarTarefaConclusao(const lista_t* lista, const char* data, const char* criterio);
 void destruirListaTarefas(lista_t *lista);
 
+
+typedef struct no_avl no_avl_t;
+
+int altura(no_avl_t *v);
+int fatorBalanceamento(no_avl_t *v);
+no_avl_t *rotacaoEsquerda(no_avl_t *v);
+no_avl_t *rotacaoDireita(no_avl_t *v);
+no_avl_t *rotacaoDuplaDireita(no_avl_t *v);
+no_avl_t *rotacaoDuplaEsquerda(no_avl_t *v);
+no_avl_t *balancear(no_avl_t *v);
+
 #endif /* LIBPRG_H */
 
 
