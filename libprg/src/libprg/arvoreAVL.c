@@ -187,7 +187,8 @@ void travessiaPreOrderAVL(no_avl_t *x)
 {
     if(x!=NULL)
     {
-        printf("%d, ",x->valor);
+        printf("%d -- %d\n",x->valor, x->esquerda);
+        printf("%d -- %d\n",x->valor, x->direita);
         travessiaPreOrderAVL(x->esquerda);
         travessiaPreOrderAVL(x->direita);
     }
