@@ -5,8 +5,8 @@ typedef struct no_avl
 {
     int valor;
     int altura; // altura da subárvore
-    struct no *esquerda;
-    struct no *direita;
+    struct no_avl *esquerda;
+    struct no_avl *direita;
 } no_avl_t;
 
 
@@ -187,8 +187,8 @@ void travessiaPreOrderAVL(no_avl_t *x)
 {
     if(x!=NULL)
     {
-        printf("%d -- %d\n",x->valor, x->esquerda);
-        printf("%d -- %d\n",x->valor, x->direita);
+        printf("%d -- %d\n",x->valor, x->esquerda->valor);
+        printf("%d -- %d\n",x->valor, x->direita->valor);
         travessiaPreOrderAVL(x->esquerda);
         travessiaPreOrderAVL(x->direita);
     }
