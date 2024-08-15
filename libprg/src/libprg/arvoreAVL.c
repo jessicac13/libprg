@@ -21,7 +21,8 @@ no_avl_t* criar_no_avl(int valor)
         exit(EXIT_FAILURE);
     }
     no_avl->valor = valor;
-    no_avl->esquerda = no_avl->direita = NULL;
+    no_avl->esquerda = NULL;
+    no_avl->direita = NULL;
     no_avl->altura=0;
     return no_avl;
 }
@@ -128,7 +129,7 @@ no_avl_t *inserirAVL(no_avl_t *v, int valor)
 {
     if (v == NULL)
     {
-        v = criar_no_arvore(valor);
+        v = criar_no_avl(valor);
     }
     else if (valor < v->valor)
     {
