@@ -110,11 +110,21 @@ void travessiaInOrder(no_arvore_t *x)
 
 void travessiaPreOrder(no_arvore_t *x)
 {
-    if(x!=NULL)
+//    if(x!=NULL)
+//    {
+//        printf("%d, ",x->valor);
+//        travessiaPreOrder(x->esquerda);
+//        travessiaPreOrder(x->direita);
+//    }
+    if(x != NULL)
     {
-        printf("%d, ",x->valor);
-        travessiaPreOrder(x->esquerda);
-        travessiaPreOrder(x->direita);
+        if(x->esquerda != NULL)
+            printf("%d -- %d\n", x->valor, x->esquerda->valor);
+        if(x->direita != NULL)
+            printf("%d -- %d\n", x->valor, x->direita->valor);
+
+        travessiaPreOrderAVL(x->esquerda);
+        travessiaPreOrderAVL(x->direita);
     }
 }
 
