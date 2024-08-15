@@ -1,53 +1,37 @@
 #include <libprg/libprg.h>
-#include <malloc.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 typedef struct no_avl
 {
     int valor;
-    int altura; // altura da subárvore
+    int altura;
     struct no_avl *esquerda;
     struct no_avl *direita;
 } no_avl_t;
-
 
 no_avl_t* criar_no_avl(int valor)
 {
     no_avl_t *no_avl = (no_avl_t*) malloc(sizeof(no_avl_t));
     if (no_avl == NULL)
     {
-        // Verifique se o malloc falhou
         fprintf(stderr, "Erro ao alocar memória para o nó AVL.\n");
         exit(EXIT_FAILURE);
     }
     no_avl->valor = valor;
     no_avl->esquerda = no_avl->direita = NULL;
-    no_avl->altura=0;
+    no_avl->altura = 1;
     return no_avl;
 }
 
 int altura(no_avl_t *v)
 {
-    if (v == NULL)
-    {
-        return 0;
-    }
-    else
-    {
-        return v->altura;
-    }
+    return (v == NULL) ? 0 : v->altura;
 }
 
 int fatorBalanceamento(no_avl_t *v)
 {
-    if (v == NULL)
-    {
-        return 0;
-    }
-    else
-    {
-        return altura(v->esquerda) - altura(v->direita);
-    }
+    return (v == NULL) ? 0 : altura(v->esquerda) - altura(v->direita);
 }
 
 #define max(a,b) (((a) > (b)) ? (a) : (b))
@@ -55,45 +39,33 @@ int fatorBalanceamento(no_avl_t *v)
 no_avl_t *rotacaoEsquerda(no_avl_t *v)
 {
     no_avl_t *u = v->direita;
-
     v->direita = u->esquerda;
-
     u->esquerda = v;
-
-    v->altura = max(altura(v->esquerda), altura(v->direita)) + 1;
-
-    u->altura = max(altura(u->esquerda), altura(u->direita)) + 1;
-
+    v->altura = 1 + max(altura(v->esquerda), altura(v->direita));
+    u->altura = 1 + max(altura(u->esquerda), altura(u->direita));
     return u;
 }
 
 no_avl_t *rotacaoDireita(no_avl_t *v)
 {
     no_avl_t *u = v->esquerda;
-
     v->esquerda = u->direita;
-
     u->direita = v;
-
-    v->altura = max(altura(v->direita), altura(v->esquerda)) + 1;
-
-    u->altura = max(altura(u->direita), altura(u->esquerda)) + 1;
-
+    v->altura = 1 + max(altura(v->esquerda), altura(v->direita));
+    u->altura = 1 + max(altura(u->esquerda), altura(u->direita));
     return u;
 }
 
 no_avl_t *rotacaoDuplaDireita(no_avl_t *v)
 {
     v->esquerda = rotacaoEsquerda(v->esquerda);
-
     return rotacaoDireita(v);
 }
 
 no_avl_t *rotacaoDuplaEsquerda(no_avl_t *v)
 {
-    v->direita = rotacaoEsquerda(v->direita);
-
-    return rotacaoDireita(v);
+    v->direita = rotacaoDireita(v->direita);
+    return rotacaoEsquerda(v);
 }
 
 no_avl_t *balancear(no_avl_t *v)
@@ -101,7 +73,7 @@ no_avl_t *balancear(no_avl_t *v)
     int fb = fatorBalanceamento(v);
     if (fb > 1)
     {
-        if (fatorBalanceamento(v->esquerda) > 0)
+        if (fatorBalanceamento(v->esquerda) >= 0)
         {
             return rotacaoDireita(v);
         }
@@ -112,9 +84,9 @@ no_avl_t *balancear(no_avl_t *v)
     }
     else if (fb < -1)
     {
-        if (fatorBalanceamento(v->direita) < 0)
+        if (fatorBalanceamento(v->direita) <= 0)
         {
-           return rotacaoEsquerda(v);
+            return rotacaoEsquerda(v);
         }
         else
         {
@@ -128,7 +100,7 @@ no_avl_t *inserirAVL(no_avl_t *v, int valor)
 {
     if (v == NULL)
     {
-        v = criar_no_avl(valor);
+        return criar_no_avl(valor);
     }
     else if (valor < v->valor)
     {
@@ -138,9 +110,8 @@ no_avl_t *inserirAVL(no_avl_t *v, int valor)
     {
         v->direita = inserirAVL(v->direita, valor);
     }
-    v->altura= 1 + max(altura(v->esquerda), altura(v->direita));
-    v = balancear(v);
-    return v;
+    v->altura = 1 + max(altura(v->esquerda), altura(v->direita));
+    return balancear(v);
 }
 
 no_avl_t *removerAvl(no_avl_t *v, int valor)
@@ -149,7 +120,7 @@ no_avl_t *removerAvl(no_avl_t *v, int valor)
     {
         return NULL;
     }
-    else if (valor < v->valor)
+    if (valor < v->valor)
     {
         v->esquerda = removerAvl(v->esquerda, valor);
     }
@@ -159,36 +130,32 @@ no_avl_t *removerAvl(no_avl_t *v, int valor)
     }
     else
     {
-        if (v->esquerda == NULL || v->direita == NULL)
+        if (v->esquerda == NULL)
         {
-            // nó folha ou nó com um filho
-            // ...
+            no_avl_t *temp = v->direita;
+            free(v);
+            return temp;
         }
-        else
+        else if (v->direita == NULL)
         {
-            if(v->esquerda == NULL)
-            {
-                removerAvl(v->direita, valor);
-            }
-            if (v->direita == NULL)
-            {
-                removerAvl(v->esquerda, valor);
-            }
-            no_avl_t *aux = v->esquerda;
-            while (aux->direita != NULL)
-            {
-                aux = aux->direita;
-            }
-            v->valor = aux->valor;
-            v->esquerda = removerAvl(v->esquerda, aux->valor);
+            no_avl_t *temp = v->esquerda;
+            free(v);
+            return temp;
         }
+        no_avl_t *temp = v->esquerda;
+        while (temp->direita != NULL)
+        {
+            temp = temp->direita;
+        }
+        v->valor = temp->valor;
+        v->esquerda = removerAvl(v->esquerda, temp->valor);
     }
-    if (v != NULL)
+    if (v == NULL)
     {
-        v->altura = 1 + max(altura(v->esquerda), altura(v->direita));
-        v = balancear(v);
+        return NULL;
     }
-    return v;
+    v->altura = 1 + max(altura(v->esquerda), altura(v->direita));
+    return balancear(v);
 }
 
 void travessiaPreOrderAVL(no_avl_t *x)
@@ -200,7 +167,7 @@ void travessiaPreOrderAVL(no_avl_t *x)
         if(x->direita != NULL)
             printf("%d -- %d\n", x->valor, x->direita->valor);
 
-        travessiaPreOrderAVL(x->esquerda);
-        travessiaPreOrderAVL(x->direita);
+        travessiaPreOrder(x->esquerda);
+        travessiaPreOrder(x->direita);
     }
 }
