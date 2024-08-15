@@ -123,8 +123,8 @@ void travessiaPreOrder(no_arvore_t *x)
         if(x->direita != NULL)
             printf("%d -- %d\n", x->valor, x->direita->valor);
 
-        travessiaPreOrderAVL(x->esquerda);
-        travessiaPreOrderAVL(x->direita);
+        travessiaPreOrder(x->esquerda);
+        travessiaPreOrder(x->direita);
     }
 }
 
