@@ -182,3 +182,13 @@ no_avl_t *removerAvl(no_avl_t *v, int valor)
     }
     return v;
 }
+
+void travessiaPreOrderAVL(no_avl_t *x)
+{
+    if(x!=NULL)
+    {
+        printf("%d, ",x->valor);
+        travessiaPreOrder(x->esquerda);
+        travessiaPreOrder(x->direita);
+    }
+}

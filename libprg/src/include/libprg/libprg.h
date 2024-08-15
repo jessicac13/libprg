@@ -156,6 +156,7 @@ no_avl_t *balancear(no_avl_t *v);
 no_avl_t* criar_no_avl(int valor);
 no_avl_t *inserirAVL(no_avl_t *v, int valor);
 no_avl_t *removerAvl(no_avl_t *v, int valor);
+void travessiaPreOrderAVL(no_avl_t *x);
 
 #endif /* LIBPRG_H */
 
