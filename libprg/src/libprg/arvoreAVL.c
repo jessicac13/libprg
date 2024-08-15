@@ -1,5 +1,6 @@
 #include <libprg/libprg.h>
 #include <malloc.h>
+#include <stdlib.h>
 
 typedef struct no_avl
 {
@@ -13,8 +14,15 @@ typedef struct no_avl
 no_avl_t* criar_no_avl(int valor)
 {
     no_avl_t *no_avl = (no_avl_t*) malloc(sizeof(no_avl_t));
+    if (no_avl == NULL)
+    {
+        // Verifique se o malloc falhou
+        fprintf(stderr, "Erro ao alocar memória para o nó AVL.\n");
+        exit(EXIT_FAILURE);
+    }
     no_avl->valor = valor;
     no_avl->esquerda = no_avl->direita = NULL;
+    no_avl->altura = 0;  // Inicializa a altura como 1
     return no_avl;
 }
 
