@@ -9,6 +9,15 @@ typedef struct no_avl
     struct no *direita;
 } no_avl_t;
 
+
+no_avl_t* criar_no_avl(int valor)
+{
+    no_avl_t *no_avl = (no_avl_t*) malloc(sizeof(no_avl_t));
+    no_avl->valor = valor;
+    no_avl->esquerda = no_avl->direita = NULL;
+    return no_avl;
+}
+
 int altura(no_avl_t *v)
 {
     if (v == NULL)
@@ -103,6 +112,73 @@ no_avl_t *balancear(no_avl_t *v)
         {
             return rotacaoDuplaEsquerda(v);
         }
+    }
+    return v;
+}
+
+no_avl_t *inserirAVL(no_avl_t *v, int valor)
+{
+    if (v == NULL)
+    {
+        v = criar_no_avl(valor);
+    }
+    else if (valor < v->valor)
+    {
+        v->esquerda = inserirAVL(v->esquerda, valor);
+    }
+    else if (valor > v->valor)
+    {
+        v->direita = inserirAVL(v->direita, valor);
+    }
+    v->altura= 1 + max(altura(v->esquerda), altura(v->direita));
+    v = balancear(v);
+    return v;
+}
+
+no_avl_t *removerAvl(no_avl_t *v, int valor)
+{
+    if (v == NULL)
+    {
+        return NULL;
+    }
+    else if (valor < v->valor)
+    {
+        v->esquerda = removerAvl(v->esquerda, valor);
+    }
+    else if (valor > v->valor)
+    {
+        v->direita = removerAvl(v->direita, valor);
+    }
+    else
+    {
+        if (v->esquerda == NULL || v->direita == NULL)
+        {
+            // nó folha ou nó com um filho
+            // ...
+        }
+        else
+        {
+            if(v->esquerda == NULL)
+            {
+                removerAvl(v->direita, valor);
+            }
+            if (v->direita == NULL)
+            {
+                removerAvl(v->esquerda, valor);
+            }
+            no_avl_t *aux = v->esquerda;
+            while (aux->direita != NULL)
+            {
+                aux = aux->direita;
+            }
+            v->valor = aux->valor;
+            v->esquerda = removerAvl(v->esquerda, aux->valor);
+        }
+    }
+    if (v != NULL)
+    {
+        v->altura = 1 + max(altura(v->esquerda), altura(v->direita));
+        v = balancear(v);
     }
     return v;
 }

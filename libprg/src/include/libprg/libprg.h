@@ -119,6 +119,7 @@ void percursoLargura(no_arvore_t* x);
 
 
 
+
 #define MAX_DESCRICAO 1001
 #define MAX_PRIORIDADE 10
 #define MAX_PRAZO 20
@@ -152,6 +153,9 @@ no_avl_t *rotacaoDireita(no_avl_t *v);
 no_avl_t *rotacaoDuplaDireita(no_avl_t *v);
 no_avl_t *rotacaoDuplaEsquerda(no_avl_t *v);
 no_avl_t *balancear(no_avl_t *v);
+no_avl_t* criar_no_avl(int valor);
+no_avl_t *inserirAVL(no_avl_t *v, int valor);
+no_avl_t *removerAvl(no_avl_t *v, int valor);
 
 #endif /* LIBPRG_H */
 

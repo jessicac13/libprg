@@ -147,3 +147,4 @@ void percursoLargura(no_arvore_t* x)
         x->valor = dequeue(fila);
     }
 }
+
