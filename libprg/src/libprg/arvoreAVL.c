@@ -92,7 +92,7 @@ no_avl_t *rotacaoDuplaEsquerda(no_avl_t *v)
 {
     v->direita = rotacaoEsquerda(v->direita);
 
-    return rotacaoEsquerda(v);
+    return rotacaoDireita(v);
 }
 
 no_avl_t *balancear(no_avl_t *v)
