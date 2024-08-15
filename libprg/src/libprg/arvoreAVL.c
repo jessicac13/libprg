@@ -23,7 +23,7 @@ no_avl_t* criar_no_avl(int valor)
     no_avl->valor = valor;
     no_avl->esquerda = NULL;
     no_avl->direita = NULL;
-    no_avl->altura=0;
+    no_avl->altura=1;
     return no_avl;
 }
 
