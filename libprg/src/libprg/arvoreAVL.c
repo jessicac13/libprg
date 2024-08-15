@@ -128,7 +128,7 @@ no_avl_t *inserirAVL(no_avl_t *v, int valor)
 {
     if (v == NULL)
     {
-        v = criar_no_avl(valor);
+        v = criar_no_arvore(valor);
     }
     else if (valor < v->valor)
     {
