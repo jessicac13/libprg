@@ -21,7 +21,7 @@ no_avl_t* criar_no_avl(int valor)
     }
     no_avl->valor = valor;
     no_avl->esquerda = no_avl->direita = NULL;
-    no_avl->altura = 1; // A altura inicial de um nó folha é 1
+    no_avl->altura = 1; // Altura inicial de um nó folha é 1
     return no_avl;
 }
 
@@ -155,19 +155,26 @@ no_avl_t *removerAvl(no_avl_t *v, int valor)
     }
     else
     {
-        if (v->esquerda == NULL || v->direita == NULL)
+        if (v->esquerda == NULL)
         {
-            no_avl_t *temp = (v->esquerda != NULL) ? v->esquerda : v->direita;
+            no_avl_t *temp = v->direita;
             free(v);
             return temp;
         }
-        no_avl_t *temp = v->esquerda;
-        while (temp->direita != NULL)
+        else if (v->direita == NULL)
         {
-            temp = temp->direita;
+            no_avl_t *temp = v->esquerda;
+            free(v);
+            return temp;
+        }
+
+        no_avl_t *temp = v->direita;
+        while (temp->esquerda != NULL)
+        {
+            temp = temp->esquerda;
         }
         v->valor = temp->valor;
-        v->esquerda = removerAvl(v->esquerda, temp->valor);
+        v->direita = removerAvl(v->direita, temp->valor);
     }
 
     if (v == NULL)
@@ -187,6 +194,7 @@ void travessiaPreOrderAVL(no_avl_t *x)
 {
     if(x != NULL)
     {
+        printf("Valor: %d, Altura: %d\n", x->valor, x->altura);
         if(x->esquerda != NULL)
             printf("%d -- %d\n", x->valor, x->esquerda->valor);
         if(x->direita != NULL)
