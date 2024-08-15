@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
 typedef struct no_avl
 {
     int valor;
@@ -42,8 +41,10 @@ no_avl_t *rotacaoEsquerda(no_avl_t *v)
     no_avl_t *u = v->direita;
     v->direita = u->esquerda;
     u->esquerda = v;
+
     v->altura = 1 + max(altura(v->esquerda), altura(v->direita));
     u->altura = 1 + max(altura(u->esquerda), altura(u->direita));
+
     return u;
 }
 
@@ -52,8 +53,10 @@ no_avl_t *rotacaoDireita(no_avl_t *v)
     no_avl_t *u = v->esquerda;
     v->esquerda = u->direita;
     u->direita = v;
-    v->altura = 1 + max(altura(v->direita), altura(v->esquerda));
-    u->altura = 1 + max(altura(u->direita), altura(u->esquerda));
+
+    v->altura = 1 + max(altura(v->esquerda), altura(v->direita));
+    u->altura = 1 + max(altura(u->esquerda), altura(u->direita));
+
     return u;
 }
 
@@ -111,9 +114,9 @@ no_avl_t *inserirAVL(no_avl_t *v, int valor)
     {
         v->direita = inserirAVL(v->direita, valor);
     }
+
     v->altura = 1 + max(altura(v->esquerda), altura(v->direita));
-    v = balancear(v);
-    return v;
+    return balancear(v);
 }
 
 no_avl_t *removerAvl(no_avl_t *v, int valor)
