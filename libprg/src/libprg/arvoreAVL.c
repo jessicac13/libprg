@@ -85,16 +85,12 @@ no_avl_t *rotacaoDuplaDireita(no_avl_t *v)
 {
     v->esquerda = rotacaoEsquerda(v->esquerda);
 
-    contagemRotacoes++;
-
     return rotacaoDireita(v);
 }
 
 no_avl_t *rotacaoDuplaEsquerda(no_avl_t *v)
 {
     v->direita = rotacaoDireita(v->direita);
-
-    contagemRotacoes++;
 
     return rotacaoEsquerda(v);
 }
@@ -165,14 +161,17 @@ no_avl_t *removerAvl(no_avl_t *v, int valor)
     {
         if (v->esquerda == NULL || v->direita == NULL)
         {
-            if(v->esquerda == NULL)
+            no_avl_t *temp = (v->esquerda != NULL) ? v->esquerda : v->direita;
+            if (temp == NULL)
             {
-                removerAvl(v->direita, valor);
+                temp = v;
+                v = NULL;
             }
-            if (v->direita == NULL)
+            else
             {
-                removerAvl(v->esquerda, valor);
+                *v = *temp;
             }
+            free(temp);
         }
         else
         {
