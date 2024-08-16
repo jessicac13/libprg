@@ -213,3 +213,8 @@ void imprimirTextoGrafo(no_avl_t *raiz)
     travessiaPreOrderAVL(raiz);
     printf("}\n");
 }
+
+int contagemRotacao()
+{
+    return contagemRotacoes;
+}

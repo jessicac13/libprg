@@ -146,7 +146,6 @@ void destruirListaTarefas(lista_t *lista);
 
 typedef struct no_avl no_avl_t;
 
-int contagemRotacoes = 0;
 
 int altura(no_avl_t *v);
 int fatorBalanceamento(no_avl_t *v);
@@ -160,7 +159,7 @@ no_avl_t *inserirAVL(no_avl_t *v, int valor);
 no_avl_t *removerAvl(no_avl_t *v, int valor);
 void travessiaPreOrderAVL(no_avl_t *x);
 void imprimirTextoGrafo(no_avl_t *raiz);
-
+int contagemRotacao();
 
 #endif /* LIBPRG_H */
 
