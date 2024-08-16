@@ -131,7 +131,7 @@ no_avl_t *inserirAVL(no_avl_t *v, int valor)
     {
         v->direita = inserirAVL(v->direita, valor);
     }
-    v->altura= (max(altura(v->esquerda), altura(v->direita))) + 1);
+    v->altura= (max(altura(v->esquerda), altura(v->direita))) + 1;
     v = balancear(v);
     return v;
 }
