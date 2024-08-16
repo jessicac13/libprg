@@ -9,6 +9,7 @@ typedef struct no_avl
     struct no_avl *direita;
 } no_avl_t;
 
+int contagemRotacoes = 0;
 
 no_avl_t* criar_no_avl(int valor)
 {
@@ -58,6 +59,8 @@ no_avl_t *rotacaoEsquerda(no_avl_t *v)
 
     u->altura = max(altura(u->esquerda), altura(u->direita)) + 1;
 
+    contagemRotacoes++;
+
     return u;
 }
 
@@ -73,6 +76,8 @@ no_avl_t *rotacaoDireita(no_avl_t *v)
 
     u->altura = max(altura(u->esquerda), altura(u->direita)) + 1;
 
+    contagemRotacoes++;
+
     return u;
 }
 
@@ -80,12 +85,16 @@ no_avl_t *rotacaoDuplaDireita(no_avl_t *v)
 {
     v->esquerda = rotacaoEsquerda(v->esquerda);
 
+    contagemRotacoes++;
+
     return rotacaoDireita(v);
 }
 
 no_avl_t *rotacaoDuplaEsquerda(no_avl_t *v)
 {
     v->direita = rotacaoDireita(v->direita);
+
+    contagemRotacoes++;
 
     return rotacaoEsquerda(v);
 }
