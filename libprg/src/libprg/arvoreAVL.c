@@ -165,12 +165,17 @@ no_avl_t *removerAvl(no_avl_t *v, int valor)
     {
         if (v->esquerda == NULL || v->direita == NULL)
         {
-            // nó folha ou nó com um filho
-            // ...
+            if(v->esquerda == NULL)
+            {
+                remover_valor_arvore(v->direita, valor);
+            }
+            if (v->direita == NULL)
+            {
+                remover_valor_arvore(v->esquerda, valor);
+            }
         }
         else
         {
-            // nó com dois filhos
             no_avl_t *aux = v->esquerda;
             while (aux->direita != NULL)
             {
@@ -217,4 +222,9 @@ void imprimirTextoGrafo(no_avl_t *raiz)
 int contagemRotacao()
 {
     return contagemRotacoes;
+}
+
+int ResetcontagemRotacao()
+{
+    return contagemRotacoes = 0;
 }
