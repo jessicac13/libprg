@@ -1,8 +1,6 @@
 #include <libprg/libprg.h>
 #include <malloc.h>
 
-#define max(a,b) (((a) > (b)) ? (a) : (b))
-
 typedef struct no_avl
 {
     int valor;
@@ -45,6 +43,8 @@ int fatorBalanceamento(no_avl_t *v)
     }
 }
 
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+
 no_avl_t *rotacaoEsquerda(no_avl_t *v)
 {
     no_avl_t *u = v->direita;
@@ -53,9 +53,9 @@ no_avl_t *rotacaoEsquerda(no_avl_t *v)
 
     u->esquerda = v;
 
-    v->altura = (max(altura(v->esquerda), altura(v->direita))) + 1;
+    v->altura = max(altura(v->esquerda), altura(v->direita)) + 1;
 
-    u->altura = (max(altura(u->esquerda), altura(u->direita))) + 1;
+    u->altura = max(altura(u->esquerda), altura(u->direita)) + 1;
 
     return u;
 }
@@ -68,9 +68,9 @@ no_avl_t *rotacaoDireita(no_avl_t *v)
 
     u->direita = v;
 
-    v->altura = (max(altura(v->direita), altura(v->esquerda))) + 1;
+    v->altura = max(altura(v->direita), altura(v->esquerda)) + 1;
 
-    u->altura = (max(altura(u->direita), altura(u->esquerda))) + 1;
+    u->altura = max(altura(u->direita), altura(u->esquerda)) + 1;
 
     return u;
 }
@@ -131,7 +131,7 @@ no_avl_t *inserirAVL(no_avl_t *v, int valor)
     {
         v->direita = inserirAVL(v->direita, valor);
     }
-    v->altura= (max(altura(v->esquerda), altura(v->direita))) + 1;
+    v->altura= max(altura(v->esquerda), altura(v->direita)) + 1;
     v = balancear(v);
     return v;
 }
