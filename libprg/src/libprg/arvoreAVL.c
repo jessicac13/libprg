@@ -185,10 +185,22 @@ void travessiaPreOrderAVL(no_avl_t *x)
     {
         if(x->esquerda != NULL)
             printf("%d -- %d\n", x->valor, x->esquerda->valor);
+
         if(x->direita != NULL)
             printf("%d -- %d\n", x->valor, x->direita->valor);
 
         travessiaPreOrderAVL(x->esquerda);
         travessiaPreOrderAVL(x->direita);
     }
+}
+
+void imprimir_texto_grafo(no_avl_t *raiz)
+{
+    printf("\n");
+    printf("strict graph{\n");
+    printf("label=\"Árvore de busca binária\";\n");
+    printf("node [shape=\"oval\", color=\"#339966\", style=\"filled\", fontcolor=\"black\"\n");
+    printf("\tfixedsize=true];\n");
+    travessiaPreOrderAVL(raiz);
+    printf("}\n");
 }
