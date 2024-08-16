@@ -155,13 +155,13 @@ no_avl_t *rotacaoDireita(no_avl_t *v);
 no_avl_t *rotacaoDuplaDireita(no_avl_t *v);
 no_avl_t *rotacaoDuplaEsquerda(no_avl_t *v);
 no_avl_t *balancear(no_avl_t *v);
-no_avl_t* criar_no_avl(int valor);
+no_avl_t *criarNoAVL(int valor);
 no_avl_t *inserirAVL(no_avl_t *v, int valor);
 no_avl_t *removerAvl(no_avl_t *v, int valor);
 void travessiaPreOrderAVL(no_avl_t *x);
 void imprimirTextoGrafo(no_avl_t *raiz);
 int contagemRotacao();
-int ResetcontagemRotacao();
+int resetcontagemRotacao();
 
 #endif /* LIBPRG_H */
 

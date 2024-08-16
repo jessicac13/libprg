@@ -11,7 +11,7 @@ typedef struct no_avl
 
 int contagemRotacoes = 0;
 
-no_avl_t* criar_no_avl(int valor)
+no_avl_t* criarNoAVL(int valor)
 {
     no_avl_t *no_avl = (no_avl_t*) malloc(sizeof(no_avl_t));
     no_avl->valor = valor;
@@ -98,37 +98,36 @@ no_avl_t *rotacaoDuplaEsquerda(no_avl_t *v)
 no_avl_t *balancear(no_avl_t *v)
 {
     int fb = fatorBalanceamento(v);
-    if (fb > 1)  // Subárvore esquerda está desbalanceada
+    if (fb > 1)
     {
         if (fatorBalanceamento(v->esquerda) > 0)
         {
-            return rotacaoDireita(v);  // Rotação simples à direita
+            return rotacaoDireita(v);
         }
         else
         {
-            return rotacaoDuplaDireita(v);  // Rotação dupla à direita
+            return rotacaoDuplaDireita(v);
         }
     }
-    else if (fb < -1)  // Subárvore direita está desbalanceada
+    else if (fb < -1)
     {
         if (fatorBalanceamento(v->direita) < 0)
         {
-            return rotacaoEsquerda(v);  // Rotação simples à esquerda
+            return rotacaoEsquerda(v);
         }
         else
         {
-            return rotacaoDuplaEsquerda(v);  // Rotação dupla à esquerda
+            return rotacaoDuplaEsquerda(v);
         }
     }
-    return v;  // Já está balanceado
+    return v;
 }
-
 
 no_avl_t *inserirAVL(no_avl_t *v, int valor)
 {
     if (v == NULL)
     {
-        v = criar_no_avl(valor);
+        v = criarNoAVL(valor);
     }
     else if (valor < v->valor)
     {
@@ -223,7 +222,7 @@ int contagemRotacao()
     return contagemRotacoes;
 }
 
-int ResetcontagemRotacao()
+int resetcontagemRotacao()
 {
     return contagemRotacoes = 0;
 }
