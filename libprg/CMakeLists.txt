@@ -11,16 +11,17 @@ set(SOURCES
        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/libprg.c"
        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/lista_linear.c"
        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/fila_circular.c"
-       "${CMAKE_CURRENT_LIST_DIR}/src/libprg/lista_contatos.c"
-       "${CMAKE_CURRENT_LIST_DIR}/src/libprg/pilha_lib.c"
-       "${CMAKE_CURRENT_LIST_DIR}/src/libprg/lista_encadeada.c"
-       "${CMAKE_CURRENT_LIST_DIR}/src/libprg/alg_ord_troca.c"
-       "${CMAKE_CURRENT_LIST_DIR}/src/libprg/agenda_tabela.c"
-       "${CMAKE_CURRENT_LIST_DIR}/src/libprg/arvore.c"
-       "${CMAKE_CURRENT_LIST_DIR}/src/libprg/gerenciadorTarefas.c"
-       "${CMAKE_CURRENT_LIST_DIR}/src/libprg/arvoreAVL.c"
+        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/lista_linear.c"
+        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/fila_circular.c"
+        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/lista_contatos.c"
+        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/pilha_lib.c"
+        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/lista_encadeada.c"
+        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/alg_ord_troca.c"
+        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/agenda_tabela.c"
+        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/arvore.c"
+        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/gerenciadorTarefas.c"
+        "${CMAKE_CURRENT_LIST_DIR}/src/libprg/arvoreAVL.c"
 )
-
 
 add_library(libprg
         src/libprg/sum.c
