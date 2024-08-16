@@ -226,3 +226,21 @@ int resetcontagemRotacao()
 {
     return contagemRotacoes = 0;
 }
+
+
+bool buscaAVL(no_avl_t  *raiz, int valor)
+{
+    if (raiz == NULL)
+    {
+        return false;
+    }
+    if (valor == raiz->valor)
+    {
+        return true;
+    }
+    if (valor < raiz->valor)
+    {
+        return buscaAVL(raiz->esquerda, valor);
+    }
+    return buscaAVL(raiz->direita, valor);
+}

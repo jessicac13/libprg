@@ -162,6 +162,8 @@ void travessiaPreOrderAVL(no_avl_t *x);
 void imprimirTextoGrafo(no_avl_t *raiz);
 int contagemRotacao();
 int resetcontagemRotacao();
+bool buscaAVL(no_avl_t  *raiz, int valor);
+
 
 #endif /* LIBPRG_H */
 
