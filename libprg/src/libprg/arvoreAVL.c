@@ -1,6 +1,8 @@
 #include <libprg/libprg.h>
 #include <malloc.h>
 
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+
 typedef struct no_avl
 {
     int valor;
@@ -42,8 +44,6 @@ int fatorBalanceamento(no_avl_t *v)
         return altura(v->esquerda) - altura(v->direita);
     }
 }
-
-#define max(a,b) (((a) > (b)) ? (a) : (b))
 
 no_avl_t *rotacaoEsquerda(no_avl_t *v)
 {
