@@ -72,7 +72,7 @@ no_avl_t *rotacaoDireita(no_avl_t *v)
 
     u->altura = max(altura(u->esquerda), altura(u->direita)) + 1;
 
-    return v;
+    return u;
 }
 
 no_avl_t *rotacaoDuplaDireita(no_avl_t *v)
