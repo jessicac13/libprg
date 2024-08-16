@@ -92,30 +92,31 @@ no_avl_t *rotacaoDuplaEsquerda(no_avl_t *v)
 no_avl_t *balancear(no_avl_t *v)
 {
     int fb = fatorBalanceamento(v);
-    if (fb > 1)
+    if (fb > 1)  // Subárvore esquerda está desbalanceada
     {
-        if (fatorBalanceamento(v->esquerda) > 0)
+        if (fatorBalanceamento(v->esquerda) >= 0)
         {
-            return rotacaoDireita(v);
+            return rotacaoDireita(v);  // Rotação simples à direita
         }
         else
         {
-            return rotacaoDuplaDireita(v);
+            return rotacaoDuplaDireita(v);  // Rotação dupla à direita
         }
     }
-    else if (fb < -1)
+    else if (fb < -1)  // Subárvore direita está desbalanceada
     {
-        if (fatorBalanceamento(v->direita) < 0)
+        if (fatorBalanceamento(v->direita) <= 0)
         {
-           return rotacaoEsquerda(v);
+            return rotacaoEsquerda(v);  // Rotação simples à esquerda
         }
         else
         {
-            return rotacaoDuplaEsquerda(v);
+            return rotacaoDuplaEsquerda(v);  // Rotação dupla à esquerda
         }
     }
-    return v;
+    return v;  // Já está balanceado
 }
+
 
 no_avl_t *inserirAVL(no_avl_t *v, int valor)
 {
