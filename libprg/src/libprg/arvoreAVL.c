@@ -167,11 +167,11 @@ no_avl_t *removerAvl(no_avl_t *v, int valor)
         {
             if(v->esquerda == NULL)
             {
-                remover_valor_arvore(v->direita, valor);
+                removerAvl(v->direita, valor);
             }
             if (v->direita == NULL)
             {
-                remover_valor_arvore(v->esquerda, valor);
+                removerAvl(v->esquerda, valor);
             }
         }
         else
