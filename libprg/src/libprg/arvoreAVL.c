@@ -15,6 +15,7 @@ no_avl_t* criar_no_avl(int valor)
     no_avl_t *no_avl = (no_avl_t*) malloc(sizeof(no_avl_t));
     no_avl->valor = valor;
     no_avl->esquerda = no_avl->direita = NULL;
+    no_avl->altura= 0;
 
     return no_avl;
 }
@@ -94,7 +95,7 @@ no_avl_t *balancear(no_avl_t *v)
     int fb = fatorBalanceamento(v);
     if (fb > 1)  // Subárvore esquerda está desbalanceada
     {
-        if (fatorBalanceamento(v->esquerda) >= 0)
+        if (fatorBalanceamento(v->esquerda) > 0)
         {
             return rotacaoDireita(v);  // Rotação simples à direita
         }
@@ -105,7 +106,7 @@ no_avl_t *balancear(no_avl_t *v)
     }
     else if (fb < -1)  // Subárvore direita está desbalanceada
     {
-        if (fatorBalanceamento(v->direita) <= 0)
+        if (fatorBalanceamento(v->direita) < 0)
         {
             return rotacaoEsquerda(v);  // Rotação simples à esquerda
         }
