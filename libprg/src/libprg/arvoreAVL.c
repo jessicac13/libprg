@@ -53,9 +53,9 @@ no_avl_t *rotacaoEsquerda(no_avl_t *v)
 
     u->esquerda = v;
 
-    v->altura = max(altura(v->esquerda), altura(v->direita)) + 1;
+    v->altura = (max(altura(v->esquerda), altura(v->direita))) + 1;
 
-    u->altura = max(altura(u->esquerda), altura(u->direita)) + 1;
+    u->altura = (max(altura(u->esquerda), altura(u->direita))) + 1;
 
     return u;
 }
@@ -68,9 +68,9 @@ no_avl_t *rotacaoDireita(no_avl_t *v)
 
     u->direita = v;
 
-    v->altura = max(altura(v->direita), altura(v->esquerda)) + 1;
+    v->altura = (max(altura(v->direita), altura(v->esquerda))) + 1;
 
-    u->altura = max(altura(u->direita), altura(u->esquerda)) + 1;
+    u->altura = (max(altura(u->direita), altura(u->esquerda))) + 1;
 
     return u;
 }
