@@ -194,7 +194,7 @@ void travessiaPreOrderAVL(no_avl_t *x)
     }
 }
 
-void imprimir_texto_grafo(no_avl_t *raiz)
+void imprimirTextoGrafo(no_avl_t *raiz)
 {
     printf("\n");
     printf("strict graph{\n");

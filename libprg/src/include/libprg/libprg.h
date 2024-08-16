@@ -157,7 +157,7 @@ no_avl_t* criar_no_avl(int valor);
 no_avl_t *inserirAVL(no_avl_t *v, int valor);
 no_avl_t *removerAvl(no_avl_t *v, int valor);
 void travessiaPreOrderAVL(no_avl_t *x);
-void imprimir_texto_grafo(no_avl_t *raiz);
+void imprimirTextoGrafo(no_avl_t *raiz);
 
 #endif /* LIBPRG_H */
 
