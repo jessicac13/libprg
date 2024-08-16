@@ -146,7 +146,7 @@ void destruirListaTarefas(lista_t *lista);
 
 typedef struct no_avl no_avl_t;
 
-int contagemRotacoes;
+extern int contagemRotacoes;
 
 int altura(no_avl_t *v);
 int fatorBalanceamento(no_avl_t *v);
